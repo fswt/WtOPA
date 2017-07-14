@@ -1,0 +1,106 @@
+ <!-- Switchable Kreise-Pfade Thumbnail -->
+        <div class="thumbnail pull-right" style="width: 280px;">                
+            <img id="graph-kreise-pfade-img" src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-1.png">
+            <div class="caption">
+
+                Wähle einen Kreis/Pfad, um ihn im obigen Graphen \(I\) hervorzuheben.
+
+                <!-- Radio-Buttons under class '.picture-switcher' -->
+                <div class="thumbnail-buttons picture-switcher" data-toggle="buttons">
+                    <label class="btn btn-default btn-sm active">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-1.png" autocomplete="off" checked> \(I\)
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-2.png" autocomplete="off"> \(C^4 = abdea\)
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-3.png" autocomplete="off"> \(C^3 = bcdb\)
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-4.png" autocomplete="off"> \(C^5 = abcdea\)
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-5.png" autocomplete="off"> \(P^4 = aedbc\)
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+<!-- Beweisaufgabe 2-2 -->
+    <div class="panel panel-warning" id="frage_2_2">
+        <div class="panel-heading" role="tab" id="frage_heading_2_2" data-toggle="collapse" data-parent="#kontrollfragen_02" href="#frage_content_2_2" aria-expanded="false" aria-controls="frage_content_2_2">
+            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-tower"></span> Algorithmusaufgabe</h4>
+        </div>
+        <div id="frage_content_2_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_2_2">
+            <div class="panel-body proof-question" data-hint-time="10" data-finish-time="20">
+                <!-- Beweisaufgabe -->
+                <div class="task">
+                    Entwickle einen Algorithmus, der für einen gegebenen Graphen \(G\) und zwei verschiedene Knoten <code>a</code> und <code>b</code> entscheidet, ob ein a-b-Weg in \(G\) existiert. Beweise zudem die Korrektheit deines Algorithmus und gib die Laufzeit in der <a href="http://docs.theinf.uni-jena.de/koetzing/AlgoDat/ONotation/LearnLandauGerman.html" target="_blank">O-Notation</a> an. Die Datenstruktur des Graphen kannst du dir frei überlegen (siehe z.&thinsp;B <a href="http://de.wikipedia.org/wiki/Adjazenzliste" target="_blank">Adjazenzliste</a>, <a href="http://de.wikipedia.org/wiki/Adjazenzmatrix" target="_blank">Adjazenzmatrix</a>).                      
+                </div>
+
+                <!-- Hinweise --->
+                <div class="hint"> <h5>Hinweise</h5>
+                    <abbr title="Betrachten aller Knoten in einer bestimmten Reihenfolge." data-toggle="tooltip">Traversiere</abbr> den Graphen vollständig und merke dir, welche Knoten du bereits besucht hast. Nutze zum Traversieren einen <em>Stack</em> oder eine <em>Queue</em>.
+                </div>
+
+                <!-- Musterlösung -->
+                <div class="solution"> <h5>Beispiellösung</h5>
+                    <p> Ich nehme an, der Algorithmus bekommt den Graphen als Knotenarray übergeben, welches pro Knoten sowohl die Methode <code>neighbours()</code> implementiert, um alle Nachbarknoten zu ermitteln, sowie ich die Instanzvariable <code>visited</code> vom Typ <em>Boolean</em> enthält, die im Initialzustand <code>false</code> ist und angibt, ob ich den jeweiligen Knoten bereits besucht habe.</p>
+                    <pre class="linenums">
+// Stapel initialisieren und Anfangsknoten drauflegen
+Stack s = new Stack();
+s.push(a);
+a.visited = true;
+
+while !s.isEmpty() {
+    Node v = s.pop();
+
+    // Durchlaufe alle noch nicht besuchten Nachbarn von v
+    for Node n in v.neighbours() {
+        if n.visited == false {
+            n.visited = true;
+            s.push(n);
+
+            // Ist der Knoten der Zielknoten, so existiert ein Pfad
+            if n == b { return true; }
+        }
+    }
+}
+
+// Alle erreichbaren Knoten wurden durchlaufen ohne 'b' zu finden.
+return false;
+</pre><br>
+
+                    <h6>Korrektheit des Algorithmus</h6>
+                    <p>Dass der Zielknoten <code>b</code> genau dann auf dem Stack liegt, wenn er von <code>a</code> aus erreichbar ist, zeige ich in zwei Richtungen. \((\rightarrow )\) Ich nehme an, der Knoten <code>b</code> liegt auf dem Stack <code>s</code>. Da gefordert ist, dass Ziel- und Anfangsknoten unterschiedlich sind, muss er also in der <em>for</em>-Schleife auf den Stack gelegt worden sein, die über alle unbesuchten Nachbarn eines anderen Knotens \(v\) iteriert. Da für \(v\) das gleiche Argument gilt, existiert eine Kette aus Nachbarn bis zum Startknoten <code>a</code>, der Eingabegraph enthält also ein <code>a</code>-<code>b</code>-Weg. \((\leftarrow )\) Aus der Annahme, dass ein <code>a</code>-<code>b</code>-Weg existiert folgt, dass es eine Kette von Nachbarn existiert, über die <code>b</code> von <code>a</code> aus erreichbar ist. Da Knoten bloß als besucht markiert werden, wenn sie bereits einmal auf dem Stack waren, muss also jeder dieser Nachbarn der Kette einmal auf dem Stack gelegen haben. Das gilt auch für den direkten Nachbarn von <code>b</code> (wovon er mindestens einen haben muss, weil ein Weg zu ihm existiert), weswegen folgt, dass auch <code>b</code> einmal auf dem Stack liegt. <br>
+                        Direkt nachdem der Zielknoten auf den Stack gelegt wurde, wird festgestellt, dass er der gesuchte Knoten ist und ein Weg existiert.
+
+
+                    <h6>Terminierung des Algorithmus</h6>
+                    <p>Die einzige Stelle, an der der Algorithmus in eine Endlosschleife fallen könnte, ist in der <em>while</em>-Schleife, die solange läuft bis der Stack leer ist. Jeder Knoten des Eingabegraphen liegt höchstens einmal auf dem Stack, weil er beim Drauflegen gleichzeitig als besucht markiert wird und Knoten, die als besucht markiert wurden, später nicht mehr betrachtet werden. Da unser Eingabegraph zusätzlich logischerweise endlich ist, folgt, dass die Schleife bloß endlich viele Durchläufe macht.</p>
+
+                    <h6>Laufzeit des Algorithmus</h6>
+                    <p>Im <em>Worstcase</em> sind alle Knoten des Graphen zusammenhängend und der Zielknoten wird erst erreicht, wenn bereits alle anderen Knoten auf dem Stack waren. Da bis zu diesem Punkt für jeden Knoten des Graphen alle Nachbarn durchlaufen wurden, egal ob sie bereits besucht wurden oder nicht, entspricht die Laufzeit pro Knoten \(v\) genau \(\mathcal O(d_G(v))\). Weil jeder Knoten des Graphen genau einmal auf dem Stack landet, ergibt sich folgende Gesamtlaufzeit von \(\mathcal O(n+2m) = \mathcal O(n+m)\).</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- Bild mit Unterschrift -->
+<div class="thumbnail pull-right" style="width: 220px;">                
+    <img src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/zusammenhang.png">
+    <div class="caption">Der Graph \(Z\) besitzt drei Komponenten: \(Z[\{a,b,c\}]\), \(Z[\{d,e\}]\) und \(Z[\{f\}]\)</div>
+</div>
+
+<!-- Text mit Markierungen -->
+Existiert zu einem Graphen \(H = (V_H, E_H)\) ein Graph \(H' = (V_{H'}, E_{H'})\), so dass \(V_{H'} \subseteq V_H\) und <abbr data-toggle="tooltip" title="H' enthält also alle Kanten von H, außer die, die mit einem der entnommenen Knoten inzident sind.">\(E_{H'} = \{e\in E_H \text{ : } e \cap V_{H'} = e \}\)</abbr> gelten, dann nennt man \(H'\) den durch \(V_{H'}\) <mark>induzierten Teilgraphen</mark> von \(H\). Dafür schreibt man auch \(H' = H[V_{H'}]\). Allgemeiner bezeichnet man \(H'\) als <mark>Teilgraphen</mark> von \(H\), wenn \(V_{H'} \subseteq V_H\)  und \(E_{H'} \subseteq E_H\) gilt.
+
+

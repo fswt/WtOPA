@@ -17,7 +17,7 @@
 <base href="https://hpi.de/">
 <link rel="shortcut icon" href="/fileadmin/templates/img/favicon.ico" type="image/x-icon; charset=binary">
 <link rel="icon" href="/fileadmin/templates/img/favicon.ico" type="image/x-icon; charset=binary">
-<title> Graphentheorie</title>
+<title> Online Paging Algorithmen</title>
 <meta name="generator" content="Bluefish 2.2.9" >
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -66,12 +66,12 @@
                     }
     });    
 </script>
-<meta name="DCTERMS.title" content="Graphentheorie">
-<meta name="date" content="2017-07-13T14:49:32+0200" >
+<meta name="DCTERMS.title" content="Online Paging Algorithmen">
+<meta name="date" content="2017-07-14T12:29:55+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
-<meta property="og:title" content="Graphentheorie">
+<meta property="og:title" content="Online Paging Algorithmen">
 <meta property="og:type" content="article">
 
 
@@ -81,7 +81,7 @@
 
 <!-- part2 -->
 			
-			<div id="content"><div class="breadcrumbOuter"><ol class="breadcrumb"><li><a href="/friedrich/teaching/current-courses.html" title="Teaching">Teaching</a></li><li>&nbsp;&gt;&nbsp;Graphentheorie</li></ol></div><div class="wrapper-8 teaser  html"><div class="col-md-8"><div id="c167164" class="csc-default"><span style = "position:absolute; top: -2em; font-size: 85%">Autoren: Moritz Hartmann, Fabian Stolp</span>
+			<div id="content"><div class="breadcrumbOuter"><ol class="breadcrumb"><li><a href="/friedrich/teaching/current-courses.html" title="Teaching">Teaching</a></li><li>&nbsp;&gt;&nbsp;Online Paging Algorithmen</li></ol></div><div class="wrapper-8 teaser  html"><div class="col-md-8"><div id="c167164" class="csc-default"><span style = "position:absolute; top: -2em; font-size: 85%">Autoren: Moritz Hartmann, Fabian Stolp</span>
     <div class="bootstrap-styles">
 
         
@@ -171,7 +171,7 @@
 
                     <h5>Aufgaben-Legende</h5><small>
                     
-                    <p>Alle Feedbacks, die für eine deiner Lösungen bekommen kannst. Zum abschicken der Lösung musst du davor auf <em>Lösungen überprüfen</em> drücken.</p>
+                    <p>Alle Feedbacks, die für eine deiner Lösungen bekommen kannst. Zum Abschicken der Lösung musst du davor auf <em>Lösungen überprüfen</em> drücken.</p>
                     
                     <table class="table table-hover table-condensed">
                         <thead><tr>
@@ -219,7 +219,7 @@
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Einführungsaufgabe &mdash; Pokemon Arena</h4>
                 	 </div>
                 	 <div id="frage_content_1_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_1_2">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="120" data-finish-time="180">
                      	<!-- Aufgabe Pokemon Arena -->
                       	  <div class="task">
                      	   	<ul type="square">
@@ -262,55 +262,23 @@
             <h4 id="anchor_navigation-1">1. Online vs. Offline</h4>
             <p>
             <div class="thumbnail pull-right" style="width: 250px;">                
-                <img src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/hausVomNikolaus.png">
-                <div class="caption">Das Haus vom Nikolaus als Graph \(N = (V,E)\) mit \(V=\{a,b,c,d,e\}\).</div>
-            </div>
-
-
-            Sicher hat jeder von euch schon einmal versucht das <i>Haus vom Nikolaus</i> auf einem Blatt Papier zu zeichnen. Natürlich ohne zwischendurch abzusetzen oder eine Kante mehrfach zu zeichnen. Doch funktioniert das, egal bei welcher Ecke man anfängt? Und wieso geht das plötzlich nicht mehr, wenn der Nikolaus sein Haus um einen Anbau erweitert? Zur Formalisierung und Lösungsfindung solcher und vieler weiterer Probleme&nbsp;&mdash; wie beispielsweise der Routenplanung, Landkartenfärbung und Flussoptimierung&nbsp;&mdash; bietet sich ein Teilgebiet der Mathematik besonders an: die Graphentheorie. <br><br>
-            Im folgenden führen wir den Grundbegriff eines Graphen ein und nennen wichtige Eigenschaften und Operationen. Ein <mark>Graph</mark> \(G\) ist ein Tupel aus der Menge seiner <mark>Knoten</mark> \(V(G)\) und der Menge seiner <mark>Kanten</mark> \(E(G)\): \(G=(V,E)\) benennen kann. Die Kanten <mark>ungerichteter</mark> Graphen setzen sich aus 2-elementigen, <abbr data-toggle="tooltip" title="Jede mögliche Kante ist höchstens einmal enthalten.">verschiedenen</abbr> Teilmengen der \(v \in V\) zusammen. Bei uns steht \(n\) für die Anzahl aller Knoten \(|V|\) und \(m\) analog dazu für die Anzahl aller Kanten \(|E|\). Enthält \(E\) alle <abbr data-toggle="tooltip" title='Die Anzahl aller möglichen zwei-elementigen Teilmengen einer Menge der Größe n (siehe gaußsche Summenformel).'>\(n(n-1) / 2\)</abbr> möglichen Teilmengen, nennt man \(G\) einen <mark>vollständigen</mark> Graphen \(K^n\). Zwei Knoten \(v_1\) und \(v_2\) nennt man benachbart bzw. <mark>adjazent</mark>, wenn für die verbindene Kante \(\{v_1,v_2\} \in E\) gilt. Die Knoten \(v_1\) und \(v_2\) nennt man dann ebenfalls <mark>inzident</mark> zur Kante \(\{v_1,v_2\}\).<br><br>
-
-            Die Anzahl aller inzidenten Kanten eines Knotens \(v\) nennt man den <mark>Knotengrad</mark> bzw. \(d_G(v)\). Der <mark>maximale Knotengrad</mark> \(\Delta(G)\) bezeichnet den Knotengrad eines Knotens mit den meisten inzidenten Kanten. Analog ist der <mark>minimale Knotengrad</mark> als \(\delta(G)\) definiert.<br><br>
-
-            <!-- Switchable Graph-Operations Thumbnail -->
-            <div class="thumbnail pull-left" style="width: 250px;">                
-                <img id="graph-operations-img" src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-1.png">
                 <div class="caption">
-                    Wähle einen Teilgraphen, um die Veränderungen zum obigen Ausgangsgraphen \(T\) zu sehen. 
-
-                    <!-- Radio-Buttons under class '.picture-switcher' -->
-                    <div class="thumbnail-buttons picture-switcher" data-toggle="buttons">
-                        <label class="btn btn-default btn-sm active">
-                            <input type="radio" name="options" data-target="#graph-operations-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-1.png" autocomplete="off" checked> \(T\)
-                        </label>
-                        <label class="btn btn-default btn-sm">
-                            <input type="radio" name="options" data-target="#graph-operations-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-2.png" autocomplete="off"> \(T[\{a,e,f\}]\)
-                        </label>
-                        <label class="btn btn-default btn-sm">
-                            <input type="radio" name="options" data-target="#graph-operations-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-3.png" autocomplete="off"> \(T-\{\{e,d\}\}\)
-                        </label>
-                        <label class="btn btn-default btn-sm">
-                            <input type="radio" name="options" data-target="#graph-operations-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-4.png" autocomplete="off"> \(T-e\)
-                        </label>
-                        <label class="btn btn-default btn-sm">
-                            <input type="radio" name="options" data-target="#graph-operations-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-5.png" autocomplete="off"> \(T+\{\{b,d\}\}\)
-                        </label>
-                        <label class="btn btn-default btn-sm">
-                            <input type="radio" name="options" data-target="#graph-operations-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/graphOperations/graph-option-6.png" autocomplete="off"> \(T[c]\)
-                        </label>
-                    </div>
-
-                </div>
+	                <ul>
+	                	<li>Offline: 3, 1, 4, 2</li>
+	                	<li>Online: 4, x, y, ...</li>
+   	             </ul>
+   	          </div>
             </div>
 
-            Im Kontext eines Graphen \(G\) werden herkömmliche Mengenoperationen, wie sie z.&thinsp;B. bei den Mengen \(V\) oder \(E\) Anwendung finden, erweitert und abgekürzt. Anstatt explizit der Knotenmengen eines Graphen einen entsprechenden Knoten hinzuzufügen, schreibt man auch \(G \cup \{v\}\) oder \(G+v\). Entnimmt man einen Knoten, also \(G' = G - v\), so enthält \(G'\) gleichzeitig keine der zu \(v\) inzidenten Kanten. Die Notation zum Hinzufügen und Entfernen von Kanten ist analog. Entfernt man jedoch die letzte zu einem bestimmten Knoten inzidente Kante, so bleibt der Knoten trotzdem Teil des Graphen. Man nennt solche Knoten <mark>isoliert</mark>. <br><br>
-            Existiert zu einem Graphen \(H = (V_H, E_H)\) ein Graph \(H' = (V_{H'}, E_{H'})\), so dass \(V_{H'} \subseteq V_H\) und <abbr data-toggle="tooltip" title="H' enthält also alle Kanten von H, außer die, die mit einem der entnommenen Knoten inzident sind.">\(E_{H'} = \{e\in E_H \text{ : } e \cap V_{H'} = e \}\)</abbr> gelten, dann nennt man \(H'\) den durch \(V_{H'}\) <mark>induzierten Teilgraphen</mark> von \(H\). Dafür schreibt man auch \(H' = H[V_{H'}]\). Allgemeiner bezeichnet man \(H'\) als <mark>Teilgraphen</mark> von \(H\), wenn \(V_{H'} \subseteq V_H\)  und \(E_{H'} \subseteq E_H\) gilt.
 
-            <!-- Clearfix beacuse of thumbnail -->
+            In der "Pokemon Arena"-Aufgabe haben wir gesehen, dass wir für die erste Aufgabenstellung, in der die Liste aller Ereignisse vor jeder Entscheidung bekannt ist, uns sehr gut überlegen können welches Pokemon wir tauschen sollten, während bei der zweiten Aufgabestellung das ganze deutlich uneindeutiger war. Schreiben wir uns nun Algorithmen um diese Aufgaben zu lösen so nennen wir den Algorithmus im ersten Fall offline Algorithmus im zweiten online Algorithmus. Ein <mark>offline Algorithmus</mark> kennt zu jedem Zeitpunkt die gesamte Ereigniskette und kann entsprechend planen, ein <mark>online Algorithmus</mark> muss Entscheidungen ohne die Kenntnis von zukünftigen Ereignissen treffen. Statt Ereignissen werden wir im folgenden von Anfragen sprechen, auf die der Algorithmus reagieren muss. Da wir uns mit den Qualität bzw. den Kosten solcher Algorithmen beschäftigen wollen, definierten wir uns die <mark>inhärenten Kosten einer Anfragekette</mark>. Sie sollen die Kosten des besten Offline-Algorithmus sein. Außerdem legen wir als <mark>Maß der Qualität eines Online-Algorithmus</mark> das worst case Verhältnis (über alle Sequenzen) der Kosten des Online Algorithmus zu den inhärenten Kosten fest.<br><br>
+            
+            <!-- Clearfix because of thumbnail -->
             <div class="clearfix"></div>
             </p>
 
         <!-- Kontrollfragen: Abschnitt 1 -->
+        <!-- Verschiedene Algorithmen Offline/Online zuordnen -->
         <div class="kontrollfragen panel-group" id="kontrollfragen_01" role="tablist" aria-multiselectable="false">
 
             <!-- Kontrollfrage 1-1 -->
@@ -407,51 +375,12 @@
 
         <hr>
         <!----------------------------------->
-        <!-- Abschnitt 2: Pfade und Kreise -->
-        <h4 id="anchor_navigation-2">2. Pfade und Kreise</h4>
-
-        <!-- Switchable Kreise-Pfade Thumbnail -->
-        <div class="thumbnail pull-right" style="width: 280px;">                
-            <img id="graph-kreise-pfade-img" src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-1.png">
-            <div class="caption">
-
-                Wähle einen Kreis/Pfad, um ihn im obigen Graphen \(I\) hervorzuheben.
-
-                <!-- Radio-Buttons under class '.picture-switcher' -->
-                <div class="thumbnail-buttons picture-switcher" data-toggle="buttons">
-                    <label class="btn btn-default btn-sm active">
-                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-1.png" autocomplete="off" checked> \(I\)
-                    </label>
-                    <label class="btn btn-default btn-sm">
-                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-2.png" autocomplete="off"> \(C^4 = abdea\)
-                    </label>
-                    <label class="btn btn-default btn-sm">
-                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-3.png" autocomplete="off"> \(C^3 = bcdb\)
-                    </label>
-                    <label class="btn btn-default btn-sm">
-                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-4.png" autocomplete="off"> \(C^5 = abcdea\)
-                    </label>
-                    <label class="btn btn-default btn-sm">
-                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/pfadeUndKreise/graph-option-5.png" autocomplete="off"> \(P^4 = aedbc\)
-                    </label>
-                </div>
-
-            </div>
-        </div>
+        <!-- Abschnitt 2: Das Paging Problem -->
+        <h4 id="anchor_navigation-2">2. Das Paging Problem</h4>
+        <p>
 
 
-        <p>Ein <mark>Weg</mark> oder auch <mark>Pfad</mark> von \(v_1\) nach \(v_k\) bezeichnet einen nichtleeren Graphen \(P^k=(V_P,E_P)\) mit \(V_P = \{v_1,v_2,...,v_k\}\) (wobei \(v_i \neq v_j\) für alle \(i\) und \(j\)) und \(E_P=\{\{v_1,v_2\},\{v_2,v_3\},...,\{v_{k-1},v_k\}\}\). Abkürzend bezeichnet man so einen <mark>Kantenzug</mark> \(P=v_1v_2...v_k\). Ausgehend von dieser Definiton nennt man \(P^k\) einen <abbr data-toggle="tooltip" title="Wobei A und B zwei disjunkte Knotenmengen sind."><mark>A-B-Weg</mark></abbr> genau dann, wenn \(V_P\cap A = \{v_1\}\) und \(V_P\cap B = \{v_k\}\) gilt. Analog dazu ist ein <abbr data-toggle="tooltip" title="Wobei a und b zwei Knoten sind."><mark>a-b-Weg</mark></abbr> ein A-B-Weg mit \(A=\{a\}\) und \(B=\{b\}\).<br><br>
-            Der <mark>Abstand</mark> zweier Knoten \(v_1\) und \(v_2\) in \(G\) bzw. \(d_G(v_1,v_2)\) ist definiert als die geringste Länge eines \(v_1\)-\(v_2\)-Weges. Den größtmöglichen Abstand zweier Knoten nennt man den <mark>Durchmesser</mark> von \(G\) oder \(\mathrm{diam}(G)\). Außerdem nennt man einen Knoten \(v\) <mark>zentral</mark>, wenn sein Abstand zum entferntesten Knoten minimal ist.<br><br>
-
-            Als <mark>Kreis</mark> \(C^k\) bezeichnet man formal \(C^k = P^{k-1} + \{v_{k-1}, v_1\}\), wobei der Weg \(P^k\) gleichzeitig als Knotenfolge \(v_1,...,v_{k-1}\) und auch als Graph \(P^{k-1}=(\{v_1,v_2,...,v_{k-1}\}, \{\{v_1,v_2\},...,\{v_{k-2},v_{k-1}\}\})\) betrachtet werden kann. Erweitert man diesen um die Kante \(\{v_{k-1}, v_1\}\), entsteht ein <mark>geschlossener Weg</mark> der Länge \(k > 2\): ein Kreis eben. Enthält ein Graph keinen Kreis, so nennt man ihn <mark>kreisfrei</mark>.<br></br>
-
-    Erfüllt ein Weg die besondere Eigenschaft <em>alle Knoten</em> des zugehörigen Graphen genau einmal zu enthalten, so nennt man ihn einen <mark>Hamiltonweg</mark>. Ist der Weg zusätzlich geschlossen, existiert also eine Kante zwischen Anfangs- und Endknoten, dann ist der entsprechende Hamiltonweg gleichzeitig ein <mark>Hamiltonkreis</mark>. Transformiert man diese Überlegungen auf unser anfängliches Problem, dem Haus vom Nikolaus, dann sucht man einen Weg der nicht alle Knoten, sondern <em>alle Kanten</em> des Graphen \(N\) genau einmal besucht: einen <mark>Eulerweg</mark>. Analog zum Hamiltonkreis ist der <mark>Eulerkreis</mark> definiert.
-
-    <!--
-- Sätze zu Euler/Hamilton
--->
-
-    <!-- Clearfix beacuse of thumbnail -->
+    <!-- Clearfix because of thumbnail -->
     <div class="clearfix"></div>
     </p>
 
@@ -601,66 +530,7 @@
         </div>
     </div>
 
-    <!-- Beweisaufgabe 2-2 -->
-    <div class="panel panel-warning" id="frage_2_2">
-        <div class="panel-heading" role="tab" id="frage_heading_2_2" data-toggle="collapse" data-parent="#kontrollfragen_02" href="#frage_content_2_2" aria-expanded="false" aria-controls="frage_content_2_2">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-tower"></span> Algorithmusaufgabe</h4>
-        </div>
-        <div id="frage_content_2_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_2_2">
-            <div class="panel-body proof-question" data-hint-time="10" data-finish-time="20">
-                <!-- Beweisaufgabe -->
-                <div class="task">
-                    Entwickle einen Algorithmus, der für einen gegebenen Graphen \(G\) und zwei verschiedene Knoten <code>a</code> und <code>b</code> entscheidet, ob ein a-b-Weg in \(G\) existiert. Beweise zudem die Korrektheit deines Algorithmus und gib die Laufzeit in der <a href="http://docs.theinf.uni-jena.de/koetzing/AlgoDat/ONotation/LearnLandauGerman.html" target="_blank">O-Notation</a> an. Die Datenstruktur des Graphen kannst du dir frei überlegen (siehe z.&thinsp;B <a href="http://de.wikipedia.org/wiki/Adjazenzliste" target="_blank">Adjazenzliste</a>, <a href="http://de.wikipedia.org/wiki/Adjazenzmatrix" target="_blank">Adjazenzmatrix</a>).                      
-                </div>
-
-                <!-- Hinweise --->
-                <div class="hint"> <h5>Hinweise</h5>
-                    <abbr title="Betrachten aller Knoten in einer bestimmten Reihenfolge." data-toggle="tooltip">Traversiere</abbr> den Graphen vollständig und merke dir, welche Knoten du bereits besucht hast. Nutze zum Traversieren einen <em>Stack</em> oder eine <em>Queue</em>.
-                </div>
-
-                <!-- Musterlösung -->
-                <div class="solution"> <h5>Beispiellösung</h5>
-                    <p> Ich nehme an, der Algorithmus bekommt den Graphen als Knotenarray übergeben, welches pro Knoten sowohl die Methode <code>neighbours()</code> implementiert, um alle Nachbarknoten zu ermitteln, sowie ich die Instanzvariable <code>visited</code> vom Typ <em>Boolean</em> enthält, die im Initialzustand <code>false</code> ist und angibt, ob ich den jeweiligen Knoten bereits besucht habe.</p>
-                    <pre class="linenums">
-// Stapel initialisieren und Anfangsknoten drauflegen
-Stack s = new Stack();
-s.push(a);
-a.visited = true;
-
-while !s.isEmpty() {
-    Node v = s.pop();
-
-    // Durchlaufe alle noch nicht besuchten Nachbarn von v
-    for Node n in v.neighbours() {
-        if n.visited == false {
-            n.visited = true;
-            s.push(n);
-
-            // Ist der Knoten der Zielknoten, so existiert ein Pfad
-            if n == b { return true; }
-        }
-    }
-}
-
-// Alle erreichbaren Knoten wurden durchlaufen ohne 'b' zu finden.
-return false;
-</pre><br>
-
-                    <h6>Korrektheit des Algorithmus</h6>
-                    <p>Dass der Zielknoten <code>b</code> genau dann auf dem Stack liegt, wenn er von <code>a</code> aus erreichbar ist, zeige ich in zwei Richtungen. \((\rightarrow )\) Ich nehme an, der Knoten <code>b</code> liegt auf dem Stack <code>s</code>. Da gefordert ist, dass Ziel- und Anfangsknoten unterschiedlich sind, muss er also in der <em>for</em>-Schleife auf den Stack gelegt worden sein, die über alle unbesuchten Nachbarn eines anderen Knotens \(v\) iteriert. Da für \(v\) das gleiche Argument gilt, existiert eine Kette aus Nachbarn bis zum Startknoten <code>a</code>, der Eingabegraph enthält also ein <code>a</code>-<code>b</code>-Weg. \((\leftarrow )\) Aus der Annahme, dass ein <code>a</code>-<code>b</code>-Weg existiert folgt, dass es eine Kette von Nachbarn existiert, über die <code>b</code> von <code>a</code> aus erreichbar ist. Da Knoten bloß als besucht markiert werden, wenn sie bereits einmal auf dem Stack waren, muss also jeder dieser Nachbarn der Kette einmal auf dem Stack gelegen haben. Das gilt auch für den direkten Nachbarn von <code>b</code> (wovon er mindestens einen haben muss, weil ein Weg zu ihm existiert), weswegen folgt, dass auch <code>b</code> einmal auf dem Stack liegt. <br>
-                        Direkt nachdem der Zielknoten auf den Stack gelegt wurde, wird festgestellt, dass er der gesuchte Knoten ist und ein Weg existiert.
-
-
-                    <h6>Terminierung des Algorithmus</h6>
-                    <p>Die einzige Stelle, an der der Algorithmus in eine Endlosschleife fallen könnte, ist in der <em>while</em>-Schleife, die solange läuft bis der Stack leer ist. Jeder Knoten des Eingabegraphen liegt höchstens einmal auf dem Stack, weil er beim Drauflegen gleichzeitig als besucht markiert wird und Knoten, die als besucht markiert wurden, später nicht mehr betrachtet werden. Da unser Eingabegraph zusätzlich logischerweise endlich ist, folgt, dass die Schleife bloß endlich viele Durchläufe macht.</p>
-
-                    <h6>Laufzeit des Algorithmus</h6>
-                    <p>Im <em>Worstcase</em> sind alle Knoten des Graphen zusammenhängend und der Zielknoten wird erst erreicht, wenn bereits alle anderen Knoten auf dem Stack waren. Da bis zu diesem Punkt für jeden Knoten des Graphen alle Nachbarn durchlaufen wurden, egal ob sie bereits besucht wurden oder nicht, entspricht die Laufzeit pro Knoten \(v\) genau \(\mathcal O(d_G(v))\). Weil jeder Knoten des Graphen genau einmal auf dem Stack landet, ergibt sich folgende Gesamtlaufzeit von \(\mathcal O(n+2m) = \mathcal O(n+m)\).</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    
 
 </div>
 
@@ -669,18 +539,8 @@ return false;
 <hr>
 <!----------------------------------->
 <!-- Abschnitt 3: Zusammenhang -->
-<h4 id="anchor_navigation-3">3. Zusammenhang</h4>
+<h4 id="anchor_navigation-3">3. Deterministische Online Paging Algorithmen</h4>
 <p>
-
-<div class="thumbnail pull-right" style="width: 220px;">                
-    <img src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/zusammenhang.png">
-    <div class="caption">Der Graph \(Z\) besitzt drei Komponenten: \(Z[\{a,b,c\}]\), \(Z[\{d,e\}]\) und \(Z[\{f\}]\)</div>
-</div>
-
-Eine wichtige Eigenschaft von Graphen ist der <mark>Zusammenhang</mark>. Man nennt einen Graphen zusammenhängend, wenn für alle Knoten paarweise ein a-b-Weg existiert. Einen <abbr data-toggle="tooltip" title="Dem Teilgraph kann kein Knoten hinzugefügt werden, so dass dieser zusammenhängend bleibt.">maximal</abbr> zusammenhängenden Teilgraphen bezeichnet man als <mark>Komponente</mark> des jeweiligen Graphen. Ein zusammenhängender Graph, wie z.&thinsp;B. der Nikolaus-Graph \(N\), besitzt genau eine Komponente.<br><br>
-
-Man nennt einen Graphen \(G\) genau dann <mark>\(k\)-zusammenhängend</mark>, wenn es eine Knotenmenge mit Mächtigkeit \(\geq k\) gibt, deren Entfernen zu einem unzusammenhängenden oder leeren Graphen führt, wohingegen das Entfernen einer beliebigen Knotenmenge mit Mächtigkeit \(< k\) den Graphen nicht zerfallen lässt. Jeder \(k\)-zusammenhängende Graph ist also gleichzeitig \((k-1)\)-, \((k-2)\)-, ... und \(0\)-zusammenhängend. Der <mark>Zusammenhang</mark> \(\kappa(G)\) steht für das größte \(k\), für das \(G\) \(k\)-zusammenhängend ist. Analog dazu ist der <mark>Kantenzusammenhang</mark> \(\lambda(G)\) und die Eigenschaft eines Graphen <mark>\(l\)-kantenzusammenhängend</mark> zu sein definiert.
-
 
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
@@ -878,7 +738,7 @@ return true;
     <hr>
     <!----------------------------------->
     <!-- Abschnitt 4: Bäume und partite Graphen -->
-    <h4 id="anchor_navigation-4">4. Spezialformen: Bäume und partite Graphen</h4>
+    <h4 id="anchor_navigation-4">X1. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
     <p>In vielen Anwendungsbereichen erfüllen Graphen, nachdem sie modelliert wurden, spezielle Eigenschaften. Oder man sucht Teilgraphen, die spezielle Eigenschaften erfüllen. Mindestens einen solchen Spezialfall haben wir bereits kennengelernt, nämlich den <em>zusammenhängenden Graphen</em>, in dem jeder Knoten von jedem anderen aus erreichbar ist. Diese Eigenschaft ist in der Routenplanung besonders wünschenswert und kann global (siehe <em>Google-Maps</em>) zum Beispiel durch die Integration von Fähren- und Luftrouten zwischen den Kontinenten und Inselgruppen der Welt sichergestellt werden. Im folgenden führen wir zwei andere praxisrelevante Sonderformen ein: <em>Bäume</em> und <em>partite Graphen</em>.
 
     <div class="thumbnail pull-right" style="width: 200px;">                
@@ -1139,7 +999,7 @@ return true;
 <hr>
 <!------------------------------>
 <!-- Abschnitt 5: Erweiterungen: Gerichtete Graphen und Kantengewichte -->
-<h4 id="anchor_navigation-5">5. Erweiterungen: Gerichtete Graphen und Kantengewichte</h4>
+<h4 id="anchor_navigation-5">X2. Marker Algorithmus</h4>
 <p>
     Unser Modell eines Graphen scheint zwar bereits äußerst vielseitig, stößt bei vielen Problemmodellierung jedoch schnell an seine Grenzen. Für die meisten Praxisanwendungen ist es nötig, die Kanten eines Graphen zu <em>richten</em>, also nur in eine Richtung begehbar zu machen. Um einen Weg dem anderen gegenüber zu präferieren, muss neben der Anzahl der Kanten auch eine spezielle <em>Kantenwichtung</em> verfügbar sein. Beide Modelle stellen wir nun kurz als Ausblick vor.
 
@@ -1293,7 +1153,22 @@ Die zusätzliche Wichtung eröffnet vielen bereits besprochenen Problemfeldern e
 
 </div>
 
+<hr>
 
+<!----------------------------------->
+<!-- Abschnitt X3.: Zusammenfassung -->
+<h4 id="anchor_navigation-3">X3. Was haben wir gelernt?</h4>
+<p>
+	<ol>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ol>
+<!-- Clearfix because of thumbnail -->
+<div class="clearfix"></div>
+</p>
 
 <div class="content-resources-divider">
     <hr>
