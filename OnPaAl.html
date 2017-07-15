@@ -541,7 +541,13 @@
 <!-- Abschnitt 3: Zusammenhang -->
 <h4 id="anchor_navigation-3">3. Deterministische Online Paging Algorithmen</h4>
 <p>
-
+	@Fabi: (LRU/FIFO aus Betriebssysteme bekannt...) <br><br>
+	
+	Ein Beispiel für LRU: k=4 <br>
+	Die Eingabesequenz lautet A B C D E D F. Dann arbeitet der Algorithmus wie folgt:<br><br>
+	<img src="resources/lru.png"> <br><br>
+	Es fallen sechs Kosteneinheiten an, da wir genau sechs Misses haben. Allgemein gilt es, die Kosten möglichst gering zu halten. Ein guter Algorithmus verursacht wenig Kosten, ein schlechter viele Kosten. Nach der Kostenfunktion ist also f_LRU(ABCDEDF)=6. <br> <br>
+Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fiesen" Eingabesequenz dazu zwingen kann, 100% misses zu erzeugen. Deine Aufgabe ist es nun, das für den LRU-Algorithmus auszuprobieren:
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
 </p>
@@ -554,7 +560,7 @@
     <!-- Verständnisaufgaben zu Abschnitt 3 -->
     <div class="panel panel-warning" id="frage_3_1">
         <div class="panel-heading" role="tab" id="frage_heading_3_1" data-toggle="collapse" data-parent="#kontrollfragen_03" href="#frage_content_3_1" aria-expanded="false" aria-controls="frage_content_3_1">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 3</h4>
+            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgabe</h4>
         </div>
         <div id="frage_content_3_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_3_1">
             <div class="panel-body">
@@ -563,186 +569,54 @@
                 <form class="form-horizontal form-kontrollfrage">
                     <div class="form-group">
                         <label for="input_1-frage_3_1" class="col-sm-6 control-label">
-                            Sei \(G = (V,E)\) ein Graph. Das gesuchte Wort bezeichnet einen zusammenhängenden, induzierten Teilgraphen \(G’ = (V’,E')\) mit  \(V’ \subseteq V\) und \(E’ = \{\{v_1,v_2\} \in E \text{ : } v_1, \in V', v_2 \in V \}\).
+                            Überlege Dir eine Eingabe-Sequenz der Länge vier, für die der LRU, der sich im letzten Zustand aus dem obigen Beispiel befindet, nur misses erzeugt. <br> <br> <img src="resources/exercise_lru.png">
                         </label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_1-frage_3_1" placeholder="Gesuchtes Wort (Singular)">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_2-frage_3_1" class="col-sm-6 control-label">
-                            Ist ein nichtleerer Graph \(G\) genau dann unzusammenhängend, wenn \(\kappa(G) = 0\) ist?   
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_2-frage_3_1" data-toggle="dropdown" href="#">Antwort <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_3-frage_3_1" class="col-sm-6 control-label">
-                            Ist ein nichtleerer Graph \(G\) genau dann unzusammenhängend, wenn \(\lambda(G) = 0\) ist?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_3-frage_3_1" data-toggle="dropdown" href="#">Antwort <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
+                            <input type="text" class="form-control" id="input_1-frage_3_1" placeholder="Mögliche Eingabesequenz">
                         </div>
                     </div>
 
                     <!-- Submit-Button -->
                     <div class="form-group">
                         <div class="col-sm-offset-6 col-sm-6"> 
-                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösungen überprüfen</button>
+                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösung überprüfen</button>
                         </div>
                     </div>
+					<p>
+Der Satz, dass für einen deterministischen Online-Algorithmus immer eine Eingabesequenz erzeugt werden kann, die ausschließlich Misses erzeugt, gilt also für LRU. <mark>Allgemein kann man jeden deterministischen Online-Algorithmus zu maximalen Kosten zwingen, indem man das Element, das der Algorithmus gerade aus dem Cache verworfen hat, als nächste Eingabe reingibt.</mark> Das ist möglich, weil aufgrund des Determinismus immer von außen vorhersehbar ist, welches Element verworfen wird. Wir sehen also, dass eine Worst-Case-Analyse von deterministischen Online-Algorithmen nicht sinnvoll ist. Denn im Worst-Case sind alle gleich schlecht, nämlich maximal schlecht.
+						</p>
                 </form>
-
-
-
             </div>
         </div>
     </div>
+<br>
+<p>Die logische Schlussfolgerung ist, dass wir ein anderes Kriterium brauchen, um die online Algorithmen zu vergleichen und aussagekräftig einzuschätzen. Wir werden die Online-Algorithmen nun nicht direkt miteinander, sondern jeden von ihnen mit ihrem Offline-Algorithmus vergleichen, also einer, der auf der gleichen Eingabesequenz arbeitet. Anschließend vergleichen wir, welcher Algorithmus wie gut gegenüber seinem Offline-Algorithmus performt hat. Dazu machen wir einen kurzen Exkurs in die offline paging Algorithmen.</p>
+<br>
+    
+	<h4 id="anchor_navigation-4">4. Exkurs Offline Paging Algorithmen</h4>
 
-    <!-- Beweisaufgabe 3-2 -->
-    <div class="panel panel-warning" id="frage_3_2">
-        <div class="panel-heading" role="tab" id="frage_heading_3_2" data-toggle="collapse" data-parent="#kontrollfragen_03" href="#frage_content_3_2" aria-expanded="false" aria-controls="frage_content_3_2">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Beweisaufgabe &mdash; Kannst du’s zeigen?</h4>
-        </div>
-        <div id="frage_content_3_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_3_2">
-            <div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
-                <!-- Beweisaufgabe -->
-                <div class="task">
-                    Ist ein Graph \(G = (V,E)\) zusammenhängend, so existiert für jedes \(k&lt;n\) eine Aufzählung seiner Knoten \((v_1, ..., v_k)\), so dass \(G[\{v_1,...v_k\}]\) zusammenhängend ist.
-                </div>
+	<p>
+	Die signifikante Eigenschaft des Offline-Algorithmus gegenüber dem Online-Algorithmus war
+	Offline-Algorithmen verursachen immer minimale Kosten, performen also optimal. Das wollen wir an einem Beispiel veranschaulichen: Die Eingabesequenz lautet A B C D F A B C A D. An dieser Stelle muss der Algorithmus zum ersten Mal ein Element verwerfen:
+		<br><br>
+		<img src="resources/offline.png">
+		<br><br>
+Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen müssen. Der Algorithmus sieht aber als offline Algorithmus, wann er welches Element braucht und verwirft daher niemals die, die er kurz darauf wieder brauchen wird. Genauer gesagt geht er so vor, dass er immer dasjenige von den Cache-Elementen verwirft, das er am Längsten nicht brauchen wird. Dieses Vorgehen bezeichnet man auch als <mark>Min-Funktion.</mark> Offline Algorithmen verursachen zwar nicht keine Kosten, aber verursachen nicht mehr Kosten als optimal. Daher kann nun ein online Algorithmus eingeschätzt werden, indem der Faktor ermittelt wird, wieviel schlechter als sein optimaler Gegenspieler er performt. Und dazu führen wir nun die <mark>C-Competetiveness</mark> ein.
+	</p> <br>
 
-                <!-- Hinweise --->
-                <div class="hint"> <h5>Hinweise</h5>
-                    Wähle ein beliebiges \(v_1\) und versuche nun mit einer bestimmten Reihenfolge über die Knoten zu traversieren (vgl. Algorithmusaufgabe, <em>Abschnitt 2</em>). Du kannst auch einen Algorithmus entwerfen, der das Problem löst und ihn beweisen (Terminierung, Korrektheit).
-                </div>
-
-                <!-- Musterlösung -->
-                <div class="solution"> <h5>Beispiellösung</h5>
-                    <p>Ich werde die Aussage zeigen, indem ich einen Algorithmus angebe, der für einen zusammenhängenden Graphen als Eingabe die gesuchte Aufzählung liefert. Dann zeige ich seine <em>Korrektheit</em> und <em>Terminierung</em>. Der Eingabegraph <code>G</code> ist eine Menge aller Knoten, die jeweils über die Instanzmethode <code>neighbours()</code> die Menge aller adjazenten Knoten liefert. </p>
-                    <pre class="linenums">
-// Geordnete Liste initialisieren und beliebigen Startknoten drauflegen
-List l = new List();
-l.append(G[0]);
-
-while |l| < |G| {
-    // Menge aller zu l[0],...,l[|l|-1] adjazenten Knoten ohne l
-    Set newNeighbours = new Set();
-
-    for Node n in l {
-        newNeighbours += (n.neighbours() - l);
-    }
-
-    l.append(newNeighbours[0])
-}
-
-return l;
-</pre><br>
-                    <h6>Korrektheit</h6>
-                    Für meinen Beweis wähle ich die geforderte Eigenschaft der Aufzählung als <a href="http://de.wikipedia.org/wiki/Schleifeninvariante" target="_blank">Schleifeninvariante</a> für die äußere <em>while</em>-Schleife, nämlich \(G[l] \text{ zusammenhängend}\). Weil ich in jedem Schleifendurchlauf genau einen Knoten hinzufüge, treffe ich damit jedes <abbr title="k ist die Mächtigkeit der Liste l und n die Gesamtanzahl der Knoten." data-toggle="tooltip">\(k \leq n\)</abbr>. Zur <em>Initialisierung</em>, also vor dem ersten Schleifendurchlauf, trifft die Invariante zu, da ein Graph mit nur einem Knoten immer zusammenhängend ist. Angenommen, die Aussage stimmt im \(n\)-ten Durchlauf. Ich zeige nun, dass daraus folgt, dass die Aussage im \((n+1)\)-ten Durchlauf auch stimmt. Nach Ende der inneren <em>for</em>-Schleife ist jeder Knoten \(v_i\) der Menge <code>newNeighbours</code> mit mindestens einem Knoten aus <code>l</code> adjazent, weil (wegen Annahme) der induzierte Teilgraph \(G[l]\) zusammenhängend ist, muss deswegen auch \(G[l+v_0]\) zusammenhängend sein.
-
-                    <h6>Terminierung</h6>
-                    Da der Eingabegraph zusammenhängend ist, wächst <code>l</code> solange um genau einen Knoten pro Iteration, bis alle Knoten aus <code>G</code> enthalten sind. Das sieht man leicht an der <abbr title="Ist l noch nicht nicht so groß wie G und newNeighbours ist nach der for-Schleife leer, so ist G nicht zusammenhängend." data-toggle="tooltip">Kontraposition</abbr>.
-
-</div>
-
-                </div>
-            </div>
-        </div>    
-
-
-        <!-- Algorithmusaufgabe 3-3 -->
-        <div class="panel panel-warning" id="frage_3_3">
-            <div class="panel-heading" role="tab" id="frage_heading_3_3" data-toggle="collapse" data-parent="#kontrollfragen_03" href="#frage_content_3_3" aria-expanded="false" aria-controls="frage_content_3_3">
-                <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-tower"></span> Algorithmusaufgabe</h4>
-            </div>
-            <div id="frage_content_3_3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_3_3">
-                <div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
-                    <!-- Algorithmusaufgabe -->
-                    <div class="task">
-                        Entwickle zwei Algorithmen, die für einen gegebenen Graphen \(G\) entscheiden, ob er zusammenhängend ist. Nutze für die <strong>erste</strong> Variante den Algorithmus der Aufgabe von <em>Abschnitt 2</em>, nennen wir ihn z.&thinsp;B. <code>existiertWeg(a,b,Graph)</code>, der <em>true</em> liefert, wenn ein a-b-Weg im Eingabegraphen existiert, sonst <em>false</em>. Die <strong>zweite</strong> Variante soll den Algorithmus der Beispiellösung aus <em>Abschnitt 2</em> modifizieren.<br><br>
-                        Gib für beide Varianten eine Laufzeit in O-Notation an. Korrektheits- und Terminierungsbeweise brauchst du dieses Mal nicht zu machen.
-                    </div>
-
-                    <!-- Hinweise --->
-                    <div class="hint"> <h5>Hinweise</h5>
-                        Für Variante 1: Implementiere die exakte Definition von Zusammenhang.<br>
-                        Für Variante 2: Nutze die <code>visited</code>-Instanzvariable eines jeden Knotens. Wähle einen beliebigen Startpunkt für die Traversierung.
-                    </div>
-
-                    <!-- Musterlösung -->
-                    <div class="solution"> <h5>Beispiellösung</h5>
-                        <h6>Variante 1</h6>
-                        <p>Der Eingabegraph <code>G</code> ist genau dann zusammenhängend, wenn für alle seine Knoten \(a,b\) ein \(a\)-\(b\)-Weg existiert. Man durchläuft also alle \(\binom{n}{2}\) Knotenpaare und ruft <code>existiertWeg(a,b,Graph)</code> auf, was jeweils \(\mathcal O(n+m)\) dauert.</p>
-                        <pre>
-forall pairs of Nodes (a, b) in G {
-    if !existiertWeg(a,b,G) { return false; }
-} 
-return true;        
-</pre>
-                        Daraus ergibt sich eine ernüchternde Gesamtlaufzeit von \(\mathcal O(n*(n-1)/2*(n+m)) = \mathcal O(n^3+mn^2)\). <br>
-
-                        <h6 style="margin-top: 20px;">Variante 2</h6>
-                        <p>Wir nehmen den Algorithmus aus der Aufgabe von <em>Abschnitt 2</em> und entfernen die Überprüfung auf einen gewissen Zielknoten. Wir lassen die <a href="http://de.wikipedia.org/wiki/Tiefensuche" target="_blank">Tiefensuche</a> solange arbeiten, bis sie alle erreichbaren Knoten besucht hat. Existiert dann trotzdem noch ein unbesuchter Knoten in <code>G</code>, so muss er in einer anderen Zusammenhangskomponenten liegen.</p>
-                        <pre class="linenums">
-// Stapel initialisieren und beliebigen Anfangsknoten drauflegen
-Stack s = new Stack();
-s.push(G[0]);
-a.visited = true;
-
-while !s.isEmpty() {
-    Node v = s.pop();
-
-    // Lege alle noch nicht besuchten Nachbarn auf den Stapel
-    for Node n in v.neighbours() {
-        if n.visited == false {
-            n.visited = true;
-            s.push(n);
-        }
-    }
-}
-
-// Sollte ein Knoten noch nicht besucht sein, dann liegt er in einer anderen Komponente
-for Node n in G {
-    if !n.visited { return false; }
-}
-
-return true;
-</pre>
-                        Die Laufzeit ist der aus <em>Variante 1</em> deutlich überlegen, sie beträgt trotz der zusätzlichen Überprüfung des Besuchs aller Knoten noch \(\mathcal O(n+m)\).
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-
-
+	<h4 id="anchor_navigation-5">5. C-Competetiveness</h4>
+		<p>
+		f A ( p 1 , p 2 , ... , p n )−C×f 0 ( p 1 , p 2 , ... , p n )≤b für alle Eingabe-Sequenzen, b unabhängig von n
+		</p>
     <hr>
     <!----------------------------------->
     <!-- Abschnitt 4: Bäume und partite Graphen -->
-    <h4 id="anchor_navigation-4">X1. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
-    <p>In vielen Anwendungsbereichen erfüllen Graphen, nachdem sie modelliert wurden, spezielle Eigenschaften. Oder man sucht Teilgraphen, die spezielle Eigenschaften erfüllen. Mindestens einen solchen Spezialfall haben wir bereits kennengelernt, nämlich den <em>zusammenhängenden Graphen</em>, in dem jeder Knoten von jedem anderen aus erreichbar ist. Diese Eigenschaft ist in der Routenplanung besonders wünschenswert und kann global (siehe <em>Google-Maps</em>) zum Beispiel durch die Integration von Fähren- und Luftrouten zwischen den Kontinenten und Inselgruppen der Welt sichergestellt werden. Im folgenden führen wir zwei andere praxisrelevante Sonderformen ein: <em>Bäume</em> und <em>partite Graphen</em>.
-
+    <h4 id="anchor_navigation-6">X1. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
+    <p>
     <div class="thumbnail pull-right" style="width: 200px;">                
-        <img src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/baumgraph.png">
+        <
+
+ src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/baumgraph.png">
         <div class="caption">Der maximal kreisfreie Graph \(B\): ein Baum.</div>
     </div>
 
@@ -757,9 +631,6 @@ return true;
         <li>\(G\) ist <abbr data-toggle="tooltip" title="G ist nach dem Entfernen einer beliebigen Kante nicht mehr zusammenhängend.">minimal zusammenhängend</abbr>.</li>
         <li>\(G\) ist <abbr data-toggle="tooltip" title="&nbsp;G enthält nach dem Hinzufügen einer beliebigen Kante einen Kreis.">maximal kreisfrei</abbr>.</li>
     </ol><br>
-
-    Viele Graph-Algorithmen (z.&thinsp;B. Wegfindung oder Ermittlung eines zentralen Knotens) lassen sich auf Bäumen noch effizienter implementieren. Oft ist das Ziel auch, einen Teilgraphen eines (nichtkreisfreien) Eingabegraphen \(G\) zu finden, so dass er die Eigenschaften eines Baumes erfüllt und gleichzeitig alle Knoten von \(G\) enthält. Man nennt einen solchen speziellen Teilgraphen <mark>Spannbaum</mark>.
-
 
     <!-- Switchable Partite Graphen Thumbnail -->
     <div class="thumbnail shifted pull-left" style="width: 300px;">                
