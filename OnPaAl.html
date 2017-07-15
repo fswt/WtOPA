@@ -67,7 +67,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-14T12:29:55+0200" >
+<meta name="date" content="2017-07-15T21:47:12+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -378,7 +378,7 @@
         <!-- Abschnitt 2: Das Paging Problem -->
         <h4 id="anchor_navigation-2">2. Das Paging Problem</h4>
         <p>
-
+				Nachdem wir nun geklärt haben wofür das "Online" in Online Paging Algorithmen steht, wenden wir uns dem "Paging" zu. Mit dem Paging-Problem haben wir es zu tun, wenn wir mit einem Speichersystem mit zwei Ebenen arbeiten. Eine Ebene ist ein kleiner, schneller Speicher z.B. der RAM (im Allgemeinen sprechen wir im folgenden vom <mark>Cache</mark>), die andere ist ein großer langsamer Speicher z.B. die Festplatte. Eine <mark>Page</mark> ist ein Anzahl von direkt aufeinanderfolgenden Speicherstellen im logischen Speicherraum. Soll nun auf Informationen zugegriffen werden, müssen die Pages, die diese Informationen enthalten sich im Cache befinden bzw. in den Cache geladen werden. Erstere Variante, also es wird versucht auf Informationen zuzugreifen, die sich bereits im Cache befinden, bezeichnen wir als <mark>hit</mark>. Ansonsten sprechen wir von einem <mark>miss</mark>. Da eine Eigenschaft des Caches ist, dass er klein ist, kommt es schnell zu dem Fall, dass eine Page, die in den Cache geladen werden soll, dort keinen Platz mehr findet. Die Aufgabe eines <mark>Paging Algorithmus</mark> besteht nun genau darin zu entscheiden welche Page verdrängt werden soll, damit die benötigte Page in den Cache geladen werden kann
 
     <!-- Clearfix because of thumbnail -->
     <div class="clearfix"></div>
@@ -538,7 +538,7 @@
 
 <hr>
 <!----------------------------------->
-<!-- Abschnitt 3: Zusammenhang -->
+<!-- Abschnitt 3: Deterministische Online Paging Algorithmen -->
 <h4 id="anchor_navigation-3">3. Deterministische Online Paging Algorithmen</h4>
 <p>
 	@Fabi: (LRU/FIFO aus Betriebssysteme bekannt...) <br><br>
