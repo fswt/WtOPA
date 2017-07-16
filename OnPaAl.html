@@ -67,7 +67,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-15T21:47:12+0200" >
+<meta name="date" content="2017-07-16T20:51:10+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -377,9 +377,14 @@
         <!----------------------------------->
         <!-- Abschnitt 2: Das Paging Problem -->
         <h4 id="anchor_navigation-2">2. Das Paging Problem</h4>
+        <div class="thumbnail pull-right" style="width: 250px;">                
+           <div class="caption">
+	            Page vs. Pageframe: 
+   	     </div>
+        </div>
         <p>
-				Nachdem wir nun geklärt haben wofür das "Online" in Online Paging Algorithmen steht, wenden wir uns dem "Paging" zu. Mit dem Paging-Problem haben wir es zu tun, wenn wir mit einem Speichersystem mit zwei Ebenen arbeiten. Eine Ebene ist ein kleiner, schneller Speicher z.B. der RAM (im Allgemeinen sprechen wir im folgenden vom <mark>Cache</mark>), die andere ist ein großer langsamer Speicher z.B. die Festplatte. Eine <mark>Page</mark> ist ein Anzahl von direkt aufeinanderfolgenden Speicherstellen im logischen Speicherraum. Soll nun auf Informationen zugegriffen werden, müssen die Pages, die diese Informationen enthalten sich im Cache befinden bzw. in den Cache geladen werden. Erstere Variante, also es wird versucht auf Informationen zuzugreifen, die sich bereits im Cache befinden, bezeichnen wir als <mark>hit</mark>. Ansonsten sprechen wir von einem <mark>miss</mark>. Da eine Eigenschaft des Caches ist, dass er klein ist, kommt es schnell zu dem Fall, dass eine Page, die in den Cache geladen werden soll, dort keinen Platz mehr findet. Die Aufgabe eines <mark>Paging Algorithmus</mark> besteht nun genau darin zu entscheiden welche Page verdrängt werden soll, damit die benötigte Page in den Cache geladen werden kann
-
+				Nachdem wir nun geklärt haben wofür das "Online" in Online Paging Algorithmen steht, wenden wir uns dem "Paging" zu. Mit dem Paging-Problem haben wir es zu tun, wenn wir mit einem Speichersystem mit zwei Ebenen arbeiten. Eine Ebene ist ein kleiner, schneller Speicher z.B. der RAM (im Allgemeinen sprechen wir im folgenden vom <mark>Cache</mark>), die andere ist ein großer langsamer Speicher z.B. die Festplatte. Eine <mark>Page</mark> ist ein Anzahl von direkt aufeinanderfolgenden Speicherstellen im logischen Speicherraum. Soll nun auf Informationen zugegriffen werden, müssen die Pages, die diese Informationen enthalten sich im Cache befinden bzw. in den Cache geladen werden. Erstere Variante, also es wird versucht auf Informationen zuzugreifen, die sich bereits im Cache befinden, bezeichnen wir als <mark>hit</mark>. Ansonsten sprechen wir von einem <mark>miss</mark>. Da eine Eigenschaft des Caches ist, dass er klein ist, kommt es schnell zu dem Fall, dass eine Page, die in den Cache geladen werden soll, dort keinen Platz mehr findet. Die Aufgabe eines <mark>Paging Algorithmus</mark> besteht nun genau darin zu entscheiden, welche Page verdrängt werden soll, damit die benötigte Page in den Cache geladen werden kann. Sie implementieren also bestimmte Verdrängungsstrategien.
+				
     <!-- Clearfix because of thumbnail -->
     <div class="clearfix"></div>
     </p>
@@ -541,8 +546,9 @@
 <!-- Abschnitt 3: Deterministische Online Paging Algorithmen -->
 <h4 id="anchor_navigation-3">3. Deterministische Online Paging Algorithmen</h4>
 <p>
-	@Fabi: (LRU/FIFO aus Betriebssysteme bekannt...) <br><br>
-	
+	Es gibt deterministische Online Paging Algorithmen die deterministische Verdränungstrategien wie FIFO (first in &mdash first out), LRU (least recently used) und LFU (least frequently used) implementieren. 
+	Wird FIFO umgesetzt, so wird das Element, welches als erstes in den Cache geladen wurde, auch wieder aus dem Cache verdrängt. Bei LRU wird das Element, das am längsten nicht gebraucht wurde verdrängt und LFU setzt die Idee um, dass jenes Element, welches bis zum Zeitpunkt der Verdrängung am wenigsten benutzt wurde, aus dem Cache entfernt wird.<br><br>
+	Für solche deteministischen Online Paging Algorithmen können wir nun deren Kosten betrachten. <br>
 	Ein Beispiel für LRU: k=4 <br>
 	Die Eingabesequenz lautet A B C D E D F. Dann arbeitet der Algorithmus wie folgt:<br><br>
 	<img src="resources/lru.png"> <br><br>
