@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-18T16:24:58+0200" >
+<meta name="date" content="2017-07-18T23:08:10+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -547,7 +547,7 @@
 <!-- Abschnitt 3: Deterministische Online Paging Algorithmen -->
 <h4 id="anchor_navigation-3">3. Deterministische Online Paging Algorithmen</h4>
 <p>
-	Es gibt deterministische Online Paging Algorithmen die deterministische Verdränungstrategien wie FIFO (first in &mdash first out), LRU (least recently used) und LFU (least frequently used) implementieren. 
+	Es gibt deterministische Online Paging Algorithmen die deterministische Verdränungsstrategien wie FIFO (first in &mdash first out), LRU (least recently used) und LFU (least frequently used) implementieren. 
 	Wird FIFO umgesetzt, so wird das Element, welches als erstes in den Cache geladen wurde, auch wieder aus dem Cache verdrängt. Bei LRU wird das Element, das am längsten nicht gebraucht wurde verdrängt und LFU setzt die Idee um, dass jenes Element, welches bis zum Zeitpunkt der Verdrängung am wenigsten benutzt wurde, aus dem Cache entfernt wird.<br><br>
 	Für solche deteministischen Online Paging Algorithmen können wir nun deren Kosten betrachten. <br>
 	Ein Beispiel für LRU: k=4 <br>
@@ -878,35 +878,97 @@ Genau, wenn C = 1 und b = 0 ist, dann ...
 
 	Nun wollen wir einmal einen konkreten randomisierten Algorithmus betrachten, den Marker Algorithmus. Dieser arbeitet in Runden. Jedem Cacheplatz sei ein Markierungsbit zugeordnet. Zu Beginn jeder Runde, werden alle Markierungsbits auf 0 gesetzt. <br>
 	Anfragen werden nun wie folgt bearbeitet: Wenn das angefragte Item im Cache ist wird das Markierungsbit des Cacheplatz des Items auf 1 gesetzt. Wenn es zu einem Miss kommt, wird das angefrage Item in den Cache geladen. Verdrängt wird hierbei wie folgt: Wähle zufällig gleichverteilt eines der Items von den Items auf den nicht markierten Cacheplätzen und ersetze dieses durch das angefrage Item. Außerdem wird das Markierungsbit des Cacheplatzes in den das neue Item geladen wird auf 1 gesetzt. <br>
-	Nachdem alle Cacheplätze markiert sind ist die Runde vorbei, sobald ein Item angefragt wird, welches sich nicht im Cache befindet. <br><br>
+	Nachdem alle Cacheplätze markiert sind ist die Runde vorbei, sobald ein Item angefragt wird, welches sich nicht im Cache befindet. Die Grafik rechts visualisiert das Verfahren. Im Folgenden ist der Ablauf als Pseudocode dargestellt:<br><br>
 	<pre class="linenums">
-void processInquiry(Object inquiredElement) {
-	// Marker initialisieren
+void markerAlgorithmus(int k){
+	// Marker initialisieren 
+	// k sei die Cachegröße
+	Object inquiredElement = new Object();
 	Array cache = new Array(k);
 	Array marker = new Array(k);
-	marker.setAllTo(0);
-
-	while (marker.existsElementEquals(0) || cache.hasItem(inquiredElement)){
-		if (cache.hasItem(inquiredElement)){
-			marker.at(cache.getIndexFor(inquiredElement)) = 1;
+	marker.setAllElementsTo(0);
+	
+	while(existsNextInquiredElement()){
+		// Ablauf innerhalb einer Runde
+		if (marker.existsElementEquals(0) || cache.hasItem(inquiredElement)){
+			inquiredElement = getNextInquiredElement();
+			cache, marker = processInquiry(cache, marker, inquiredElement);
 		}
-		else {
-			cache = insert(cache, inquiredElement);
-			marker.at(cache.getIndexFor(inquiredElement)) = 1;
+		// initialisiere nächste Runde
+		else{
+			marker.setAllElementsTo(0);		
 		}
 	}
 }
+
+Array[] processInquiry(Array cache, Array marker, Object inquiredElement) {
+	// Item ist im Cache
+	if (cache.hasItem(inquiredElement)){
+		marker.at(cache.getIndexFor(inquiredElement)) = 1;
+	}
+	// Item muss in den Cache geladen werden
+	else {
+		cache = insert(cache, marker, inquiredElement);
+		marker.at(cache.getIndexFor(inquiredElement)) = 1;
+	}
+	return cache, marker;
+}
 		
-Array insert(Array cache, Object inquiredElement){
-	Object displacedElement = new Object();
-	displacedElement = chooseOneUniformlyAtRandomFrom(marker.getElementsEqualTo(0));
-	replace(displacedElement, inquiredElement);
+Array insert(Array cache, Array marker, Object inquiredElement){
+	Object replacedElement = new Object();
+	int index;
+	index = chooseOneUniformlyAtRandomFrom(marker.getIndexesOfElementsEqualTo(0));
+	replacedElement = cache.at(index);
+	
+	cache.replace(replacedElement, inquiredElement);
 	return cache;
 }
 </pre><br>
-
-	Wir können beweisen, dass der Marker Algorithmus recht nahe an die untere Schranke für randomisierte Paging Algorithmen herankommt. Dies wollen wir nun tun.
 	
+	<h5>Beweis: Der Marker Algorithmus ist \(2H_{k}\)-competitive.</h5>
+	Wir können beweisen, dass der Marker Algorithmus recht nahe an die untere Schranke für randomisierte Paging Algorithmen herankommt. Dies wollen wir nun tun. <br><br>
+	<u>Z.z.:</u> <br>
+	Der Marker Algorithmus ist \(2H_{k}\)-competitive.<br>
+	Zunächst definieren wir uns eine Reihe von Variablen und Sachverhalten.<br> 
+	Es sei:
+	<ul>	
+		<li>\(k\) die Anzahl der Cacheplätze,</li>
+		<li>\(p_{1}, p_{2}, ...\) die Anfragesequenz,</li>
+		<li>\(O\) der optimale offline Algorithmus,</li>
+		<li>\(M\) der Marker Algorithmus.</li>
+	</ul>
+Es gelte:
+	<ul>	
+		<li>Item ist markiert \(\Leftrightarrow\) Cacheplatz auf dem es sich befindet, ist markiert,</li>
+		<li>für Runden:
+			<ul>
+				<li>erste Runde beginnt mit \(p_{1}\),</li>
+				<li>allgemein gilt: Rundenbeginn \(p_{i} \rightarrow \) Rundenende \(p_{j}\) mit j ist die kleinste natürliche Zahl, sodass \(k+1\) verschiedene Items in \(p_{i}, p_{i+1}, ..., p_{j+1}\) vertreten sind.</li>
+			</ul>
+		</li>
+	</ul>
+	<ul>
+Es sei:
+		<li>ein "stale" Item ein Item, für das gilt: Item ist nicht markiert \(\land\) Item war markiert in vorheriger Runde,</li>
+		<li>ein "clean" Item ein Item, für das gilt: Item ist nicht markiert \(\land\) Item ist nicht stale,</li>
+		<li>\(l\) die Anzahl von Anfragen nach cleanen Items in einer Runde,</li>
+		<li>\(S_{O}\) die Menge von Items, die im Cache des \(O\) sind,</li>
+		<li>\(S_{M}\) die Menge von Items, die im Cache des \(M\) sind,</li>
+		<li>\(d_{I} = |S_{O}\S_{M}|\) am Beginn der Runde,</li>
+		<li>\(d_{F} = |S_{O}\S_{M}|\) am Ende der Runde,</li>
+		<li>\(M_{O}\) die Anzahl von Misses, die \(O\) während einer Runde produziert.</li>
+	</ul>
+Es gelte:
+	<ul>	
+		<li>initial (vor der ersten Runde): \(S_{O} = S_{M} \land p_{1} \notin S_{O} \cup S_{M} \)</li>
+	</ul>
+Um nun den eigentlichen Sachverhalt zu zeigen, reicht es folgende zwei Sachverhalte zu zeigen:
+	<ol>	
+		<li>Z.z.: Die amortisierte Anzahl von Misses des \(O\) während einer Runde \(\geq \frac{l}{2}\).</li>
+		<li>Z.z.: Die erwartete Anzahl von Misses des M während einer Runde \(\leq lH_{k}\).</li>
+	</ol>
+Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2}, ..., p_{n})]-C \times f_{O}(p_1, p_2, ..., p_{n}) \leq b\) entsprechend einsetzen auf die untere Schranke von \(2H_{k}\) kommen. Das wir hier die Werte nur für eine Runde zeigen, ist dabei nicht weiter schlimm, da wir einfach mit der Anzahl der Runden multiplizieren können um auf die Gesamtanzahl an Misses zu kommen. Da wir aber bei beiden Algorithmen die Anzahl mit dem gleichen Faktor multiplizieren, können wir uns das für unsere Betrachtung sparen. 
+	<br><br>
 	Abschließend sei bemerkt, dass es Algorithmen gibt, die näher an die untere Schranke von \(H_{k}\) herankommen z.B.: ... .
 
 <!-- Clearfix beacuse of thumbnail -->
