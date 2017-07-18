@@ -602,18 +602,64 @@ Der Satz, dass für einen deterministischen Online-Algorithmus immer eine Eingab
 	<h4 id="anchor_navigation-4">4. Exkurs Offline Paging Algorithmen</h4>
 
 	<p>
-	Die signifikante Eigenschaft des Offline-Algorithmus gegenüber dem Online-Algorithmus war
-	Offline-Algorithmen verursachen immer minimale Kosten, performen also optimal. Das wollen wir an einem Beispiel veranschaulichen: Die Eingabesequenz lautet A B C D F A B C A D. An dieser Stelle muss der Algorithmus zum ersten Mal ein Element verwerfen:
+	Die signifikante Eigenschaft des Offline-Algorithmus gegenüber dem Online-Algorithmus ist, dass er die gesamte Eingabesequenz von Beginn an kennt. Das heißt, er kann genau planen, zu welchem Zeitpunkt er welches Element im Cache benötigt. Dadurch verursachen Offline-Algorithmen immer minimale Kosten, performen also optimal auf jeder Eingabesequenz. Das wollen wir an einem Beispiel veranschaulichen: Die Eingabesequenz lautet A B C D F A B C A D. An dieser Stelle muss der Algorithmus zum ersten Mal ein Element verwerfen:
 		<br><br>
 		<img src="resources/offline.png">
 		<br><br>
-Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen müssen. Der Algorithmus sieht aber als offline Algorithmus, wann er welches Element braucht und verwirft daher niemals die, die er kurz darauf wieder brauchen wird. Genauer gesagt geht er so vor, dass er immer dasjenige von den Cache-Elementen verwirft, das er am Längsten nicht brauchen wird. Dieses Vorgehen bezeichnet man auch als <mark>Min-Funktion.</mark> Offline Algorithmen verursachen zwar nicht keine Kosten, aber verursachen nicht mehr Kosten als optimal. Daher kann nun ein online Algorithmus eingeschätzt werden, indem der Faktor ermittelt wird, wieviel schlechter als sein optimaler Gegenspieler er performt. Und dazu führen wir nun die <mark>C-Competetiveness</mark> ein.
+Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen müssen. Der Algorithmus sieht aber als offline Algorithmus, wann er welches Element braucht und verwirft daher niemals die, die er kurz darauf wieder brauchen wird. Genauer gesagt geht er so vor, dass er immer dasjenige von den Cache-Elementen verwirft, das er am Längsten nicht brauchen wird. Dieses Vorgehen bezeichnet man auch als <mark>Min-Funktion.</mark> Offline Algorithmen verursachen zwar nicht keine Kosten, aber verursachen nicht mehr Kosten als optimal. Die Optimalität zu beweisen ist nichttrivial, ist aber nach obiger Vorgehensweise intuitiv nachvollziehbar. Folglich kann nun ein online Algorithmus eingeschätzt werden, indem der Faktor ermittelt wird, wieviel schlechter als sein optimaler Gegenspieler er performt. Und dazu führen wir nun die <mark>C-Competetiveness</mark> ein.
 	</p> <br>
 
 	<h4 id="anchor_navigation-5">5. C-Competetiveness</h4>
 		<p>
-		f A ( p 1 , p 2 , ... , p n )−C×f 0 ( p 1 , p 2 , ... , p n )≤b für alle Eingabe-Sequenzen, b unabhängig von n
+			Um die C-Competetiveness zu verstehen, müssen wir die bisherigen Sachverhalte formalisieren. Dazu definieren wir <br>
+			p = (p_1, p_2, ..., p_n)             als die Eingabesequenz mit n Elementen <br>
+			f_A(p_1, p_2, ..., p_n) bzw. f_A(p)  als die Kosten von Algorithmus A auf der Eingabesequenz p <br>
+			f_0(p_1, p_2, ..., p_n) bzw. f_0(p)  als die Kosten des offline Algorithmus auf der Sequenz p, also die optimalen Kosten auf p <br>
+
+			Nun können wir das Verhältnis zwischen einem online Algorithmus A und seinem offline Algorithmus definieren als: <br>
+		<mark>f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b für alle Eingabe-Sequenzen, b unabhängig von n</mark> <br> <br>
+			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Eingabesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competetiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competetiveness-Koeffizient für A. <br>
 		</p>
+<!-- Kontrollfragen: Abschnitt 3 -->
+<div class="kontrollfragen panel-group" id="kontrollfragen_04" role="tablist" aria-multiselectable="false">
+
+    <!-- Verständnisaufgaben zu Abschnitt 3 -->
+    <div class="panel panel-warning" id="frage_3_1">
+        <div class="panel-heading" role="tab" id="frage_heading_4" data-toggle="collapse" data-parent="#kontrollfragen_04" href="#frage_content_4" aria-expanded="false" aria-controls="frage_content_4">
+            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span>Verständnisaufgabe</h4>
+        </div>
+        <div id="frage_content_4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_4">
+            <div class="panel-body">
+
+                <!-- form-kontrollfrage -->
+                <form class="form-horizontal form-kontrollfrage">
+                    <div class="form-group">
+                        <label for="input_1-frage_4" class="col-sm-6 control-label">
+                            Finde die Belebung für b und C, sodass der Online-Algorithmus A exakt genauso gut performt wie der Offline-Algorithmus.
+                        </label>
+                        <div class="col-sm-6">
+							<div>b = </div>
+                            <input float="left" type="text" class="form-control" id="input_1-frage_4" placeholder="3, k, 8600">
+                        </div>
+						<div class="col-sm-6">
+							<div>C = </div>
+                            <input type="text" class="form-control" id="input_1-frage_4_2" placeholder="3, k, 8600">
+                        </div>
+                    </div>
+
+                    <!-- Submit-Button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-6 col-sm-6"> 
+                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösung überprüfen</button>
+                        </div>
+                    </div>
+					<p>
+Genau, wenn C = 1 und b = 0 ist, dann ...
+						</p>
+                </form>
+            </div>
+        </div>
+    </div>
     <hr>
     <!----------------------------------->
     <!-- Abschnitt 6: Untere Schranke Randomisierte Online Paging Algorithmen -->
