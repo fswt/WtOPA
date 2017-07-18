@@ -67,7 +67,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-16T20:51:10+0200" >
+<meta name="date" content="2017-07-17T23:04:16+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -616,74 +616,20 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
 		</p>
     <hr>
     <!----------------------------------->
-    <!-- Abschnitt 4: Bäume und partite Graphen -->
-    <h4 id="anchor_navigation-6">X1. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
+    <!-- Abschnitt 6: Untere Schranke Randomisierte Online Paging Algorithmen -->
+    <h4 id="anchor_navigation-6">6. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
     <p>
-    <div class="thumbnail pull-right" style="width: 200px;">                
-        <
-
- src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/baumgraph.png">
-        <div class="caption">Der maximal kreisfreie Graph \(B\): ein Baum.</div>
-    </div>
-
-    <h5>Bäume</h5>
-
-    Einen Graphen, der gleichzeitig zusammenhängend und kreisfrei ist, bezeichnet man als <mark>Baum</mark>. Allgemeiner nennt man einen Graphen, dessen <abbr data-toggle="tooltip" title="Zur Erinnerung: Eine Komponente ist ein zusammenhängender Teilgraph">Komponenten</abbr> alle Bäume sind, einen <mark>Wald</mark>. Alle Knoten eines Baumes mit nur einer inzidenten Kante nennt man <mark>Blätter</mark>. <em>Satz 0.5.1</em> aus Diestels <em>Graphentheorie</em> offenbart uns die wichtigsten Äquivalenzen eines Baums:<br><br>
-
-    Die folgenden Aussagen sind äquivalent für einen Graphen \(G\):
-    <ol>
-        <li>\(G\) ist ein Baum</li>
-        <li>Für je zwei Knoten \(a,b\) enthält \(G\) genau einen \(a\)-\(b\)-Weg.</li>
-        <li>\(G\) ist <abbr data-toggle="tooltip" title="G ist nach dem Entfernen einer beliebigen Kante nicht mehr zusammenhängend.">minimal zusammenhängend</abbr>.</li>
-        <li>\(G\) ist <abbr data-toggle="tooltip" title="&nbsp;G enthält nach dem Hinzufügen einer beliebigen Kante einen Kreis.">maximal kreisfrei</abbr>.</li>
-    </ol><br>
-
-    <!-- Switchable Partite Graphen Thumbnail -->
-    <div class="thumbnail shifted pull-left" style="width: 300px;">                
-        <img id="partite-graphen-img" src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/partiteGraphen/graph-option-1.png">
-        <div class="caption">
-            Verschiedene Darstellungen partiter Graphen. Die einzelnen Partitionen sind farblich hervorgehoben.
-
-            <!-- Radio-Buttons under class '.picture-switcher' -->
-            <div class="thumbnail-buttons picture-switcher" data-toggle="buttons">
-                <label class="btn btn-default btn-sm active">
-                    <input type="radio" name="options" data-target="#partite-graphen-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/partiteGraphen/graph-option-1.png" autocomplete="off" checked> \(K_{3,3}\)
-                </label>
-                <label class="btn btn-default btn-sm">
-                    <input type="radio" name="options" data-target="#partite-graphen-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/partiteGraphen/graph-option-2.png" autocomplete="off"> \(K_{3,3}\)
-                </label>
-                <label class="btn btn-default btn-sm">
-                    <input type="radio" name="options" data-target="#partite-graphen-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/partiteGraphen/graph-option-3.png" autocomplete="off"> \(K_{1,2}\)
-                </label>
-                <label class="btn btn-default btn-sm">
-                    <input type="radio" name="options" data-target="#partite-graphen-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/partiteGraphen/graph-option-4.png" autocomplete="off"> \(K_{1,2,3}\)
-                </label>
-                <label class="btn btn-default btn-sm">
-                    <input type="radio" name="options" data-target="#partite-graphen-img" data-path="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/partiteGraphen/graph-option-5.png" autocomplete="off"> \(K_{2,2,2}\)
-                </label>
-            </div>
-
-        </div>
-    </div>
-
-
-
-    <h5 style="margin-top: 40px;">Partite Graphen</h5>    
-    <p>Bildet man einen Graphen \(R\) aus einer Menge von Arbeitern (Knoten), Aufgaben (Knoten) und Aufgabenpräferenzen der Arbeiter (Kanten), dann wird deutlich, dass \(R\) in zwei <mark>Partitionen</mark> zerfällt, deren Knoten untereinander keine Kanten teilen: die der <em>Aufgaben</em> und der <em>Arbeiter</em>. Graphen, die vollständig in \(k\) solcher Partitionen zerfallen, nennt man <mark>\(k\)-partit</mark>. Unser Graph \(R\) ist also <abbr title="Weil nur Kanten von Arbeitern zu Aufgaben existieren, keine innerhalb der beiden Partitionen." data-toggle="tooltip">2-partit</abbr> oder <mark>bipartit</mark>. <abbr title="Jeder Knoten einer Partition besitzt die Kanten zu allen Knoten anderer Partitionen." data-toggle="tooltip">Vollständige</abbr> \(k\)-partite Graphen bezeichnet man auch mit \(K_{n_1,...,n_k}\), wobei \(n_i\) die Anzahl der Knoten der \(i\)-ten Partiton angibt.<br>    
-        Gesucht ist nun eine maximale Menge <abbr title="Kein Knoten soll mit mehr als einer Kante inzident sein." data-toggle="tooltip">knotendisjunkter</abbr> Kanten, also eine optimale Aufgabenzuordnung. Diese Problemstellung hat in vielen Gebieten große Relevanz, man bezeichnet sie als <mark>Matching</mark> oder <mark>Paarung</mark>.<br><br>
-
-        Schon die bipartiten Graphen eröffnen ein weites Forschungsfeld. Zum Beispiel geht es um die algorithmischen Fragestellungen: Wie kann ein solches Matching gefunden werden? Existiert ein <abbr title="Jeder Knoten des Ausgangsgraphen ist mit genau einer Kante des Matchings inzident." data-toggle="tooltip"><mark>perfektes Matching</mark></abbr>? Ist ein gegebener Graph bipartit?   
-
+   
 
         <!-- Clearfix beacuse of thumbnail -->
     <div class="clearfix"></div>
     </p>
 
 
-<!-- Kontrollfragen: Abschnitt 4 -->
+<!-- Kontrollfragen: Abschnitt 6 -->
 <div class="kontrollfragen panel-group" id="kontrollfragen_04" role="tablist" aria-multiselectable="false">
 
-    <!-- Verständnisaufgaben zu Abschnitt 4 -->
+    <!-- Verständnisaufgaben zu Abschnitt 6 -->
     <div class="panel panel-warning" id="frage_4_1">
         <div class="panel-heading" role="tab" id="frage_heading_4_1" data-toggle="collapse" data-parent="#kontrollfragen_04" href="#frage_content_4_1" aria-expanded="false" aria-controls="frage_content_4_1">
             <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 4</h4>
@@ -875,36 +821,34 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
 
 <hr>
 <!------------------------------>
-<!-- Abschnitt 5: Erweiterungen: Gerichtete Graphen und Kantengewichte -->
-<h4 id="anchor_navigation-5">X2. Marker Algorithmus</h4>
+<!-- Abschnitt 7: Marker Algorithmus -->
+<h4 id="anchor_navigation-5">7. Marker Algorithmus</h4>
 <p>
-    Unser Modell eines Graphen scheint zwar bereits äußerst vielseitig, stößt bei vielen Problemmodellierung jedoch schnell an seine Grenzen. Für die meisten Praxisanwendungen ist es nötig, die Kanten eines Graphen zu <em>richten</em>, also nur in eine Richtung begehbar zu machen. Um einen Weg dem anderen gegenüber zu präferieren, muss neben der Anzahl der Kanten auch eine spezielle <em>Kantenwichtung</em> verfügbar sein. Beide Modelle stellen wir nun kurz als Ausblick vor.
+	Nun wollen wir einmal einen konkreten randomisierten Algorithmus betrachten, den Marker Algorithmus.
+	<pre class="linenums">
+// Stapel initialisieren und Anfangsknoten drauflegen
+Stack s = new Stack();
+s.push(a);
+a.visited = true;
 
-<h5>Gerichtete Graphen</h5>
+while !s.isEmpty() {
+    Node v = s.pop();
 
-<div class="thumbnail pull-right" style="width: 250px;">                
-    <img src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/dagGraph.png">
-    <div class="caption">Der gerichtete, kreisfreie Graph (DAG) \(D\).</div>
-</div>
+    // Durchlaufe alle noch nicht besuchten Nachbarn von v
+    for Node n in v.neighbours() {
+        if n.visited == false {
+            n.visited = true;
+            s.push(n);
 
-Betrachtet man zum Beispiel zwei Orte \(a, b\) (die in einem Graphen als Knoten dargestellt sind), welche durch genau eine Einbahnstraße verbunden sind, dann wäre es nicht sinnvoll, diese Kante als ungerichtete Menge \(\{a,b\}\) zu abstrahieren. Eine <mark>gerichtete Kante</mark> hingegen ist als geordnetes Tupel \((a,b)\) definiert. Graphen können entweder nur ungerichtete oder gerichtete Kanten enthalten, man nennt sie dann respektive <mark>ungerichtet</mark> oder <mark>gerichtet</mark>.<br><br>
-Alle der besprochenen Termini lassen sich intuitiv für gerichtete Graphen formulieren, zum Beispiel kommt jedem Knoten \(v\) nun ein gesonderter <mark>Ausgangs- und Eingangsgrad</mark> für die Anzahl ausgehender Kanten \(d^+_G(v)\) bzw. die der eingehenden \(d^-_G(v)\) zu. 
-Ein gerichter Weg \(P^k=v_1v_2...v_k\) nichts anderes als ein nicht-leerer Graph mit Knotenmenge \(\{v_1,v_2,...,v_k\}\) und Kantenmenge <abbr data-toggle="tooltip" title="Mit gerichteten Kanten als geordnete Tupel.">\(\{(v_1,v_2),...,(v_{k-1},v_k)\}\)</abbr>. Ein gerichteter Kreis ist also \(C^k = P^{k-1} + (v_{k-1}, v_0)\).<br><br>
+            // Ist der Knoten der Zielknoten, so existiert ein Pfad
+            if n == b { return true; }
+        }
+    }
+}
 
-<!-- Ein <abbr data-toggle="tooltip" title="Erinnerung: Es kann also kein Knoten hinzugenommen werden, so dass der Teilgraph zusammenhängend bleibt.">maximal zusammenhängender</abbr>, kreisfreier Teilgraph -->
-
-Ein gerichteter, kreisfreier Graph hat den Spezialbegriff <abbr data-toggle="tooltip" title="Directed Acyclic Graph"><mark>DAG</mark></abbr>. In jedem DAG existiert mindestens ein Knoten \(q\) mit <abbr data-toggle="tooltip" title="Der Knoten q hat keine eingehenden Kanten.">\(d^-_G(q)=0\)</abbr>: die <mark>Quelle</mark>. Und es existiert mindestens ein Knoten \(s\) mit \(d^+_G(s)=0\): die <mark>Senke</mark>. Jeder DAG verfügt über mindestens eine <mark>topologische Sortierung</mark>, welche eine Reihenfolge \((v_1, ..., v_n)\) aller Knoten des Graphen darstellt, die die Eigenschaft erfüllt, dass nur Kanten der Form <abbr title="Es darf also keine Kante von einem Knoten hin zu einem seiner Vorgänger gerichtet sein." data-toggle="tooltip">\((v_i, v_j)\) mit \(j>i\)</abbr> existieren. 
-
-<h5>Gewichtete Graphen</h5>
-
-<div class="thumbnail pull-right" style="width: 300px;">                
-    <img src="/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/img/gewichteterGraph.png">
-    <div class="caption">Approximierte Fahrzeiten in Minuten modelliert als vollständiger, gewichteter Graph \(W\).</div>
-</div>
-
-
-Nehmen wir wieder zwei Orte \(a,b\), die nun über eine direkte Straße von 1&thinsp;km und einer direkten Umgehungsstraße von 3&thinsp;km verbunden sind. Es ergibt sich intuitiv die Fragestellung, nicht nur einen Weg von \(a\) nach \(b\) zu finden, sondern eben einen <em>kürzesten</em> Weg. Unser herkömmliches Graphmodell erweitern wir dazu um eine <mark>Gewichtsfunktion</mark> <abbr title="Für jede Kante e des Graphen liefert w(e) eine spezielles Gewicht." data-toggle="tooltip">\(w\colon E \rightarrow \mathbf{R}\)</abbr>, so dass wir einen <mark>gewichteten</mark> Graphen als \(G = (V,E,w)\) beschreiben. Die Wichtungen sind natürlich nicht nur auf Weglängen beschränkt, sondern können jede messbare Entität darstellen.<br><br>
-Die zusätzliche Wichtung eröffnet vielen bereits besprochenen Problemfeldern eine neue Optimierungsdimension. Man sucht nun zum Beispiel minimale/maximale Spannbäume und den kürzesten \(a\)-\(b\)- oder Hamilton-Weg. Kombiniert man einen gerichteten, kreisfreien Graphen (DAG) mit zusätzlichen Kantengewichten, dann handelt es sich um ein <mark>Netzwerk</mark>, welches man auf die maximal-übertragbare <abbr title='Wobei das Gewicht einer Kante die maximale Kapazität darstellt, die pro Zeiteinheit über diese Kante versendet werden kann.' data-toggle="tooltip">Kapazität</abbr> zwischen einer Quelle und einer Senke untersuchen kann.
+// Alle erreichbaren Knoten wurden durchlaufen ohne 'b' zu finden.
+return false;
+</pre><br>
 
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
