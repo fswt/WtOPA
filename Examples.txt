@@ -103,4 +103,120 @@ return false;
 <!-- Text mit Markierungen -->
 Existiert zu einem Graphen \(H = (V_H, E_H)\) ein Graph \(H' = (V_{H'}, E_{H'})\), so dass \(V_{H'} \subseteq V_H\) und <abbr data-toggle="tooltip" title="H' enthält also alle Kanten von H, außer die, die mit einem der entnommenen Knoten inzident sind.">\(E_{H'} = \{e\in E_H \text{ : } e \cap V_{H'} = e \}\)</abbr> gelten, dann nennt man \(H'\) den durch \(V_{H'}\) <mark>induzierten Teilgraphen</mark> von \(H\). Dafür schreibt man auch \(H' = H[V_{H'}]\). Allgemeiner bezeichnet man \(H'\) als <mark>Teilgraphen</mark> von \(H\), wenn \(V_{H'} \subseteq V_H\)  und \(E_{H'} \subseteq E_H\) gilt.
 
+<!-- Kontrollfragen: Abschnitt 5 -->
+<div class="kontrollfragen panel-group" id="kontrollfragen_05" role="tablist" aria-multiselectable="false">
 
+    <!-- Verständnisaufgaben zu Abschnitt 5 -->
+    <div class="panel panel-warning" id="frage_5_1">
+        <div class="panel-heading" role="tab" id="frage_heading_5_1" data-toggle="collapse" data-parent="#kontrollfragen_05" href="#frage_content_5_1" aria-expanded="false" aria-controls="frage_content_5_1">
+            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 5</h4>
+        </div>
+        <div id="frage_content_5_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_5_1">
+            <div class="panel-body">
+
+                <!-- form-kontrollfrage -->
+                <form class="form-horizontal form-kontrollfrage">
+
+                    <div class="form-group">
+                        <label for="input_1-frage_5_1" class="col-sm-6 control-label">
+                            Wie viele Kanten besitzt ein gerichteter, vollständiger Graph mit 6 Knoten?
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="input_1-frage_5_1" placeholder="Anzahl">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input_2-frage_5_1" class="col-sm-6 control-label">
+                            Nenne eine Quelle von \(D\) (<em>Abbildung</em>).
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="input_2-frage_5_1" placeholder="Knotenname">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input_3-frage_5_1" class="col-sm-6 control-label">
+                            Nenne eine Senke von \(D\).
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="input_3-frage_5_1" placeholder="Knotenname">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input_4-frage_5_1" class="col-sm-6 control-label">
+                            Nenne eine gültige topologische Sortierung von \(D\).
+                        </label>
+
+                        <div class="col-sm-6 input-group" data-explain="TopologicalSort">
+                            <div class="input-group-addon">(</div>
+                            <input type="text" class="form-control" id="input_4-frage_5_1" placeholder="Topologische Sortierung">
+                            <div class="input-group-addon">)</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input_5-frage_5_1" class="col-sm-6 control-label">
+                            Wie viele gültige topologische Sortierungen besitzt \(D+e+(e,a)\)?
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="input_5-frage_5_1" placeholder="Anzahl">
+                        </div>
+                    </div>   
+
+                    <div class="form-group">
+                        <label for="input_6-frage_5_1" class="col-sm-6 control-label">
+                            Was ist die Summe aller Kantengewichte des minimalen Spannbaums von \(W\)?
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="input_6-frage_5_1" placeholder="Summe der Kantengewichte">
+                        </div>
+                    </div>
+
+
+
+                    <!-- Submit-Button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-6 col-sm-6"> 
+                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösungen überprüfen</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Beweisaufgabe 5-2 -->
+    <div class="panel panel-warning" id="frage_5_2">
+        <div class="panel-heading" role="tab" id="frage_heading_5_2" data-toggle="collapse" data-parent="#kontrollfragen_05" href="#frage_content_5_2" aria-expanded="false" aria-controls="frage_content_5_2">
+            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Beweisaufgabe &mdash; Kannst du’s zeigen?</h4>
+        </div>
+        <div id="frage_content_5_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_5_2">
+            <div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                <!-- Beweisaufgabe -->
+                <div class="task">
+                    Beweise die oben postulierte Aussage, dass jeder <abbr title="DAG" data-toggle="tooltip">gerichtete, kreisfreie Graph</abbr> \(G = (V,E)\) mindestens eine Quelle \(q\) mit \(d_G^-(q) = 0\) enthält. Schlussfolgere daraus, dass auch eine Senke \(s\) vorhanden sein muss.
+                </div>
+
+                <!-- Hinweise --->
+                <div class="hint"> <h5>Hinweise</h5>
+                    Nimm an, jeder Knoten besitzt mindestens eine <em>eingehende</em> Kante, und führe das zum Widerspruch.
+                </div>
+
+                <!-- Musterlösung -->
+                <div class="solution"> <h5>Beispiellösung</h5>
+                    <p>Ich nehme an, für jeden Knoten \(v_i\) gilt \(d_G^-(v_i) \geq 1\). Dann wähle ich ein beliebiges \(v_i\) und traversiere <em>rückwärts</em> zum Knoten \(v_{i-1}\) für den \((v_{i-1},v_i)\) in \(E\) liegt. Da jeder Knoten per Annahme mindestens einen solchen adjazenten Knoten besitzt und \(G\) aber azyklisch und endlich ist, muss irgendwann ein <em>letzter</em> Knoten \(v_0\) mit \(d_G^-(v_0) = 0\) erreicht sein. Damit ist ein Widerspruch erzeugt, \(v_0\) ist die Quelle.</p>
+                    <p>Die Existenz einer Senke lässt sich mit analoger Argumentation für den <em>Ausgangsgrad</em> zeigen.</p>     
+                    
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>    
+
+</div>

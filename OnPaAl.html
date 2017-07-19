@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-19T12:24:29+0200" >
+<meta name="date" content="2017-07-19T15:13:20+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -1001,13 +1001,12 @@ Es gelte:
 	</ul>
 Um nun den eigentlichen Sachverhalt zu zeigen, reicht es folgende zwei Sachverhalte zu zeigen:
 	<ol>	
-		<li>Z.z.: Die amortisierte Anzahl von Misses des \(O\) während einer Runde \(\geq \frac{l}{2}\).</li>
+		<li>Z.z.: Die <a href="https://hpi.de/friedrich/teaching/units/amortisierte-analyse.html" target="_blank">amortisierte</a> Anzahl von Misses des \(O\) während einer Runde \(\geq \frac{l}{2}\).</li>
 		<li>Z.z.: Die erwartete Anzahl von Misses des M während einer Runde \(\leq lH_{k}\).</li>
 	</ol>
 Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2}, ..., p_{n})]-C \times f_{O}(p_1, p_2, ..., p_{n}) \leq b\) entsprechend einsetzen auf die untere Schranke von \(2H_{k}\) kommen. Das wir hier die Werte nur für eine Runde zeigen, ist dabei nicht weiter schlimm, da wir einfach mit der Anzahl der Runden multiplizieren können um auf die Gesamtanzahl an Misses zu kommen. Da wir aber bei beiden Algorithmen die Anzahl mit dem gleichen Faktor multiplizieren, können wir uns das für unsere Betrachtung sparen. <br><br>
 <u>Zu 1.:</u> <br>
-	Betrachten wir den Anfang einer Runde, können wir feststellen: 
-	\(M_{O} \geq l-d_{I}\)
+	Betrachten wir den Anfang einer Runde, können wir feststellen: \(M_{O} \geq l-d_{I}\)
 	
 	<!-- Verständnisaufgabe 7.2: Aussage von \(l-d_{I}\) -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
@@ -1039,134 +1038,153 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                	 </div>
             	</div>
             </div>
-            
-            
+    Betrachten wir das Ende einer Runde, können wir feststellen: \(M_{O} \geq d_{F}\). Denn alle Elemente, die am Ende einer Runde in \(S_{M}\) sind wurden nach Definition Ms in dieser Runde angefragt. All diese Elemente müssen also auch einmal während der Runde in \(S_{O}\) gewesen sein. Da \(d_{F}\) von ihnen das offensichtlich nicht mehr sind, muss \(O\) mindestens \(d_{F}\) Misses produziert haben. <br>
+    Aus den obigen beiden Beobachtungen können wir ableiten, dass \(M_{O} \geq max{l-d_{I},d_{F}) \geq \frac{(l-d_{I})+d_{F}}{2}
+	
+<!-- Verständnisaufgabe 7.3: Teleskopieren -->
+				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
+            	<div class="panel panel-warning" id="frage_7_3">
+               	 <div class="panel-heading" role="tab" id="frage_heading_7_3" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_3" aria-expanded="false" aria-controls="frage_content_7_3">
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Summe über alle Runden</h4>
+                	 </div>
+                	 <div id="frage_content_7_3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_3">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                     	<!-- Aufgabe: Teleskopieren -->
+                      	  <div class="task">
+                     	   	Wenn wir \frac{(l-d_{I})+d_{F}}{2} über alle Runden aufsummieren, kommen wir zu einer interessanten Beobachtung:
+                     	   	<ul>
+                     	   		<li>Überlege dir, was passiert, wenn wir den Term über alle Runden aufsummieren.</li>  
+                     	   	</ul>      
+   	                     </div>
+	
+               	         <!-- Hinweise --->
+            	            <div class="hint"> <h5>Hinweise</h5>
+										Gesucht ist ein Schlagwort, dass bei dem Bilden von Summen ab und zu Verwendung findet.
+   	                     </div>
+	
+               	         <!-- Musterlösung -->
+            	            <div class="solution"> <h5>Beispiellösung</h5>
+											\(d_{I} und d_{F}\) teleskopieren. Nummerieren wir die Summanden durch und schreiben in den Index der Variablen des jeweiligen Summanden die Nummer des Summanden, können wir sagen, dass \(d_{F_{1}} = d_{I_{2}}\). Hierdurch fallen alle \(d_{F}\) und \(d_{I}\) weg, bis auf das \(d_{I}\) des ersten und das \(d_{F}\) des letzten Summanden.
+                  	  </div>
+               	 </div>
+            	</div>
+            </div>	
+           </div>
+	
+	Daraus folgt, dass für O die amortisierte Anzahl an Misses pro Runde \(\geq \frac{l}{2}\).
+	
+	<!-- Verständnisaufgabe 7.4: Fehlerbetrachtung amortisierte Analyse -->
+				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
+            	<div class="panel panel-warning" id="frage_7_4">
+               	 <div class="panel-heading" role="tab" id="frage_heading_7_4" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_4" aria-expanded="false" aria-controls="frage_content_7_4">
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Fehlerbetrachtung amortisierte Analyse</h4>
+                	 </div>
+                	 <div id="frage_content_7_4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_4">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                     	<!-- Aufgabe: Fehlerbetrachtung amortisierte Analyse -->
+                      	  <div class="task">
+                     	   	Wir vernachlässigen bei der obigen Betrachtung der amortisierten Anzahl an Misses pro Runde das beim Summieren verbleibende \(d_{I}\) und das beim Summieren verbleibende \(d_{F}\):
+                     	   	<ul>
+                     	   		<li>Wie groß ist der Fehler maximal (über alle Runden), den wir mit unserer amortisierten Anzahl an Misses pro Runde im Vergleich zur tatsächlichen Anzahl an Misses pro Runde machen?</li>  
+                     	   	</ul>      
+   	                     </div>
+	
+               	         <!-- Hinweise --->
+            	            <div class="hint"> <h5>Hinweise</h5>
+										Überlege dir, wie groß das verbleibende \(d_{I}\) und das verbleibende \(d_{F}\) maximal werden können.
+   	                     </div>
+	
+               	         <!-- Musterlösung -->
+            	            <div class="solution"> <h5>Beispiellösung</h5>
+            	            	Unser Fehler hat maximal eine größe von k.
+										\(d_{I}\) und \(d_{F}\) können nach ihrer Definition maximal k groß werden, nämlich genau dann, wenn sich \(S_{O}\) und \(S_{M}\) in alle Elementen unterscheiden. Beachten wir, dass \(S_{O} = S_{M}\) vor der ersten Runde gelten soll, wissen wir außerdem, dass unser \(d_{I} = 0\).
+                  	  </div>
+               	 </div>
+            	</div>
+            </div>
+           </div>
+	<u>Zu 2.:</u> <br>
+	Wir haben uns bereits in der ersten Aufgabe dieses Abschnitts überlegt, dass jede der \(l\) Anfragen nach einem cleanen Item ein Miss für M bedeuten muss. Es verbleiben \(k-l\) Anfragen nach stalen Items in einer Runde. Für die Anfragen nach stalen Items hatten wir uns überlegt, dass die erwarteten Kosten für jede Anfrage die Wahrscheinlichkeit ist, dass das angefragte Item \(\notin S_{M}\).
+	
+	<!-- Verständnisaufgabe 7.5: Kostenmaximierung stale Items -->
+				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
+            	<div class="panel panel-warning" id="frage_7_5">
+               	 <div class="panel-heading" role="tab" id="frage_heading_7_5" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_5" aria-expanded="false" aria-controls="frage_content_7_5">
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Kostenmaximierung stale Items</h4>
+                	 </div>
+                	 <div id="frage_content_7_5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_5">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                     	<!-- Aufgabe: Kostenmaximierung stale Items -->
+                      	  <div class="task">
+										Da wir für die Anzahl von Misses die \(M\) während einer Runde produziert eine obere Schranke zeigen wollen, stellt sich die Frage:
+                     	   	<ul>
+                     	   		<li>Wie können wir die erwarteten Kosten für jede Anfrage nach einem stalen Item maximieren?</li>  
+                     	   	</ul>      
+   	                     </div>
+	
+               	         <!-- Hinweise --->
+            	            <div class="hint"> <h5>Hinweise</h5>
+										Überlege dir, was es für die erwarteten Kosten für eine Anfrage nach einem stalen Item bedeutet, wenn vor ihr bereits andere Anfragen bearbeitet wurden.
+   	                     </div>
+	
+               	         <!-- Musterlösung -->
+            	            <div class="solution"> <h5>Beispiellösung</h5>
+										Alle \(l\) Anfragen nach cleanen Items werden zuerst gestellt. Damit sind bereits maximal viele stale Items aus dem Cache verdrängt. Danach werden die \(k-l\) Anfragen nach stalen Items gestellt.
+                  	  </div>
+               	 </div>
+            	</div>
+            </div>
+           </div>
+           
+           Nun stellt sich die Frage wie die groß die Wahrscheilichkeit ist, dass bei der i-ten Anfrage nach einem stalen Item \(1 \leq i \leq k-l\), dieses nicht mehr \(\in S_{M}\) ist. Nach ein paar Überlegungen stellen wir fest, dass diese Wahrscheilichkeit \(\frac{l}{k-i+1}\) beträgt.
+	
+<!-- Verständnisaufgabe 7.5: Wahrscheinlichkeit stale Item ist noch in \(S_{M}\) -->
+				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
+            	<div class="panel panel-warning" id="frage_7_6">
+               	 <div class="panel-heading" role="tab" id="frage_heading_7_6" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_6" aria-expanded="false" aria-controls="frage_content_7_6">
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Wahrscheinlichkeit, dass ein stales Item <br> nicht mehr \(\in S_{M}\) herleiten</h4>
+                	 </div>
+                	 <div id="frage_content_7_6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_6">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                     	<!-- Aufgabe: Wahrscheinlichkeit stale Item ist noch in \(S_{M}\) -->
+                      	  <div class="task">
+										Der gerade genannte Term wirkt vom Himmel gefallen:
+                     	   	<ul>
+                     	   		<li>Überlege dir, wieso die Wahrscheilichkeit, dass bei der i-ten Anfrage nach einem stalen Item \(1 \leq i \leq k-l\), dieses nicht mehr \(\in S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
+                     	   	</ul>      
+   	                     </div>
+	
+               	         <!-- Hinweise --->
+            	            <div class="hint"> <h5>Hinweise</h5>
+										Verdeutliche dir was wir hier mit der Formel modellieren und stelle für diesen Sachverhalt selbst eine Formel auf. Forme diese anschließend so um, dass du auf den gegebenen Term kommst.
+   	                     </div>
+	
+               	         <!-- Musterlösung -->
+            	            <div class="solution"> <h5>Beispiellösung</h5>
+            	            <ul>
+										<li>\(k-l\) stale Items sind nach den ersten l Anfragen noch im Cache.</li>
+										<li>Demnach ist \(\frac{k-l}{k}\) die Wahrscheinlichkeit, dass das erste angefragte stale Item noch im Cache ist.</li>
+										<li>Bei der i-ten Anfrage haben wir bereits i-1 stale Items betrachtet</li> <!-- TODO -->
+									</ul>
+										
+                  	  </div>
+               	 </div>
+            	</div>
+            </div>
+           </div>
+           
+           Summieren wir die erwarteten Anzahl an Misses für alle i auf, so folgt:
+           \(\sum^{k-l}_{i=1} \frac{l}{k-i+1} = l \sum^{k-l}_{i=1} \frac{1}{k-i+1} = l \sum^{k}_{i=l+1} \frac{1}{i} ; (l+1 \geq 1)\) <br>
+           \(l \sum^{k}_{i=l+1} \frac{1}{i} \leq l \sum^{k}_{i=1} \frac{1}{i}\ = lH_{k} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \square \)
+           
+	
 	<br><br>
+	
 	Abschließend sei bemerkt, dass es Algorithmen gibt, die näher an die untere Schranke von \(H_{k}\) herankommen z.B.: ... .
 
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
 </p>
-
-
-
-<!-- Kontrollfragen: Abschnitt 5 -->
-<div class="kontrollfragen panel-group" id="kontrollfragen_05" role="tablist" aria-multiselectable="false">
-
-    <!-- Verständnisaufgaben zu Abschnitt 5 -->
-    <div class="panel panel-warning" id="frage_5_1">
-        <div class="panel-heading" role="tab" id="frage_heading_5_1" data-toggle="collapse" data-parent="#kontrollfragen_05" href="#frage_content_5_1" aria-expanded="false" aria-controls="frage_content_5_1">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 5</h4>
-        </div>
-        <div id="frage_content_5_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_5_1">
-            <div class="panel-body">
-
-                <!-- form-kontrollfrage -->
-                <form class="form-horizontal form-kontrollfrage">
-
-                    <div class="form-group">
-                        <label for="input_1-frage_5_1" class="col-sm-6 control-label">
-                            Wie viele Kanten besitzt ein gerichteter, vollständiger Graph mit 6 Knoten?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_1-frage_5_1" placeholder="Anzahl">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_2-frage_5_1" class="col-sm-6 control-label">
-                            Nenne eine Quelle von \(D\) (<em>Abbildung</em>).
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_2-frage_5_1" placeholder="Knotenname">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_3-frage_5_1" class="col-sm-6 control-label">
-                            Nenne eine Senke von \(D\).
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_3-frage_5_1" placeholder="Knotenname">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_4-frage_5_1" class="col-sm-6 control-label">
-                            Nenne eine gültige topologische Sortierung von \(D\).
-                        </label>
-
-                        <div class="col-sm-6 input-group" data-explain="TopologicalSort">
-                            <div class="input-group-addon">(</div>
-                            <input type="text" class="form-control" id="input_4-frage_5_1" placeholder="Topologische Sortierung">
-                            <div class="input-group-addon">)</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_5-frage_5_1" class="col-sm-6 control-label">
-                            Wie viele gültige topologische Sortierungen besitzt \(D+e+(e,a)\)?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_5-frage_5_1" placeholder="Anzahl">
-                        </div>
-                    </div>   
-
-                    <div class="form-group">
-                        <label for="input_6-frage_5_1" class="col-sm-6 control-label">
-                            Was ist die Summe aller Kantengewichte des minimalen Spannbaums von \(W\)?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_6-frage_5_1" placeholder="Summe der Kantengewichte">
-                        </div>
-                    </div>
-
-
-
-                    <!-- Submit-Button -->
-                    <div class="form-group">
-                        <div class="col-sm-offset-6 col-sm-6"> 
-                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösungen überprüfen</button>
-                        </div>
-                    </div>
-                </form>
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Beweisaufgabe 5-2 -->
-    <div class="panel panel-warning" id="frage_5_2">
-        <div class="panel-heading" role="tab" id="frage_heading_5_2" data-toggle="collapse" data-parent="#kontrollfragen_05" href="#frage_content_5_2" aria-expanded="false" aria-controls="frage_content_5_2">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Beweisaufgabe &mdash; Kannst du’s zeigen?</h4>
-        </div>
-        <div id="frage_content_5_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_5_2">
-            <div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
-                <!-- Beweisaufgabe -->
-                <div class="task">
-                    Beweise die oben postulierte Aussage, dass jeder <abbr title="DAG" data-toggle="tooltip">gerichtete, kreisfreie Graph</abbr> \(G = (V,E)\) mindestens eine Quelle \(q\) mit \(d_G^-(q) = 0\) enthält. Schlussfolgere daraus, dass auch eine Senke \(s\) vorhanden sein muss.
-                </div>
-
-                <!-- Hinweise --->
-                <div class="hint"> <h5>Hinweise</h5>
-                    Nimm an, jeder Knoten besitzt mindestens eine <em>eingehende</em> Kante, und führe das zum Widerspruch.
-                </div>
-
-                <!-- Musterlösung -->
-                <div class="solution"> <h5>Beispiellösung</h5>
-                    <p>Ich nehme an, für jeden Knoten \(v_i\) gilt \(d_G^-(v_i) \geq 1\). Dann wähle ich ein beliebiges \(v_i\) und traversiere <em>rückwärts</em> zum Knoten \(v_{i-1}\) für den \((v_{i-1},v_i)\) in \(E\) liegt. Da jeder Knoten per Annahme mindestens einen solchen adjazenten Knoten besitzt und \(G\) aber azyklisch und endlich ist, muss irgendwann ein <em>letzter</em> Knoten \(v_0\) mit \(d_G^-(v_0) = 0\) erreicht sein. Damit ist ein Widerspruch erzeugt, \(v_0\) ist die Quelle.</p>
-                    <p>Die Existenz einer Senke lässt sich mit analoger Argumentation für den <em>Ausgangsgrad</em> zeigen.</p>     
-                    
-                    
-                </div>
-
-            </div>
-        </div>
-    </div>    
-
-</div>
 
 <hr>
 
