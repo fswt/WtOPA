@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-19T20:09:02+0200" >
+<meta name="date" content="2017-07-19T21:00:33+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -220,38 +220,46 @@
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Einführungsaufgabe &mdash; Pokemon Arena</h4>
                 	 </div>
                 	 <div id="frage_content_1_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_1_2">
-                    		<div class="panel-body proof-question" data-hint-time="120" data-finish-time="180">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
                      	<!-- Aufgabe Pokemon Arena -->
                       	  <div class="task">
+                      	  	Du bist Pokemontrainer und kommst in eine Arena.
                      	   	<ul type="square">
-        									<li>12 Kämpfe hintereinander</li>
-        									<li>3 Pokemon tragbar</li>
-        									<li>6 Pokemon-Typen (Häufung schon gesehener Typen)</li>
-        									<li>in jedem der Kämpfe genau ein Pokemon-Typ sinnvoll</li>
-        									<li>vor jedem Kampf ein Pokemon austauschbar</li>
-      	  								<li>Tausch führt zum Absturz eures Gameboys</li>
+                     	   	
+        									<li>Du hast 12 Kämpfe hintereinander zu bestreiten,</li>
+        									<li>kannst zu jedem Zeitpunkt drei Pokemon mit dir herumtragen.</li>
+        									<li>Es gibt <abbr data-toggle = "tooltip" title="Diese Anzahl nehmen wir für diese Aufgabe an, auch wenn es im Allgemeinen mehr Pokemon-Typen gibt."> 6 Pokemon-Typen </abbr>.</li>
+											<li>Du hast von jedem Pokemon-Typ mindestens ein starkes Pokemon.</li>  
+											<li>Du darfst in einem Kampf nur genau ein Pokemon einsetzen.</li>    									
+        									<li>In jedem der Kämpfe gibt es genau einen Pokemon-Typ, den dein eingesetztes Pokemon haben sollte, damit du gewinnst.</li>
+        									<li>Vor jedem Kampf (nach dem vorherigen) darfst du ein Pokemon, das du bei dir trägst, gegen ein Pokemon, das du gerade nicht bei dir trägst, austauschen.</li>
+      	  								<li>Das Problem: Ein Tausch führt zum Absturz deines Gameboys.</li>
         									<ul type="square">
-												<li>Tausch gespeichert, aber trotzdem so wenig wie möglich Tauschaktionen wünschenswert</li>        								
+												<li>Wenn du deinen Gameboy neu startest, ist der Tausch vollzogen, aber da dich die Abstürze nerven möchtest du so wenig Tauschaktionen wie möglich durchführen.</li>        								
         									</ul>
-        									<li>Zu Anfang 3 Pokemon zufällig zugeteilt</li>
-        									<li>Nach welchem Algorithmus wählt ihr eure Pokemon aus?</li>
-        									<ul type="square">
-        										<li>1. Liste aller sinnvoller Pokemon-Typen (in richtiger Reihenfolge) vor erstem Kampf bekannt.</li>
-        										<li>2. Nächster sinnvoller Pokemon-Typ erst nach vorherigem Kampf (vor dem nächsten Kampf) erfahrbar.</li>
-											</ul>
+        									<li>Zu Anfang werden dir 3 Pokemon zufällig zugeteilt.</li>
+        									<li>Nach welchem Algorithmus tauschst du deine Pokemon aus?</li>
+        									<ol>
+        										<li>Wenn du zu jedem Zeitpunkt eine Liste hast, auf der für jeden der 12 Kämpfe (in richtiger Reihenfolge) vermerkt ist, welcher Pokemon-Typ jeweils gewinnbringend ist?</li>
+        										<li>Wenn du den im nächsten Kampf gewinnbringenden Pokemon-Typ erst nach dem vorherigen Kampf (vor deinem nächsten Kampf) erfährst.</li>
+											</ol>
     									</ul>                       
    	                     </div>
 	
                	         <!-- Hinweise --->
             	            <div class="hint"> <h5>Hinweise</h5>
-         	                   Zu 1.: 
-      	                      Zu 2.:
+         	                   <ol>   
+         	                   	<li>Überlege dir, welche Pokemon-Typen du lange nicht brauchst.</li>
+      	                      	<li>Hier fehlen dir viele Informationen, sodass dein Algorithmus nicht sehr ausgetüftelt sein muss. Du solltest jedoch erkennen, dass dir die Auswahl deiner 3 tragbaren Pokemon schwerer fällt.</li>
+   	                     	 </ol>
    	                     </div>
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
-         	               	Zu 1.: Z.B. MIN
-      	                  	Zu 2.: Z.B. FIFO
+										<ol>         	               	
+         	               		<li>Du kannst durch deine Liste gehen und nachsehen, welchen</li>
+      	                  		<li>Z.B. FIFO</li>
+      	                  	</ol>
    	                     </div>
 	
                   	  </div>
@@ -264,6 +272,7 @@
             <p>
             <div class="thumbnail pull-right" style="width: 250px;">                
                 <div class="caption">
+                	<u>Beispiele</u>
 	                <ul>
 	                	<li>Offline: 3, 1, 4, 2</li>
 	                	<li>Online: 4, x, y, ...</li>
@@ -305,8 +314,8 @@
 	Ein Beispiel für LRU: k=4 <br>
 	Die Eingabesequenz lautet A B C D E D F. Dann arbeitet der Algorithmus wie folgt:<br><br>
 	<img src="resources/lru.png"> <br><br>
-	Es fallen sechs Kosteneinheiten an, da wir genau sechs Misses haben. Allgemein gilt es, die Kosten möglichst gering zu halten. Ein guter Algorithmus verursacht wenig Kosten, ein schlechter viele Kosten. Nach der Kostenfunktion ist also f_LRU(ABCDEDF)=6. <br> <br>
-<mark>Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fiesen" Eingabesequenz dazu zwingen kann, 100% misses zu erzeugen.</mark> Deine Aufgabe ist es nun, das für den LRU-Algorithmus auszuprobieren:
+	Es fallen sechs Kosteneinheiten an, da wir genau sechs Misses haben. Allgemein gilt es, die Kosten möglichst gering zu halten. Ein guter Algorithmus verursacht wenig Kosten, ein schlechter viele Kosten. <br> <br>
+Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fiesen" Eingabesequenz dazu zwingen kann, 100% misses zu erzeugen. Deine Aufgabe ist es nun, das für den LRU-Algorithmus auszuprobieren:
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
 </p>
@@ -365,13 +374,13 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
 	<h4 id="anchor_navigation-5">5. C-Competetiveness</h4>
 		<p>
 			Um die C-Competetiveness zu verstehen, müssen wir den bisherigen Sachverhalt formalisieren. Dazu definieren wir <br>
-			(p = (p_1, p_2, ..., p_n)            als die Eingabesequenz mit n Elementen <br>
-			f_A(p_1, p_2, ..., p_n) bzw. f_A(p)  als die Kosten von Algorithmus A auf der Eingabesequenz p <br>
-			f_0(p_1, p_2, ..., p_n) bzw. f_0(p)  als die Kosten des offline Algorithmus auf der Sequenz p, also die optimalen Kosten auf p <br>
+			\(p = (p_1, p_2, ..., p_n)\)         als die Anfragesequenz mit n Elementen <br>
+			\(f_A(p_1, p_2, ..., p_n)\)  bzw.  \(f_A(p)\)  als die Kosten von Algorithmus A auf der Anfragesequenz p <br>
+			\(f_0(p_1, p_2, ..., p_n)\)  bzw.  \(f_0(p)\)  als die Kosten des offline Algorithmus auf der Sequenz p, also die optimalen Kosten auf p <br>
 
 			Nun können wir das Verhältnis zwischen einem online Algorithmus A und seinem offline Algorithmus definieren als: <br>
-		<mark>f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b für alle Eingabe-Sequenzen, b unabhängig von n</mark> <br> <br>
-			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Eingabesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competetiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competetiveness-Koeffizient für A. Nähere Dich der Formel am besten gleich mit einer Verständnis-Aufgabe: <br>
+		<mark>\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\) für alle Eingabe-Sequenzen, b unabhängig von n</mark> <br> <br>
+			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Anfragesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competetiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competetiveness-Koeffizient für A. Nähere Dich der Formel am besten gleich mit einer Verständnis-Aufgabe: <br>
 		</p>
 <!-- Kontrollfragen: Abschnitt 3 -->
 <div class="kontrollfragen panel-group" id="kontrollfragen_04" role="tablist" aria-multiselectable="false">
@@ -392,11 +401,11 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
                         </label>
                         <div class="col-sm-6">
 							<div>b = </div>
-                            <input float="left" type="text" class="form-control" id="input_1-frage_4" placeholder="3, k, 8600">
+                            <input float="left" type="text" class="form-control" id="input_1-frage_4" placeholder="">
                         </div>
 						<div class="col-sm-6">
 							<div>C = </div>
-                            <input type="text" class="form-control" id="input_1-frage_4_2" placeholder="3, k, 8600">
+                            <input type="text" class="form-control" id="input_1-frage_4_2" placeholder="">
                         </div>
                     </div>
 
@@ -407,16 +416,27 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
                         </div>
                     </div>
 					<p>
-Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus exakt gleich gut. Denn wenn C = 1 und b = 0 ist, dann müssen zwangsläufig f_A(p) und f_0(p) genau gleich groß sein.
+Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus exakt gleich gut. Denn wenn C = 1 und b = 0 ist, dann müssen zwangsläufig \(f_A(p)\) und \(f_0(p)\) genau gleich groß sein.
 						</p>
                 </form>
             </div>
         </div>
-    </div>
+    </div> <br>
+	<p>
+		Jetzt wollen wir zeigen, dass unser deterministischer LRU-Algorithmus für die Worst-Case-Sequenz \(k\)-competetive ist. \(k\) ist hier weiterhin die Anzahl der Pages im Cache. Wir zeigen hier also nicht die generelle Competetiveness von LRU, veranschaulichen aber das Prinzip an einer einzelnen Sequenz. <br> Die Worst-Case-Sequenz für LRU ist diejenige, auf der LRU ausschließlich Misses erzeugt. Greifen wir das Beispiel von vorhin auf: <br> <img src="resources/exercise_lru.png">
+<br>Dann wäre die Worst-Case-Sequenz B, C, E, D, F, B, C, E, D, F, B, ... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
+Jetzt schauen wir, wie der Offline-Algorithmus auf dieser Anfrage-Sequenz performt: Für das B ensteht natürlich ein Miss. Da aber abzusehen ist, dass die Elemente C, E und D als nächstes gebraucht werden, wird F für B verworfen. Also haben wir \(miss, hit, hit, hit\). Nun muss das F wieder in den Cache geholt werden, wofür es einen \(miss\) gibt. B, C und E werden als nächstes gebraucht also wird das D verworfen. Wir erhalten wieder \(miss, hit, hit, hit\). Dieses Schema geht immer so weiter auf der ganzen Sequenz. Wir erhalten also so etwas wie "Runden", wobei eine Runde immer aus einem \(miss\) und drei \(hits\) besteht. Es fällt auf, dass eine Runde genau \(k\) lang ist. Wenn wir also wissen, dass wir pro Runde Kosten von Eins haben, dann haben wir insgesamt soviel Kosten wie wir Runden haben. Und da wir wissen, dass eine Runde \(k\) lang ist, haben wir insgesamt \(\frac{n}{k}\) Runden und somit \(f_0(p_1, ..., p_n)=\frac{n}{k}\) Kosten. Nun können wir in die Competetiveness-Formel einsetzen: <br>
+\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\), also <br> \(n−C×\frac{n}{k} ≤ b\) <br><br> Und nun sehen wir, dass wenn wir für \(C\) unser \(k\) einsetzen, Folgendes passiert: <br> \(n−k×\frac{n}{k} ≤ b\) <br> \(n−n ≤ b\) <br> \(0 ≤ b\) <br><br> Wir sehen, dass LRU für die Worst-Case-Sequenz \(k\)-competetive ist.<br>
+Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung: Das ist aus obigem Sachverhalt nicht direkt schließbar!) LRU ist aber nur ein Beispiel für deterministische Online-Algorithmen. Allgemein gilt für alle deterministischen Online-Algorithmen folgende untere Schranke:<br>Sei A ein deterministischer online Algorithmus für Paging. Dann gilt: \(C_A \geq k\). <br> <br> Deterministische Online-Algorithmen sind also immer mindestens \(k\)-mal schlechter als die optimale Lösung. Das ist nicht besonders toll und deswegen wollen wir untersuchen, ob das nicht noch besser geht. Dafür wenden wir uns jetzt den randomisierten Online-Algorithmen zu.
+	</p> <br>
+	<h4 id="anchor_navigation-5">6. Randomisierte Online-Algorithmen für Paging</h4>
+	<p>
+	Lalala
+	</p>
     <hr>
     <!----------------------------------->
     <!-- Abschnitt 6: Untere Schranke Randomisierte Online Paging Algorithmen -->
-    <h4 id="anchor_navigation-6">6. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
+    <h4 id="anchor_navigation-6">7. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
     <p>
 	 	<u>Satz:</u> <br> Sei R ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=0} \frac{1}{j}\), also die k-te harmonische Zahl. <br> Wir verzichten an dieser Stelle auf einen Beweis, bemerken jedoch, dass wir einen wesentliche besseren Competitive-Koeffizienten erreichen also bei den deterministischen Algorithmen. Wir sehen, dass wir hier logarithmisch in k sind. Die harmonische Zahl treffen wir auch bei anderen Themengebieten der Wahrscheinlichkeitstheorie an wie z.B. dem <a href="https://de.wikipedia.org/wiki/Sammelbilderproblem" target="_blank">Coupon Collector</a>.
         <!-- Clearfix beacuse of thumbnail -->
@@ -426,7 +446,7 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
 <hr>
 <!------------------------------>
 <!-- Abschnitt 7: Marker Algorithmus -->
-<h4 id="anchor_navigation-5">7. Marker Algorithmus</h4>
+<h4 id="anchor_navigation-5">8. Marker Algorithmus</h4>
 <p>
 	<!-- Bild mit Unterschrift -->
 	<div class="thumbnail pull-right" style="width: 220px;">                
