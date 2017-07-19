@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-19T21:00:33+0200" >
+<meta name="date" content="2017-07-19T23:36:10+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -99,7 +99,7 @@
 
                     <div class="modal-body">
       F&uuml;r das allgemeine Impressum, siehe <a href="http://hpi.de/impressum.html">HPI-Impressum</a>.
-                        Die vorliegende Lehrwebsite entstand im Rahmen des Seminars <i>Wahrscheinlichkeitstheorie (2017)</i> am Hasso-Plattner-Institut. Als Vorbild, was den Aufbau der Themen, einzelne Definitionen sowie Terminologie angeht, diente <em>Randomized Algorithms - Rajeev Motwani and Prabhakar Raghavan</em> (Hardcover 1995, Cambridge University Press). Sollten etwaige Fehler auftreten oder Fragen bestehen, wenden Sie sich bitte an moritz.hartmann[at]student.hpi.uni-potsdam.de oder fabian.stolp[at]student.hpi.uni-potsdam.de. Im folgenden noch eine kurze Übersicht genutzter Frameworks und Bibliotheken:
+                        Die vorliegende Lehrwebsite entstand im Rahmen des Seminars <i>Wahrscheinlichkeitstheorie (2017)</i> am Hasso-Plattner-Institut. Als Vorbild, was den Aufbau der Themen, einzelne Definitionen sowie Terminologie angeht, diente <em>Randomized Algorithms - Rajeev Motwani and Prabhakar Raghavan</em> (Hardcover 1995, Cambridge University Press). Sollten etwaige Fehler auftreten oder Fragen bestehen, wenden Sie sich bitte an moritz.hartmann[at]student.hpi.uni-potsdam.de oder fabian.stolp[at]student.hpi.uni-potsdam.de. Im Folgenden noch eine kurze Übersicht genutzter Frameworks und Bibliotheken:
 
                         <ul style="margin-top: 10px">
                             <li><a href="http://jquery.com" target="_blank">jQuery</a></li>
@@ -223,22 +223,22 @@
                     		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
                      	<!-- Aufgabe Pokemon Arena -->
                       	  <div class="task">
-                      	  	Du bist Pokemontrainer und kommst in eine Arena.
+                      	  	Du bist <a href="https://de.wikipedia.org/wiki/Pok%C3%A9mon" target="_blank">Pokemon</a>-Trainer und kommst in eine Arena.
                      	   	<ul type="square">
                      	   	
-        									<li>Du hast 12 Kämpfe hintereinander zu bestreiten,</li>
-        									<li>kannst zu jedem Zeitpunkt drei Pokemon mit dir herumtragen.</li>
-        									<li>Es gibt <abbr data-toggle = "tooltip" title="Diese Anzahl nehmen wir für diese Aufgabe an, auch wenn es im Allgemeinen mehr Pokemon-Typen gibt."> 6 Pokemon-Typen </abbr>.</li>
-											<li>Du hast von jedem Pokemon-Typ mindestens ein starkes Pokemon.</li>  
+        									<li>Du hast 12 Kämpfe hintereinander zu bestreiten, die du alle gewinnen möchtest.</li>
+        									<li>Du kannst zu jedem Zeitpunkt 3 Pokemon mit dir herumtragen.</li>
+        									<li>Es gibt <abbr data-toggle="tooltip" title="Diese Anzahl nehmen wir für diese Aufgabe an, auch wenn es im Allgemeinen mehr Pokemon-Typen gibt."> 6 Pokemon-Typen </abbr>.</li>
+											<li>Du besitzt von jedem Pokemon-Typ mindestens ein starkes Pokemon.</li>  
 											<li>Du darfst in einem Kampf nur genau ein Pokemon einsetzen.</li>    									
         									<li>In jedem der Kämpfe gibt es genau einen Pokemon-Typ, den dein eingesetztes Pokemon haben sollte, damit du gewinnst.</li>
         									<li>Vor jedem Kampf (nach dem vorherigen) darfst du ein Pokemon, das du bei dir trägst, gegen ein Pokemon, das du gerade nicht bei dir trägst, austauschen.</li>
       	  								<li>Das Problem: Ein Tausch führt zum Absturz deines Gameboys.</li>
         									<ul type="square">
-												<li>Wenn du deinen Gameboy neu startest, ist der Tausch vollzogen, aber da dich die Abstürze nerven möchtest du so wenig Tauschaktionen wie möglich durchführen.</li>        								
+												<li>Wenn du deinen Gameboy neu startest, ist der Tausch vollzogen, da dich die Abstürze aber nerven, möchtest du so wenig Tauschaktionen wie möglich durchführen.</li>        								
         									</ul>
-        									<li>Zu Anfang werden dir 3 Pokemon zufällig zugeteilt.</li>
-        									<li>Nach welchem Algorithmus tauschst du deine Pokemon aus?</li>
+        									<li>Am Anfang werden dir 3 Pokemon zufällig zugeteilt.</li>
+        									<li>Nach welchem Algorithmus tauschst du deine Pokemon aus:</li>
         									<ol>
         										<li>Wenn du zu jedem Zeitpunkt eine Liste hast, auf der für jeden der 12 Kämpfe (in richtiger Reihenfolge) vermerkt ist, welcher Pokemon-Typ jeweils gewinnbringend ist?</li>
         										<li>Wenn du den im nächsten Kampf gewinnbringenden Pokemon-Typ erst nach dem vorherigen Kampf (vor deinem nächsten Kampf) erfährst.</li>
@@ -250,15 +250,15 @@
             	            <div class="hint"> <h5>Hinweise</h5>
          	                   <ol>   
          	                   	<li>Überlege dir, welche Pokemon-Typen du lange nicht brauchst.</li>
-      	                      	<li>Hier fehlen dir viele Informationen, sodass dein Algorithmus nicht sehr ausgetüftelt sein muss. Du solltest jedoch erkennen, dass dir die Auswahl deiner 3 tragbaren Pokemon schwerer fällt.</li>
+      	                      	<li>Hier fehlen dir viele Informationen, sodass dein Algorithmus nicht sehr ausgetüftelt sein muss. Du solltest jedoch erkennen, dass dir die Auswahl deiner 3 tragbaren Pokemon schwerer als bei 1. fällt.</li>
    	                     	 </ol>
    	                     </div>
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
 										<ol>         	               	
-         	               		<li>Du kannst durch deine Liste gehen und nachsehen, welchen</li>
-      	                  		<li>Z.B. FIFO</li>
+         	               		<li>Falls im nächsten Kampf ein Pokemon eingesetzt werden sollte, welches du gerade nicht bei dir trägst, kannst du durch deine Liste gehen und nachsehen, welches von deinen 3 aktuell getragenen Pokemon du am längsten nicht brauchst. Dieses tauschst du dann gegen das benötigte Pokemon.</li>
+      	                  		<li>Falls im nächsten Kampf ein Pokemon eingesetzt werden sollte, welches du gerade nicht bei dir trägst, kannst du z.B. das Pokemon, welches du bereits am längsten bei dir trägst, austauschen. Ob diese Strategie die beste ist, wissen wir nicht, da wir keine Informationen z.B. darüber haben, ob Pokemon-Typen, gegen die man bereits gekämpft hat, in folgenden Kämpfen öfter als andere Typen auftauchen. Was wir jedoch feststellen, ist, dass es uns deutlich schwerer fällt zu entscheiden, welches Pokemon wir austauschen sollten.</li>
       	                  	</ol>
    	                     </div>
 	
@@ -281,7 +281,8 @@
             </div>
 
 
-            In der "Pokemon Arena"-Aufgabe haben wir gesehen, dass wir für die erste Aufgabenstellung, in der die Liste aller Ereignisse vor jeder Entscheidung bekannt ist, uns sehr gut überlegen können welches Pokemon wir tauschen sollten, während bei der zweiten Aufgabestellung das ganze deutlich uneindeutiger war. Schreiben wir uns nun Algorithmen um diese Aufgaben zu lösen so nennen wir den Algorithmus im ersten Fall offline Algorithmus im zweiten online Algorithmus. Ein <mark>offline Algorithmus</mark> kennt zu jedem Zeitpunkt die gesamte Ereigniskette und kann entsprechend planen, ein <mark>online Algorithmus</mark> muss Entscheidungen ohne die Kenntnis von zukünftigen Ereignissen treffen. Statt Ereignissen werden wir im folgenden von Anfragen sprechen, auf die der Algorithmus reagieren muss. Da wir uns mit den Qualität bzw. den Kosten solcher Algorithmen beschäftigen wollen, definierten wir uns die <mark>inhärenten Kosten einer Anfragekette</mark>. Sie sollen die Kosten des besten Offline-Algorithmus sein. Außerdem legen wir als <mark>Maß der Qualität eines Online-Algorithmus</mark> das worst case Verhältnis (über alle Sequenzen) der Kosten des Online Algorithmus zu den inhärenten Kosten fest.<br><br>
+            In der "Pokemon Arena"-Aufgabe haben wir gesehen, dass wir uns für die erste Aufgabenstellung, in der die Liste aller Ereignisse vor jeder Entscheidung bekannt ist, sehr gut überlegen können, welches Pokemon wir tauschen sollten, während dies für die zweite Aufgabestellung deutlich uneindeutiger ist. Schreiben wir uns nun Algorithmen um diese Aufgaben zu lösen, so nennen wir den Algorithmus im ersten Fall "offline Algorithmus" im zweiten Fall "online Algorithmus". Ein <mark>offline Algorithmus</mark> kennt zu jedem Zeitpunkt die gesamte abzuarbeitende Ereigniskette und kann entsprechend planen, ein <mark>online Algorithmus</mark> muss Entscheidungen ohne die Kenntnis von zukünftigen Ereignissen treffen. Statt Ereignissen werden wir im Folgenden von Anfragen sprechen, auf die der Algorithmus reagieren muss. <br>
+            Da wir uns mit der Qualität bzw. den Kosten solcher Algorithmen beschäftigen wollen, definieren wir uns die <mark>inhärenten Kosten einer Anfragekette</mark>. Sie sollen die Kosten des besten Offline-Algorithmus sein. Außerdem legen wir als <mark>Maß der Qualität eines Online-Algorithmus</mark> das Worst Case Verhältnis (über alle Sequenzen) der Kosten des Online Algorithmus zu den inhärenten Kosten fest.<br><br>
             
             <!-- Clearfix because of thumbnail -->
             <div class="clearfix"></div>
@@ -293,11 +294,12 @@
         <h4 id="anchor_navigation-2">2. Das Paging Problem</h4>
         <div class="thumbnail pull-right" style="width: 250px;">                
            <div class="caption">
-	            Page vs. Pageframe: 
+	            Paging
    	     </div>
         </div>
         <p>
-				Nachdem wir nun geklärt haben wofür das "Online" in Online Paging Algorithmen steht, wenden wir uns dem "Paging" zu. Mit dem Paging-Problem haben wir es zu tun, wenn wir mit einem Speichersystem mit zwei Ebenen arbeiten. Eine Ebene ist ein kleiner, schneller Speicher z.B. der RAM (im Allgemeinen sprechen wir im folgenden vom <mark>Cache</mark>), die andere ist ein großer langsamer Speicher z.B. die Festplatte. Eine <mark>Page</mark> ist ein Anzahl von direkt aufeinanderfolgenden Speicherstellen im logischen Speicherraum. Soll nun auf Informationen zugegriffen werden, müssen die Pages, die diese Informationen enthalten sich im Cache befinden bzw. in den Cache geladen werden. Erstere Variante, also es wird versucht auf Informationen zuzugreifen, die sich bereits im Cache befinden, bezeichnen wir als <mark>hit</mark>. Ansonsten sprechen wir von einem <mark>miss</mark>. Da eine Eigenschaft des Caches ist, dass er klein ist, kommt es schnell zu dem Fall, dass eine Page, die in den Cache geladen werden soll, dort keinen Platz mehr findet. Die Aufgabe eines <mark>Paging Algorithmus</mark> besteht nun genau darin zu entscheiden, welche Page verdrängt werden soll, damit die benötigte Page in den Cache geladen werden kann. Sie implementieren also bestimmte Verdrängungsstrategien.
+				Nachdem wir nun geklärt haben, wofür das "Online" in "Online Paging Algorithmen" steht, wenden wir uns dem "Paging" zu. Mit dem Paging-Problem haben wir es zu tun, wenn wir mit einem Speichersystem mit zwei Ebenen arbeiten. Eine Ebene ist ein kleiner, schneller Speicher z.B. der RAM (im Allgemeinen sprechen wir im Folgenden vom <mark>Cache</mark>), die andere ist ein großer, langsamer Speicher z.B. die Festplatte. Eine <mark>Page</mark> ist ein Anzahl von direkt aufeinanderfolgenden Speicherstellen im logischen Speicherraum. Soll nun auf eine bestimmte Page zugegriffen werden, muss sich diese im Cache befinden bzw. in den Cache geladen werden. Erstere Variante (die Page befinden sich bereits im Cache), bezeichnen wir als <mark>Hit</mark>. Ansonsten sprechen wir von einem <mark>Miss</mark>. <br>
+				Da eine Eigenschaft des Caches ist, dass er klein ist, kommt es schnell zu dem Fall, dass eine Page, die in den Cache geladen werden soll, dort keinen Platz mehr findet. Die Aufgabe eines <mark>Paging Algorithmus</mark> besteht nun genau darin zu entscheiden, welche Page verdrängt werden soll, damit die benötigte Page in den Cache geladen werden kann. Paging Algorithmen implementieren also bestimmte Verdrängungsstrategien.
 				
     <!-- Clearfix because of thumbnail -->
     <div class="clearfix"></div>
@@ -308,9 +310,9 @@
 <!-- Abschnitt 3: Deterministische Online Paging Algorithmen -->
 <h4 id="anchor_navigation-3">3. Deterministische Online Paging Algorithmen</h4>
 <p>
-	Es gibt deterministische Online Paging Algorithmen die deterministische Verdränungsstrategien wie FIFO (first in &mdash first out), LRU (least recently used) und LFU (least frequently used) implementieren. 
-	Wird FIFO umgesetzt, so wird das Element, welches als erstes in den Cache geladen wurde, auch wieder aus dem Cache verdrängt. Bei LRU wird das Element, das am längsten nicht gebraucht wurde verdrängt und LFU setzt die Idee um, dass jenes Element, welches bis zum Zeitpunkt der Verdrängung am wenigsten benutzt wurde, aus dem Cache entfernt wird.<br><br>
-	Für solche deteministischen Online Paging Algorithmen können wir nun deren Kosten betrachten. <br>
+	Es gibt deterministische Online Paging Algorithmen, die deterministische Verdränungsstrategien wie FIFO (first in &mdash; first out), LRU (least recently used) und LFU (least frequently used) implementieren. <br>
+	Wird FIFO umgesetzt, so wird das Element, welches als erstes in den Cache geladen wurde, als erstes wieder aus dem Cache verdrängt. Bei LRU wird das Element, das am längsten nicht gebraucht wurde, verdrängt und LFU setzt die Idee um, dass jenes Element, welches bis zum Zeitpunkt der Verdrängung am wenigsten benutzt wurde, aus dem Cache entfernt wird.<br><br>
+	Für solche deteministischen Online Paging Algorithmen können wir deren Kosten betrachten. <br>
 	Ein Beispiel für LRU: k=4 <br>
 	Die Eingabesequenz lautet A B C D E D F. Dann arbeitet der Algorithmus wie folgt:<br><br>
 	<img src="resources/lru.png"> <br><br>
@@ -426,19 +428,25 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
 		Jetzt wollen wir zeigen, dass unser deterministischer LRU-Algorithmus für die Worst-Case-Sequenz \(k\)-competetive ist. \(k\) ist hier weiterhin die Anzahl der Pages im Cache. Wir zeigen hier also nicht die generelle Competetiveness von LRU, veranschaulichen aber das Prinzip an einer einzelnen Sequenz. <br> Die Worst-Case-Sequenz für LRU ist diejenige, auf der LRU ausschließlich Misses erzeugt. Greifen wir das Beispiel von vorhin auf: <br> <img src="resources/exercise_lru.png">
 <br>Dann wäre die Worst-Case-Sequenz B, C, E, D, F, B, C, E, D, F, B, ... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
 Jetzt schauen wir, wie der Offline-Algorithmus auf dieser Anfrage-Sequenz performt: Für das B ensteht natürlich ein Miss. Da aber abzusehen ist, dass die Elemente C, E und D als nächstes gebraucht werden, wird F für B verworfen. Also haben wir \(miss, hit, hit, hit\). Nun muss das F wieder in den Cache geholt werden, wofür es einen \(miss\) gibt. B, C und E werden als nächstes gebraucht also wird das D verworfen. Wir erhalten wieder \(miss, hit, hit, hit\). Dieses Schema geht immer so weiter auf der ganzen Sequenz. Wir erhalten also so etwas wie "Runden", wobei eine Runde immer aus einem \(miss\) und drei \(hits\) besteht. Es fällt auf, dass eine Runde genau \(k\) lang ist. Wenn wir also wissen, dass wir pro Runde Kosten von Eins haben, dann haben wir insgesamt soviel Kosten wie wir Runden haben. Und da wir wissen, dass eine Runde \(k\) lang ist, haben wir insgesamt \(\frac{n}{k}\) Runden und somit \(f_0(p_1, ..., p_n)=\frac{n}{k}\) Kosten. Nun können wir in die Competetiveness-Formel einsetzen: <br>
-\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\), also <br> \(n−C×\frac{n}{k} ≤ b\) <br><br> Und nun sehen wir, dass wenn wir für \(C\) unser \(k\) einsetzen, Folgendes passiert: <br> \(n−k×\frac{n}{k} ≤ b\) <br> \(n−n ≤ b\) <br> \(0 ≤ b\) <br><br> Wir sehen, dass LRU für die Worst-Case-Sequenz \(k\)-competetive ist.<br>
+<p style="text-align:center">\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\), also <br> \(n−C×\frac{n}{k} ≤ b\)</p> <br> Und nun sehen wir, dass wenn wir für \(C\) unser \(k\) einsetzen, Folgendes passiert: <br> <p style="text-align:center">\(n−k×\frac{n}{k} ≤ b\) <br> \(n−n ≤ b\) <br> \(0 ≤ b\)</p> <br> Wir sehen, dass LRU für die Worst-Case-Sequenz \(k\)-competetive ist.<br>
 Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung: Das ist aus obigem Sachverhalt nicht direkt schließbar!) LRU ist aber nur ein Beispiel für deterministische Online-Algorithmen. Allgemein gilt für alle deterministischen Online-Algorithmen folgende untere Schranke:<br>Sei A ein deterministischer online Algorithmus für Paging. Dann gilt: \(C_A \geq k\). <br> <br> Deterministische Online-Algorithmen sind also immer mindestens \(k\)-mal schlechter als die optimale Lösung. Das ist nicht besonders toll und deswegen wollen wir untersuchen, ob das nicht noch besser geht. Dafür wenden wir uns jetzt den randomisierten Online-Algorithmen zu.
 	</p> <br>
 	<h4 id="anchor_navigation-5">6. Randomisierte Online-Algorithmen für Paging</h4>
 	<p>
-	Lalala
+	Wir haben die ganze Zeit über zwei Algorithmen betrachtet, die competetive gegenüber einander waren, also sozusagen gegeneinander gekämpft haben. Daher nennen wir ab jetzt den Offline-Algorithmus <mark>Adversary</mark> für den Online-Algorithmus. Der Adversary darf eine Anfrage-Sequenz generieren, auf der beide Algorithmen arbeiten. So wie Du vorhin eine Sequenz für den LRU gebaut hast, auf die er ausschließlich misses erzeugt, so generiert der Adversary gezielt die Anfrage-Sequenzen, um seinen Gegner in die Knie zu zwingen. Da wir gesehen haben, dass deterministische Algorithmen im Kampf gegen den Adversay aufgrund ihres vorhersehbaren, vom jenem ausnutzbaren Determinismus nicht sonderlich gut abschneiden, schicken wir nun einen randomisierten Algorithmus ins Rennen. Ein randomisierter Online-Algorithmus arbeitet anders als ein deterministischer: Während LRU, FIFO und Co ihre Elemente nach einem ganz bestimmten Muster aus dem Cache werfen, um Platz für neue zu schaffen, entscheidet der randomisierte Algorithmus völlig willkürlich, welche Elemente verworfen werden. Natürlich gibt es verschiedene randomisierte Algorithmen, aber wir betrachten zunächst einen simplen Algorithmus, der zufällig gleichverteilt ein Element auswählt und aus dem Cache wirft. Das kann dazu führen, dass er sich im Best-Case zufällig genauso verhält wie der offline Algorithmus, also genau die richtigen Elemente zum richtigen Zeitpunkt verwirft, um minimal viele misses zu verursachen. Es kann aber auch dazu führen, dass er sich zufällig genau so verhält, dass er immer das falsche Element, also immer das Element, das als nächstes eingegeben wird, aus dem Cache wirft und somit ausschließlich misses verursacht, also gleich schlecht wie LRU und Co im Worst-Case performt. Da der Adversay nun vorab keine Eingabe mehr produzieren kann, von der er weiß, dass der Online-Algorithmus darauf nur misses erzeugt, eben weil er dessen Vorgehen nicht kennt und damit nicht vorhersagen kann, nennen wir ihn einen <mark>oblivious Adversary</mark> (engl. "blind"). Aufgrund des randomisierten Verhaltens, das irgendwo zwischen absolutem Optimalfall und schlimmsten Worst-Case liegt, müssen wir nun auch die Formel der Competitiveness anpassen, da es keine eindeutige Kostenfunktion \(f_A(p)\) mehr gibt. Wir müssen nun betrachten, welche Kosten der randomisierte Algorithmus im Erwartungswert verursacht: <br> <p style="text-align:center">\(E[f_A(p_1, ..., p_n)]−C×f_0(p_1, ..., p_n) ≤ b\) </p> <br> Wie sich der Erwartungswert dieser Kostenfunktion zusammensetzt, wollen wir nun an einem Beispiel veranschaulichen. Im dreiseitigen Cache seien die Elemente A, B und C. Die Anfrage-Sequenz sei D, A, B. Zu ermitteln sind die erwarteten Kosten, die der gleichverteilt randomisierte Algorithmus auf dieser Sequenz verursacht.<br> <br>
+Der <a href="https://de.wikipedia.org/wiki/Erwartungswert" target="_blank">Erwartungswert</a> ist definiert als die Summe aller Ereignisse gewichtet mit ihrer Wahrscheinlichkeit:<br> <p style="text-align:center">\(E=\sum_{x\in I}x_iP(X=x_i)\)</p><br>
+Schauen wir uns dazu an, welche Ereignisse auftreten können. Fangen wir mit dem Best-Case an: Offensichtlich wäre es günstig, das C für das D zu verwerfen, da nach diesem miss keine weiteren Kosten mehr verursacht würden, da A und B beide im Cache wären. Das heißt, wir hätten Kosten von 1 mit einer Wahrscheinlichkeit von \(\frac{1}{3}\). Schauen wir uns nun den Worst-Case an: Besonders ungünstig wäre es, wenn wir für das D das A verwerfen würden und anschließend das B verwerfen würden, um das A wieder in den Cache zu laden. Denn dann hätten wir auf allen Elementen der Eingabesequenz einen miss. Die Wahrscheinlichkeit dafür setzt sich nun so zusammen: \(\frac{1}{3}\) Wahrscheinlichkeit dafür, dass wir zuerst das A erwischen und nochmal \(\frac{1}{3}\) Wahrscheinlichkeit dafür, dass wir danach das B verwerfen. Insgesamt also \(\frac{1}{9}\) Wahrscheinlichkeit dafür, dass Kosten von 3 verursacht werden. Jetzt haben wir also die obere und untere Kostenschranke berechnet. Offensichtlicherweise bleibt nur noch die Möglichkeit, dass es zu Kosten von zwei kommt. Da die Summe der Ereigniswahrscheinlichkeiten in einem Ereignisraum immer Eins ist, ergibt sich für die Wahrscheinlichkeit der Kosten von zwei: \(1-\frac{1}{3}-\frac{1}{9}=\frac{5}{9}\). Nun haben wir alle möglichen Ereignisse samt ihrer Wahrscheinlichkeit ermittelt und können den Erwartungswert ausrechnen: <br> <p style="text-align:center">\(E=1\cdot \frac{1}{3} + 2\cdot \frac{5}{9} + 3\cdot \frac{1}{9} = \frac{16}{9} = 1,\overline 7\)</p> <br>
+Das heißt, dass der gleichverteilte randomisierte Algorithmus auf dem Cache A, B, C arbeitend im Erwartungswert \(1,\overline 7\) Kosten auf der Anfragesequenz D, A, B verursacht. (Zu genau diesem Wert wird es natürlich nie kommen.) Hoffentlich hast Du jetzt ein Gefühl dafür, was hinter dem Erwartungswert der Kostenfunktion steckt und welche Rolle er in der Competetiveness-Formel spielt. <br><br> Wie auch bei den deterministischen Algorithmen können wir für die randomisierten Algorithmen eine untere Schranke für die Competetiveness definieren.
 	</p>
     <hr>
     <!----------------------------------->
     <!-- Abschnitt 6: Untere Schranke Randomisierte Online Paging Algorithmen -->
     <h4 id="anchor_navigation-6">7. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
     <p>
-	 	<u>Satz:</u> <br> Sei R ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=0} \frac{1}{j}\), also die k-te harmonische Zahl. <br> Wir verzichten an dieser Stelle auf einen Beweis, bemerken jedoch, dass wir einen wesentliche besseren Competitive-Koeffizienten erreichen also bei den deterministischen Algorithmen. Wir sehen, dass wir hier logarithmisch in k sind. Die harmonische Zahl treffen wir auch bei anderen Themengebieten der Wahrscheinlichkeitstheorie an wie z.B. dem <a href="https://de.wikipedia.org/wiki/Sammelbilderproblem" target="_blank">Coupon Collector</a>.
+    Genauso wie wir für die deterministischen Online Paging Algorithmen eine untere Schranke für den Competitiveness-Coefficient gefunden haben, können wir auch für die randomisierten Online Paging Algorithmen einen solche untere Schranke bestimmen.<br><br>
+	 	<u>Satz:</u> <br> Sei R ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=0} \frac{1}{j}\), also die k-te harmonische Zahl. <br> <br>
+	 	Wir verzichten an dieser Stelle auf den Beweis, bemerken jedoch, dass wir einen wesentliche besseren Competitiveness-Coefficient erreichen als bei den deterministischen Algorithmen. Wir sehen, dass wir hier logarithmisch in k sind. <br> 
+	 	Die harmonische Zahl treffen wir auch in anderen Themengebieten der Wahrscheinlichkeitstheorie an wie z.B. beim <a href="https://de.wikipedia.org/wiki/Sammelbilderproblem" target="_blank">Coupon Collector</a>.
         <!-- Clearfix beacuse of thumbnail -->
     <div class="clearfix"></div>
     </p>
@@ -454,9 +462,9 @@ Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung
    	<div class="caption">Funktionsweise des Marker Algorithmus für eine Runde, mit \(k=5\)</div>
 	</div>
 
-	Nun wollen wir einmal einen konkreten randomisierten Algorithmus betrachten, den Marker Algorithmus. Dieser arbeitet in Runden. Jedem Cacheplatz sei ein Markierungsbit zugeordnet. Zu Beginn jeder Runde, werden alle Markierungsbits auf 0 gesetzt. <br>
-	Anfragen werden nun wie folgt bearbeitet: Wenn das angefragte Item im Cache ist wird das Markierungsbit des Cacheplatz des Items auf 1 gesetzt. Wenn es zu einem Miss kommt, wird das angefrage Item in den Cache geladen. Verdrängt wird hierbei wie folgt: Wähle zufällig gleichverteilt eines der Items von den Items auf den nicht markierten Cacheplätzen und ersetze dieses durch das angefrage Item. Außerdem wird das Markierungsbit des Cacheplatzes in den das neue Item geladen wird auf 1 gesetzt. <br>
-	Nachdem alle Cacheplätze markiert sind ist die Runde vorbei, sobald ein Item angefragt wird, welches sich nicht im Cache befindet. Die Grafik rechts visualisiert das Verfahren. Im Folgenden ist der Ablauf als Pseudocode dargestellt:<br><br>
+	Nun wollen wir einen konkreten randomisierten Algorithmus betrachten, den <mark>Marker Algorithmus</mark>. Dieser arbeitet in <mark>Runden</mark>. Jedem Cacheplatz ist ein <mark>Markierungsbit</mark> zugeordnet. Zu Beginn jeder Runde, werden alle Markierungsbits auf 0 gesetzt. <br>
+	Anfragen werden nun wie folgt bearbeitet: Wenn das angefragte Item im Cache ist, wird das Markierungsbit des Cacheplatz des Items auf 1 gesetzt. Wenn es zu einem Miss kommt, wird das angefrage Item in den Cache geladen. Verdrängt wird hierbei wie folgt: Wähle zufällig gleichverteilt eines der Items auf den nicht markierten Cacheplätzen und ersetze dieses durch das angefrage Item. Außerdem wird das Markierungsbit des Cacheplatzes, in den das neue Item geladen wird, auf 1 gesetzt. <br>
+	Nachdem alle Cacheplätze markiert sind, ist die Runde vorbei, sobald ein Item angefragt wird, welches sich nicht im Cache befindet. Die Grafik rechts visualisiert das Verfahren. Im Folgenden ist der Ablauf als Pseudocode dargestellt:<br><br>
 	<pre class="linenums">
 void markerAlgorithmus(int k){
 	// Marker initialisieren 
@@ -501,12 +509,11 @@ Array insert(Array cache, Array marker, Object inquiredElement){
 	cache.replace(replacedElement, inquiredElement);
 	return cache;
 }
-</pre><br>
+</pre>
 	
 	<h5><u>Beweis:</u> Der Marker Algorithmus ist \(2H_{k}\)-competitive.</h5>
-	Wir können beweisen, dass der Marker Algorithmus recht nahe an die untere Schranke für randomisierte Paging Algorithmen herankommt. Dies wollen wir nun tun. <br><br>
-	<u>Z.z.:</u> <br>
-	Der Marker Algorithmus ist \(2H_{k}\)-competitive.<br>
+	Wir können beweisen, dass der Marker Algorithmus recht nah an die untere Schranke für randomisierte Paging Algorithmen herankommt.<br><br>
+	<u>Z.z.:</u> Der Marker Algorithmus ist \(2H_{k}\)-competitive.<br>
 	Zunächst definieren wir uns eine Reihe von Variablen und Sachverhalten.<br> 
 	Es sei:
 	<ul>	
@@ -517,7 +524,7 @@ Array insert(Array cache, Array marker, Object inquiredElement){
 	</ul>
 Es gelte:
 	<ul>	
-		<li><abbr data-toggle = "tooltip" title="Dies vereinfacht uns den Beweis, da wir nun von 'markierten Items' sprechen können.">Item ist markiert \(\Leftrightarrow\) Cacheplatz auf dem es sich befindet, ist markiert</abbr>,</li>
+		<li><abbr data-toggle = "tooltip" title="Dies vereinfacht uns den Beweis, da wir nun von 'markierten Items' sprechen können.">Item ist markiert \(\Leftrightarrow\) Cacheplatz auf dem das Item sich befindet, ist markiert</abbr>,</li>
 		<li>für Runden:
 			<ul>
 				<li>erste Runde beginnt mit \(p_{1}\),</li>
@@ -527,13 +534,13 @@ Es gelte:
 	</ul>
 	<ul>
 Es sei:
-		<li>ein "stale" Item ein Item, für das gilt: Item ist nicht markiert \(\land\) Item war markiert in vorheriger Runde,</li>
-		<li>ein "clean" Item ein Item, für das gilt: Item ist nicht markiert \(\land\) Item ist nicht stale,</li>
+		<li>ein <mark>stale Item</mark> ein Item, für das gilt: Item ist nicht markiert \(\land\) Item war markiert in vorheriger Runde,</li>
+		<li>ein <mark>clean Item</mark> ein Item, für das gilt: Item ist nicht markiert \(\land\) Item ist nicht stale,</li>
 		<li>\(l\) die Anzahl von Anfragen nach cleanen Items in einer Runde,</li>
 		<li>\(S_{O}\) die Menge von Items, die im Cache des \(O\) sind,</li>
 		<li>\(S_{M}\) die Menge von Items, die im Cache des \(M\) sind,</li>
-		<li>\(d_{I} = |S_{O} \setminus S_{M}|\) am Beginn der Runde,</li>
-		<li>\(d_{F} = |S_{O} \setminus S_{M}|\) am Ende der Runde,</li>
+		<li>\(d_{I} = |S_{O} \setminus S_{M}|\) am Beginn einer Runde,</li>
+		<li>\(d_{F} = |S_{O} \setminus S_{M}|\) am Ende einer Runde,</li>
 		<li>\(M_{O}\) die Anzahl von Misses, die \(O\) während einer Runde produziert.</li>
 	</ul>
 
@@ -563,8 +570,8 @@ Es sei:
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
             	            <ol>
-         	               	<li>Wir wissen: ein cleanes Item ist weder stale, noch markiert. Wenn es aber nicht stale ist, so wissen wir, dass es in der vorherigen Runde am Ende dieser Runde <abbr data-toggle="tooltip" title="Alle Items die am Ende einer Runde im Cache sind, müssen nach Definition des Marker Algorithmus markiert und damit in der darauf folgenden Runde stale sein.">garantiert nicht im Cache war</abbr>. Ist das Item außerdem nicht markiert ist, so wissen wir, dass das Item in der aktuellen Runde bisher weder im Cache gefunden noch in diesen geladen wurde. Da das angefragte Item also weder aus der letzten Runde noch im Cache ist noch bisher in den Cache geladen wurde, bedeutet die Anfrage des Items auf jeden Fall einen Miss. </li>
-      	                  	<li>Ein stales Item kann mit einer gewissen Wahrscheilichkeit noch im Cache liegen, da es in der <abbr data-toggle="tooltip" title="Das folgt daraus, dass das Item in dieser Runde markiert war.">vorherigen Runde am Ende dieser Runde im Cache war</abbr> und möglicherweise durch Anfragen der aktuellen Runde noch nicht verdrängt wurde. Damit ist die Wahrscheinlichkeit bei der Anfrage eines stalen Items einen Miss zu verursachen die Wahrscheinlichkeit, dass das angefragte Item bereits verdrängt wurde. Wie wir dies Wahrscheinlichkeit genau berechnen schauen wir uns später an.                  </li>
+         	               	<li>Wir wissen: ein cleanes Item ist weder stale, noch markiert. Wenn es aber nicht stale ist, so wissen wir, dass es in der vorherigen Runde am Ende dieser Runde <abbr data-toggle="tooltip" title="Alle Items die am Ende einer Runde im Cache sind, müssen nach Definition des Marker Algorithmus markiert und damit in der darauf folgenden Runde stale sein.">garantiert nicht im Cache war</abbr>. Ist das Item außerdem nicht markiert ist, so wissen wir, dass das Item in der aktuellen Runde bisher weder im Cache gefunden noch in diesen geladen wurde. Da das angefragte Item also weder aus der letzten Runde noch im Cache ist, noch bisher in den Cache geladen wurde, bedeutet die Anfrage des Items auf jeden Fall einen Miss. </li>
+      	                  	<li>Ein stales Item kann mit einer gewissen Wahrscheinlichkeit noch im Cache liegen, da es in der <abbr data-toggle="tooltip" title="Das folgt daraus, dass das Item in dieser Runde markiert war.">vorherigen Runde am Ende dieser Runde im Cache war</abbr> und möglicherweise durch Anfragen der aktuellen Runde noch nicht verdrängt wurde. Damit ist die Wahrscheinlichkeit bei der Anfrage eines stalen Items einen Miss zu verursachen die Wahrscheinlichkeit, dass das angefragte Item bereits verdrängt wurde. Wie wir diese Wahrscheinlichkeit genau berechnen, schauen wir uns später an.</li>
 									</ol>	                     
    	                     </div>
 	
@@ -579,10 +586,12 @@ Es gelte:
 	</ul>
 Um nun den eigentlichen Sachverhalt zu zeigen, reicht es folgende zwei Sachverhalte zu zeigen:
 	<ol>	
-		<li>Z.z.: Die <a href="https://hpi.de/friedrich/teaching/units/amortisierte-analyse.html" target="_blank">amortisierte</a> Anzahl von Misses des \(O\) während einer Runde \(\geq \frac{l}{2}\).</li>
-		<li>Z.z.: Die erwartete Anzahl von Misses des M während einer Runde \(\leq lH_{k}\).</li>
+		<li>Z.z.: Die <a href="https://hpi.de/friedrich/teaching/units/amortisierte-analyse.html" target="_blank">amortisierte</a> Anzahl von Misses des \(O\) während einer Runde ist \(\geq \frac{l}{2}\).</li>
+		<li>Z.z.: Die erwartete Anzahl von Misses des \(M\) während einer Runde ist \(\leq lH_{k}\).</li>
 	</ol>
-Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2}, ..., p_{n})]-C \times f_{O}(p_1, p_2, ..., p_{n}) \leq b\) entsprechend einsetzen auf die untere Schranke von \(2H_{k}\) kommen. Das wir hier die Werte nur für eine Runde zeigen, ist dabei nicht weiter schlimm, da wir einfach mit der Anzahl der Runden multiplizieren können um auf die Gesamtanzahl an Misses zu kommen. Da wir aber bei beiden Algorithmen die Anzahl mit dem gleichen Faktor multiplizieren, können wir uns das für unsere Betrachtung sparen. <br><br>
+Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
+ \(E[f_{M}(p_{1}, p_{2}, ..., p_{n})]-C \times f_{O}(p_1, p_2, ..., p_{n}) \leq b\) <br>
+ entsprechend einsetzen, auf die untere Schranke von \(2H_{k}\) kommen. Das wir hier die Werte nur für eine Runde zeigen, ist dabei nicht weiter schlimm, da wir einfach mit der Anzahl der Runden multiplizieren können, um auf die Gesamtanzahl an Misses zu kommen. Da wir aber bei beiden Algorithmen die Anzahl mit dem gleichen Faktor multiplizieren, können wir uns das für unsere Betrachtung sparen. <br><br>
 <u>Zu 1.:</u> <br>
 	Betrachten wir den Anfang einer Runde, können wir feststellen: \(M_{O} \geq l-d_{I}\)
 	
@@ -598,7 +607,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                       	  <div class="task">
                      	   	Der obige Beweisschritt wird klarer, wenn du dir verdeutlichst, was der Term \(l-d_{I}\) aussagt:
                      	   	<ul>
-                     	   		<li>Formuliere einen (deutschen) Satz, der wiedergibt was \(l-d_{I}\) aussagt.</li>  
+                     	   		<li>Formuliere einen (deutschen) Satz, der wiedergibt, was \(l-d_{I}\) aussagt.</li>  
                      	   	</ul>      
    	                     </div>
 	
@@ -609,15 +618,16 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
-            	            	 \(d_{I}\) ist die Anzahl an cleanen Items in \(S_{O}\), da diese Items am Anfang der aktuellen Runde nicht im Cache von \(S_{M}\) sind. Damit können sie nicht stale sein und markiert ist am Anfang einer Runde nach Definition das Algorithmus kein Item. Wir berechnen hier die minimale Anzahl an Misses die \(S_{O}\) für Anfragen nach cleanen Items \(l\) verursacht. Dazu ziehen wir die Anzahl an cleanen Items, die bereits im Cache von \(O\) vorhanden sind, von den Anfragen nach cleanen Items ab, da Anfragen nach cleanen Items \(\in S_{O}\) keine Misses verursachen. Wichtig ist hier zu bemerken, dass die Items nach Definition clean aus der Sicht des M sind, wir aber derzeit die Anzahl von Misses, die der O verursacht betrachten. Anfragen nach cleanen Items an M lösen natürlich weiterhin genau \(l\) Misses aus.
+            	            	Wir berechnen hier die minimale Anzahl an Misses die \(O\) für Anfragen nach cleanen Items verursacht. <br>
+            	            	 \(d_{I}\) ist die Anzahl an cleanen Items in \(S_{O}\), da diese Items am Anfang der aktuellen Runde nicht im Cache des \(M\) sind. Damit können sie nicht stale sein und markiert ist am Anfang einer Runde nach Definition das Algorithmus kein Item. Wir ziehen die Anzahl an cleanen Items, die bereits im Cache des \(O\) vorhanden sind, von den Anfragen nach cleanen Items ab, da Anfragen nach cleanen Items \(\in S_{O}\) keine Misses verursachen. Wichtig ist hier zu bemerken, dass die Items nach Definition clean aus der Sicht des \(M\) sind, wir aber derzeit die Anzahl von Misses, die der \(O\) verursacht, betrachten. Anfragen nach cleanen Items an \(M\) lösen natürlich weiterhin genau \(l\) Misses aus (siehe Aufgabe "stale/clean").
    	                     </div>
 	
                   	  </div>
                	 </div>
             	</div>
             </div>
-    Betrachten wir das Ende einer Runde, können wir feststellen: \(M_{O} \geq d_{F}\). Denn alle Elemente, die am Ende einer Runde in \(S_{M}\) sind wurden nach Definition Ms in dieser Runde angefragt. All diese Elemente müssen also auch einmal während der Runde in \(S_{O}\) gewesen sein. Da \(d_{F}\) von ihnen das offensichtlich nicht mehr sind, muss \(O\) mindestens \(d_{F}\) Misses produziert haben. <br>
-    Aus den obigen beiden Beobachtungen können wir ableiten, dass \(M_{O} \geq max{l-d_{I},d_{F}) \geq \frac{(l-d_{I})+d_{F}}{2}
+    Betrachten wir das Ende einer Runde, können wir feststellen: \(M_{O} \geq d_{F}\). Denn alle Elemente, die am Ende einer Runde in \(S_{M}\) sind, wurden nach Definition \(M\)s in dieser Runde angefragt. All diese Elemente müssen also auch einmal während der Runde in \(S_{O}\) gewesen sein. Da \(d_{F}\) von ihnen das offensichtlich nicht mehr sind, muss \(O\) mindestens \(d_{F}\) Misses produziert haben. <br>
+    Aus den obigen beiden Beobachtungen können wir ableiten, dass \(M_{O} \geq max\{l-d_{I},d_{F}\} \geq \frac{(l-d_{I})+d_{F}}{2}\).
 	
 <!-- Verständnisaufgabe 7.3: Teleskopieren -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
@@ -629,7 +639,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                     		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
                      	<!-- Aufgabe: Teleskopieren -->
                       	  <div class="task">
-                     	   	Wenn wir \frac{(l-d_{I})+d_{F}}{2} über alle Runden aufsummieren, kommen wir zu einer interessanten Beobachtung:
+                     	   	Wenn wir \(\frac{(l-d_{I})+d_{F}}{2}\) über alle Runden aufsummieren, kommen wir zu einer interessanten Beobachtung:
                      	   	<ul>
                      	   		<li>Überlege dir, was passiert, wenn wir den Term über alle Runden aufsummieren.</li>  
                      	   	</ul>      
@@ -642,14 +652,14 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
-											\(d_{I} und d_{F}\) teleskopieren. Nummerieren wir die Summanden durch und schreiben in den Index der Variablen des jeweiligen Summanden die Nummer des Summanden, können wir sagen, dass \(d_{F_{1}} = d_{I_{2}}\). Hierdurch fallen alle \(d_{F}\) und \(d_{I}\) weg, bis auf das \(d_{I}\) des ersten und das \(d_{F}\) des letzten Summanden.
+											\(d_{I}\) und \(d_{F}\) teleskopieren. Nummerieren wir die Summanden durch und schreiben in den Index der Variablen des jeweiligen Summanden die Nummer des Summanden, können wir sagen, dass z.B. \(d_{F_{1}} = d_{I_{2}}\). Hierdurch fallen alle \(d_{F}\) und \(d_{I}\) weg, bis auf das \(d_{I}\) des ersten und das \(d_{F}\) des letzten Summanden.
                   	  </div>
                	 </div>
             	</div>
             </div>	
            </div>
 	
-	Daraus folgt, dass für O die amortisierte Anzahl an Misses pro Runde \(\geq \frac{l}{2}\).
+	Daraus folgt, dass für \(O\) die amortisierte Anzahl an Misses pro Runde \(\geq \frac{l}{2}\).
 	
 	<!-- Verständnisaufgabe 7.4: Fehlerbetrachtung amortisierte Analyse -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
@@ -674,15 +684,15 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
-            	            	Unser Fehler hat maximal eine größe von k.
-										\(d_{I}\) und \(d_{F}\) können nach ihrer Definition maximal k groß werden, nämlich genau dann, wenn sich \(S_{O}\) und \(S_{M}\) in alle Elementen unterscheiden. Beachten wir, dass \(S_{O} = S_{M}\) vor der ersten Runde gelten soll, wissen wir außerdem, dass unser \(d_{I} = 0\).
+            	            	Unser Fehler hat maximal eine Größe von \(k\).
+										\(d_{I}\) und \(d_{F}\) können nach ihrer Definition maximal \(k\) groß werden, nämlich genau dann, wenn sich \(S_{O}\) und \(S_{M}\) in alle Elementen unterscheiden. Beachten wir, dass \(S_{O} = S_{M}\) vor der ersten Runde gelten soll, wissen wir außerdem, dass unser \(d_{I} = 0\).
                   	  </div>
                	 </div>
             	</div>
             </div>
            </div>
 	<u>Zu 2.:</u> <br>
-	Wir haben uns bereits in der ersten Aufgabe dieses Abschnitts überlegt, dass jede der \(l\) Anfragen nach einem cleanen Item ein Miss für M bedeuten muss. Es verbleiben \(k-l\) Anfragen nach stalen Items in einer Runde. Für die Anfragen nach stalen Items hatten wir uns überlegt, dass die erwarteten Kosten für jede Anfrage die Wahrscheinlichkeit ist, dass das angefragte Item \(\notin S_{M}\).
+	Wir haben uns bereits in der ersten Aufgabe dieses Abschnitts überlegt, dass jede der \(l\) Anfragen nach einem cleanen Item ein Miss für M bedeuten muss. Es verbleiben \(k-l\) Anfragen nach stalen Items in einer Runde. Für die Anfragen nach stalen Items hatten wir uns überlegt, dass die erwarteten Kosten für jede Anfrage die Wahrscheinlichkeit sind, dass das angefragte Item \(\notin S_{M}\).
 	
 	<!-- Verständnisaufgabe 7.5: Kostenmaximierung stale Items -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
@@ -696,7 +706,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                       	  <div class="task">
 										Da wir für die Anzahl von Misses die \(M\) während einer Runde produziert eine obere Schranke zeigen wollen, stellt sich die Frage:
                      	   	<ul>
-                     	   		<li>Wie können wir die erwarteten Kosten für jede Anfrage nach einem stalen Item maximieren?</li>  
+                     	   		<li>Wie können wir die erwarteten Kosten für Anfragen nach stalen Items maximieren?</li>  
                      	   	</ul>      
    	                     </div>
 	
@@ -714,13 +724,13 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
             </div>
            </div>
            
-           Nun stellt sich die Frage wie die groß die Wahrscheilichkeit ist, dass bei der i-ten Anfrage nach einem stalen Item \(1 \leq i \leq k-l\), dieses nicht mehr \(\in S_{M}\) ist. Nach ein paar Überlegungen stellen wir fest, dass diese Wahrscheilichkeit \(\frac{l}{k-i+1}\) beträgt.
+           Nun stellt sich die Frage, wie die groß die Wahrscheilichkeit ist, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\), dieses nicht mehr in \(S_{M}\) ist. Nach ein paar Überlegungen stellen wir fest, dass diese Wahrscheilichkeit \(\frac{l}{k-i+1}\) beträgt.
 	
 <!-- Verständnisaufgabe 7.5: Wahrscheinlichkeit stale Item ist noch in \(S_{M}\) -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
             	<div class="panel panel-warning" id="frage_7_6">
                	 <div class="panel-heading" role="tab" id="frage_heading_7_6" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_6" aria-expanded="false" aria-controls="frage_content_7_6">
-                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Wahrscheinlichkeit, dass ein stales Item <br> nicht mehr \(\in S_{M}\) herleiten</h4>
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Wahrscheinlichkeit, dass ein stales Item <br> nicht in \( S_{M}\) ist, herleiten</h4>
                 	 </div>
                 	 <div id="frage_content_7_6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_6">
                     		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
@@ -728,21 +738,21 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                       	  <div class="task">
 										Der gerade genannte Term wirkt vom Himmel gefallen:
                      	   	<ul>
-                     	   		<li>Überlege dir, wieso die Wahrscheilichkeit, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\), dieses nicht mehr in \(S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
+                     	   		<li>Überlege dir, wieso die Wahrscheilichkeit, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\), dieses nicht in \(S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
                      	   	</ul>      
    	                     </div>
 	
                	         <!-- Hinweise --->
             	            <div class="hint"> <h5>Hinweise</h5>
-										Verdeutliche dir was wir hier mit der Formel modellieren und stelle für diesen Sachverhalt selbst eine Formel auf. Forme diese anschließend so um, dass du auf den gegebenen Term kommst.
+										Verdeutliche dir, was wir mit der Formel modellieren und stelle für diesen Sachverhalt selbst eine Formel auf. Forme diese anschließend so um, dass du auf den gegebenen Term kommst.
    	                     </div>
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
             	            <ul>
-										<li>\(k-l\) stale Items sind nach den ersten \(l\) Anfragen noch im Cache.</li>
+										<li>\(k-l\) stale Items sind nach den \(l\) Anfragen nach cleanen Items noch im Cache.</li>
 										<li>Demnach ist \(\frac{k-l}{k}\) die Wahrscheinlichkeit, dass das erste angefragte stale Item noch im Cache ist.</li>
-										<li>Bei der i-ten Anfrage haben wir zuvor bereits \(i-1\) stale Items angefragt. Diese sind nun im Cache und für die weitere Betrachtung uninteressant, da wir sicher wissen, dass sie im Cache sind. Daher muss \(\frac{k-l-(i-1)}{k-(i-1)}\) die Wahrscheinlichkeit sein, dass bei der i-ten Anfrage nach einem stalen Item, dieses \(\in S_{M}\) ist.</li> 
+										<li>Bei der i-ten Anfrage haben wir zuvor bereits \(i-1\) stale Items angefragt. Diese sind nun im Cache und für die weitere Betrachtung uninteressant, da wir sicher wissen, dass sie im Cache sind. Daher muss \(\frac{k-l-(i-1)}{k-(i-1)}\) die Wahrscheinlichkeit sein, dass bei der i-ten Anfrage nach einem stalen Item, dieses in \(S_{M}\) ist.</li> 
 										<li>Wir wollen jedoch gerade die Wahrscheinlichkeit des Gegenereignisses, also: \(1-\frac{k-l-(i-1)}{k-(i-1)}\) </li>
 										<li>Nun formen wir um: \(1-\frac{k-l-(i-1)}{k-(i-1)} = 1-(\frac{k-i+1}{k-i+1}-\frac{l}{k-i+1}) = 1-(1-\frac{l}{k-i+1}) = \frac{l}{k-i+1}\).
 									</ul>
@@ -753,9 +763,9 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
             </div>
            </div>
            
-           Summieren wir die erwarteten Anzahl an Misses für alle i auf, so folgt:
+           Summieren wir die erwartete Anzahl an Misses für alle i auf, so folgt:
            \(\sum^{k-l}_{i=1} \frac{l}{k-i+1} = l \sum^{k-l}_{i=1} \frac{1}{k-i+1} = l \sum^{k}_{i=l+1} \frac{1}{i} ; (l+1 \geq 1)\) <br>
-           \(l \sum^{k}_{i=l+1} \frac{1}{i} \leq l \sum^{k}_{i=1} \frac{1}{i}\ = lH_{k} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \square \) <br>
+           \(l \sum^{k}_{i=l+1} \frac{1}{i} \leq l \sum^{k}_{i=1} \frac{1}{i}\ = lH_{k} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \square \) <br><br>
            Du kannst nun unsere bewiesenen Schranken aus 1. und 2. in die Formel für die Competitiveness von randomisierten Algorithmen einsetzen und siehst dann, dass \(C^{Obl}_{M} = 2H_{k}\), der Marker Algorithmus also \(2H_{k}\)-competitive ist.
 	
 	<br><br>
@@ -768,14 +778,14 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
 
 <hr>
 <!------------------------------>
-<!-- Abschnitt 8: Vergleich deterministisch/randomisiert -->
-<h4 id="anchor_navigation-5">8. Vergleich deterministisch vs. randomisiert</h4>
+<!-- Abschnitt 9: Vergleich deterministisch/randomisiert -->
+<h4 id="anchor_navigation-5">9. Vergleich deterministisch vs. randomisiert</h4>
 <p>
-Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen logarithmisch in k sind und damit deutlich Competitiver. <br>
+Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen logarithmisch in k sind und damit deutlich competitiver. <br>
 <!-- Bild mit Unterschrift -->
 	<div class="thumbnail">           
    	<img src="resources/harmonicSequence.png">
-   	<div class="caption">Vergleich des linearen Wachstums (schwarz) zum Wachstum der harmonischen Folge (grün). Rot ist \(ln(x)\) mit eingezeichnet.</div>
+   	<div class="caption">Vergleich des linearen Wachstums (schwarz) zum Wachstum der harmonischen Folge (grün). \(ln(x)\) (rot) ist mit eingezeichnet.</div>
 	</div>
 
 
@@ -784,8 +794,8 @@ Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorith
 </p>
 <hr>
 <!----------------------------------->
-<!-- Abschnitt 9.: Zusammenfassung -->
-<h4 id="anchor_navigation-3">9. Was haben wir gelernt?</h4>
+<!-- Abschnitt 10.: Zusammenfassung -->
+<h4 id="anchor_navigation-3">10. Was haben wir gelernt?</h4>
 <p>
 	<ol>
 		<li></li>
