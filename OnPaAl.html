@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-18T23:08:10+0200" >
+<meta name="date" content="2017-07-19T12:24:29+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -925,7 +925,7 @@ Array insert(Array cache, Array marker, Object inquiredElement){
 }
 </pre><br>
 	
-	<h5>Beweis: Der Marker Algorithmus ist \(2H_{k}\)-competitive.</h5>
+	<h5><u>Beweis:</u> Der Marker Algorithmus ist \(2H_{k}\)-competitive.</h5>
 	Wir können beweisen, dass der Marker Algorithmus recht nahe an die untere Schranke für randomisierte Paging Algorithmen herankommt. Dies wollen wir nun tun. <br><br>
 	<u>Z.z.:</u> <br>
 	Der Marker Algorithmus ist \(2H_{k}\)-competitive.<br>
@@ -939,7 +939,7 @@ Array insert(Array cache, Array marker, Object inquiredElement){
 	</ul>
 Es gelte:
 	<ul>	
-		<li>Item ist markiert \(\Leftrightarrow\) Cacheplatz auf dem es sich befindet, ist markiert,</li>
+		<li><abbr data-toggle = "tooltip" title="Dies vereinfacht uns den Beweis, da wir nun von 'markierten Items' sprechen können.">Item ist markiert \(\Leftrightarrow\) Cacheplatz auf dem es sich befindet, ist markiert</abbr>,</li>
 		<li>für Runden:
 			<ul>
 				<li>erste Runde beginnt mit \(p_{1}\),</li>
@@ -954,10 +954,47 @@ Es sei:
 		<li>\(l\) die Anzahl von Anfragen nach cleanen Items in einer Runde,</li>
 		<li>\(S_{O}\) die Menge von Items, die im Cache des \(O\) sind,</li>
 		<li>\(S_{M}\) die Menge von Items, die im Cache des \(M\) sind,</li>
-		<li>\(d_{I} = |S_{O}\S_{M}|\) am Beginn der Runde,</li>
-		<li>\(d_{F} = |S_{O}\S_{M}|\) am Ende der Runde,</li>
+		<li>\(d_{I} = |S_{O} \setminus S_{M}|\) am Beginn der Runde,</li>
+		<li>\(d_{F} = |S_{O} \setminus S_{M}|\) am Ende der Runde,</li>
 		<li>\(M_{O}\) die Anzahl von Misses, die \(O\) während einer Runde produziert.</li>
 	</ul>
+
+<!-- Verständnisaufgabe 7.1: Anfrage stale/clean Item -> Anzahl Misses -->
+				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
+            	<div class="panel panel-warning" id="frage_7_1">
+               	 <div class="panel-heading" role="tab" id="frage_heading_7_1" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_1" aria-expanded="false" aria-controls="frage_content_7_1">
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; stale/clean</h4>
+                	 </div>
+                	 <div id="frage_content_7_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_1">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                     	<!-- Aufgabe: Anfrage stale/clean Item -> Anzahl Misses -->
+                      	  <div class="task">
+                     	   	Um das Konzept von stalen/cleanen Items zu verinnerlichen, ist es hilfreich, wenn du folgende Fragen beantwortest:
+                     	   	<ol>
+                     	   		<li>Was bedeutet die Anfrage eines cleanen Items für die Anzahl von Misses die \(M\) in einer Runde verursacht?</li>  
+                     	   		<li>Was bedeutet die Anfrage eines stalen Items für die Anzahl von Misses die \(M\) in einer Runde verursacht?</li>  
+                     	   	</ol>      
+                     	   	(Genaue Formeln sind hier nicht gefragt.)
+   	                     </div>
+	
+               	         <!-- Hinweise --->
+            	            <div class="hint"> <h5>Hinweise</h5>
+         	                   Mache dir bewusst, was die Eigenschaft clean/stale über das Vorkommen des Items im Cache der aktuellen Runde aussagt.
+   	                     </div>
+	
+               	         <!-- Musterlösung -->
+            	            <div class="solution"> <h5>Beispiellösung</h5>
+            	            <ol>
+         	               	<li>Wir wissen: ein cleanes Item ist weder stale, noch markiert. Wenn es aber nicht stale ist, so wissen wir, dass es in der vorherigen Runde am Ende dieser Runde <abbr data-toggle="tooltip" title="Alle Items die am Ende einer Runde im Cache sind, müssen nach Definition des Marker Algorithmus markiert und damit in der darauf folgenden Runde stale sein.">garantiert nicht im Cache war</abbr>. Ist das Item außerdem nicht markiert ist, so wissen wir, dass das Item in der aktuellen Runde bisher weder im Cache gefunden noch in diesen geladen wurde. Da das angefragte Item also weder aus der letzten Runde noch im Cache ist noch bisher in den Cache geladen wurde, bedeutet die Anfrage des Items auf jeden Fall einen Miss. </li>
+      	                  	<li>Ein stales Item kann mit einer gewissen Wahrscheilichkeit noch im Cache liegen, da es in der <abbr data-toggle="tooltip" title="Das folgt daraus, dass das Item in dieser Runde markiert war.">vorherigen Runde am Ende dieser Runde im Cache war</abbr> und möglicherweise durch Anfragen der aktuellen Runde noch nicht verdrängt wurde. Damit ist die Wahrscheinlichkeit bei der Anfrage eines stalen Items einen Miss zu verursachen die Wahrscheinlichkeit, dass das angefragte Item bereits verdrängt wurde. Wie wir dies Wahrscheinlichkeit genau berechnen schauen wir uns später an.                  </li>
+									</ol>	                     
+   	                     </div>
+	
+                  	  </div>
+               	 </div>
+            	</div>
+            </div>
+
 Es gelte:
 	<ul>	
 		<li>initial (vor der ersten Runde): \(S_{O} = S_{M} \land p_{1} \notin S_{O} \cup S_{M} \)</li>
@@ -967,7 +1004,43 @@ Um nun den eigentlichen Sachverhalt zu zeigen, reicht es folgende zwei Sachverha
 		<li>Z.z.: Die amortisierte Anzahl von Misses des \(O\) während einer Runde \(\geq \frac{l}{2}\).</li>
 		<li>Z.z.: Die erwartete Anzahl von Misses des M während einer Runde \(\leq lH_{k}\).</li>
 	</ol>
-Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2}, ..., p_{n})]-C \times f_{O}(p_1, p_2, ..., p_{n}) \leq b\) entsprechend einsetzen auf die untere Schranke von \(2H_{k}\) kommen. Das wir hier die Werte nur für eine Runde zeigen, ist dabei nicht weiter schlimm, da wir einfach mit der Anzahl der Runden multiplizieren können um auf die Gesamtanzahl an Misses zu kommen. Da wir aber bei beiden Algorithmen die Anzahl mit dem gleichen Faktor multiplizieren, können wir uns das für unsere Betrachtung sparen. 
+Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2}, ..., p_{n})]-C \times f_{O}(p_1, p_2, ..., p_{n}) \leq b\) entsprechend einsetzen auf die untere Schranke von \(2H_{k}\) kommen. Das wir hier die Werte nur für eine Runde zeigen, ist dabei nicht weiter schlimm, da wir einfach mit der Anzahl der Runden multiplizieren können um auf die Gesamtanzahl an Misses zu kommen. Da wir aber bei beiden Algorithmen die Anzahl mit dem gleichen Faktor multiplizieren, können wir uns das für unsere Betrachtung sparen. <br><br>
+<u>Zu 1.:</u> <br>
+	Betrachten wir den Anfang einer Runde, können wir feststellen: 
+	\(M_{O} \geq l-d_{I}\)
+	
+	<!-- Verständnisaufgabe 7.2: Aussage von \(l-d_{I}\) -->
+				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
+            	<div class="panel panel-warning" id="frage_7_2">
+               	 <div class="panel-heading" role="tab" id="frage_heading_7_2" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_2" aria-expanded="false" aria-controls="frage_content_7_2">
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 7 &mdash; Aussage von \(l-d_{I}\)</h4>
+                	 </div>
+                	 <div id="frage_content_7_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_2">
+                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                     	<!-- Aufgabe: Aussage von \(l-d_{I}\) -->
+                      	  <div class="task">
+                     	   	Der obige Beweisschritt wird klarer, wenn du dir verdeutlichst, was der Term \(l-d_{I}\) aussagt:
+                     	   	<ul>
+                     	   		<li>Formuliere einen (deutschen) Satz, der wiedergibt was \(l-d_{I}\) aussagt.</li>  
+                     	   	</ul>      
+   	                     </div>
+	
+               	         <!-- Hinweise --->
+            	            <div class="hint"> <h5>Hinweise</h5>
+										Mache dir zunächst klar, was \(d_{I}\) über die Items, die im Cache von \(S_{O}\) liegen, aussagt.
+   	                     </div>
+	
+               	         <!-- Musterlösung -->
+            	            <div class="solution"> <h5>Beispiellösung</h5>
+            	            	 \(d_{I}\) ist die Anzahl an cleanen Items in \(S_{O}\), da diese Items am Anfang der aktuellen Runde nicht im Cache von \(S_{M}\) sind. Damit können sie nicht stale sein und markiert ist am Anfang einer Runde nach Definition das Algorithmus kein Item. Wir berechnen hier die minimale Anzahl an Misses die \(S_{O}\) für Anfragen nach cleanen Items \(l\) verursacht. Dazu ziehen wir die Anzahl an cleanen Items, die bereits im Cache von \(O\) vorhanden sind, von den Anfragen nach cleanen Items ab, da Anfragen nach cleanen Items \(\in S_{O}\) keine Misses verursachen. Wichtig ist hier zu bemerken, dass die Items nach Definition clean aus der Sicht des M sind, wir aber derzeit die Anzahl von Misses, die der O verursacht betrachten. Anfragen nach cleanen Items an M lösen natürlich weiterhin genau \(l\) Misses aus.
+   	                     </div>
+	
+                  	  </div>
+               	 </div>
+            	</div>
+            </div>
+            
+            
 	<br><br>
 	Abschließend sei bemerkt, dass es Algorithmen gibt, die näher an die untere Schranke von \(H_{k}\) herankommen z.B.: ... .
 
