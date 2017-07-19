@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-19T15:13:20+0200" >
+<meta name="date" content="2017-07-19T20:09:02+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://hpi.de/friedrich/teaching/units/graphentheorie.html">
@@ -278,102 +278,6 @@
             <div class="clearfix"></div>
             </p>
 
-        <!-- Kontrollfragen: Abschnitt 1 -->
-        <!-- Verschiedene Algorithmen Offline/Online zuordnen -->
-        <div class="kontrollfragen panel-group" id="kontrollfragen_01" role="tablist" aria-multiselectable="false">
-
-            <!-- Kontrollfrage 1-1 -->
-            <div class="panel panel-warning" id="frage_1_1">
-                <div class="panel-heading" role="tab" id="frage_heading_1_1" data-toggle="collapse" data-parent="#kontrollfragen_01" href="#frage_content_1_1" aria-expanded="false" aria-controls="frage_content_1_1">
-                    <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 1</h4>
-                </div>
-                <div id="frage_content_1_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_1_1">
-                    <div class="panel-body">
-
-                        <!-- form-kontrollfrage -->
-                        <form class="form-horizontal form-kontrollfrage">
-                            <div class="form-group">
-                                <label for="input_1-frage_1_1" class="col-sm-6 control-label">
-                                    Bezeichne die gesamte Kantenmenge \(E\) für den Nikolaus-Graphen \(N\) (<em>Abbildung</em>).
-                                </label>
-                                <div class="col-sm-6 input-group" data-explain="UndirectedEdgeSet">
-                                    <div class="input-group-addon">{</div>
-                                    <input type="text" class="form-control" id="input_1-frage_1_1" placeholder="Kantenmenge">
-                                    <div class="input-group-addon">}</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input_2-frage_1_1" class="col-sm-6 control-label">
-                                    Finde einen Knoten mit maximalem Knotengrad in \(N\).
-                                </label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="input_2-frage_1_1" placeholder="Knotenname">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input_3-frage_1_1" class="col-sm-6 control-label">
-                                    Nach dem Entfernen welcher Kante in \(N\) ist der maximale Knotengrad gleich 3?
-                                </label>
-                                <div class="col-sm-6 input-group" data-explain="UndirectedEdge">
-                                    <div class="input-group-addon">{</div>
-                                    <input type="text" class="form-control" id="input_3-frage_1_1" placeholder="Kante">
-                                    <div class="input-group-addon">}</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input_4-frage_1_1" class="col-sm-6 control-label">
-                                    Nenne zwei Kanten aus \(N\), nach dessen Entfernen ein Knoten isoliert ist.
-                                </label>
-                                <div class="col-sm-6 input-group" data-explain="UndirectedEdgeSet">
-                                    <div class="input-group-addon">{</div>
-                                    <input type="text" class="form-control" id="input_4-frage_1_1" placeholder="Kantenmenge">
-                                    <div class="input-group-addon">}</div>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="input_5-frage_1_1" class="col-sm-6 control-label">
-                                    Nenne drei Knoten aus \(N\), nach deren Entfernen genau zwei isolierte Knoten in \(N\) übrig bleiben.
-                                </label>
-                                <div class="col-sm-6 input-group" data-explain="VerticeSet">
-                                    <div class="input-group-addon">{</div>
-                                    <input type="text" class="form-control" id="input_5-frage_1_1" placeholder="Knotenmenge">
-                                    <div class="input-group-addon">}</div>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="input_6-frage_1_1" class="col-sm-6 control-label">
-                                    Wie viele Kanten besitzt \(N[\{a,c\}]\)?
-                                </label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="input_6-frage_1_1" placeholder="Anzahl der Kanten">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input_7-frage_1_1" class="col-sm-6 control-label">
-                                    Wie viele Kanten besitzt \(N[\emptyset]+\{a,b,c,d,e\}\)?
-                                </label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="input_7-frage_1_1" placeholder="Anzahl der Kanten">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-6 col-sm-6"> 
-                                    <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösungen überprüfen</button>
-                                </div>
-                            </div>
-                        </form>
-
-
-
-                    </div>
-                </div>
-            </div>
-
-         </div>
-
-
         <hr>
         <!----------------------------------->
         <!-- Abschnitt 2: Das Paging Problem -->
@@ -389,158 +293,6 @@
     <!-- Clearfix because of thumbnail -->
     <div class="clearfix"></div>
     </p>
-
-
-<!-- Kontrollfragen: Abschnitt 2 -->
-<div class="kontrollfragen panel-group" id="kontrollfragen_02" role="tablist" aria-multiselectable="false">
-
-    <!-- Verständnisaufgaben zu Abschnitt 2 -->
-    <div class="panel panel-warning" id="frage_2_1">
-        <div class="panel-heading" role="tab" id="frage_heading_2_1" data-toggle="collapse" data-parent="#kontrollfragen_02" href="#frage_content_2_1" aria-expanded="false" aria-controls="frage_content_2_1">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 2</h4>
-        </div>
-        <div id="frage_content_2_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_2_1">
-            <div class="panel-body">
-
-                <!-- form-kontrollfrage -->
-                <form class="form-horizontal form-kontrollfrage">
-                    <div class="form-group">
-                        <label for="input_1-frage_2_1" class="col-sm-6 control-label">
-                            Sei \(K\) ein Graph mit den Knoten \(\{x,y,z\}\). Spezifiziere die Kantenmenge \(E(K)\) so, dass K einen Kreis enthält
-                        </label>
-                        <div class="col-sm-6 input-group" data-explain="UndirectedEdgeSet">
-                            <div class="input-group-addon">{</div>
-                            <input type="text" class="form-control" id="input_1-frage_2_1" placeholder="Kantenmenge">
-                            <div class="input-group-addon">}</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_2-frage_2_1" class="col-sm-6 control-label">
-                            Sei \(A=\{e\}\) und \(B=\{d,c\}\). Wie viele kantendisjunkte \(A\)-\(B\)-Wege existieren im Nikolaus-Graphen \(N\)? 
-                        </label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_2-frage_2_1" placeholder="Anzahl der Wege">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_3-frage_2_1" class="col-sm-6 control-label">
-                            Was ist der zentrale Knoten in \(N\)?
-                        </label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_3-frage_2_1" placeholder="Knotenname">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_4-frage_2_1" class="col-sm-6 control-label">
-                            Was ist \(\mathrm{diam}(N)\)?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_4-frage_2_1" placeholder="Durchmesser">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_6-frage_2_1" class="col-sm-6 control-label">
-                            Welcher spezielle Pfad ist beim Haus vom Nikolaus gesucht?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_6-frage_2_1" data-toggle="dropdown" href="#">Spezialformen <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Hamiltonweg</a></li>
-                                <li><a>Hamiltonkreis</a></li>
-                                <li><a>Eulerweg</a></li>
-                                <li><a>Eulerkreis</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_7-frage_2_1" class="col-sm-6 control-label">
-                            Besitzt der Graph \(I\) (<em>Abbildung</em>) einen Eulerweg?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_7-frage_2_1" data-toggle="dropdown" href="#">Antwort <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="input_8-frage_2_1" class="col-sm-6 control-label">
-                            Besitzt \(I\) einen Eulerkreis?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_8-frage_2_1" data-toggle="dropdown" href="#">Antwort <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>                    
-
-                    <div class="form-group">
-                        <label for="input_9-frage_2_1" class="col-sm-6 control-label">
-                            Besitzt \(I\) einen Hamiltonweg?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_9-frage_2_1" data-toggle="dropdown" href="#">Antwort <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>                    
-
-                    <div class="form-group">
-                        <label for="input_10-frage_2_1" class="col-sm-6 control-label">
-                            Besitzt \(I\) einen Hamiltonkreis?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_10-frage_2_1" data-toggle="dropdown" href="#">Antwort <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-
-
-                    <!-- Submit-Button -->
-                    <div class="form-group">
-                        <div class="col-sm-offset-6 col-sm-6"> 
-                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösungen überprüfen</button>
-                        </div>
-                    </div>
-                </form>
-
-
-
-            </div>
-        </div>
-    </div>
-
-    
-
-</div>
-
-
 
 <hr>
 <!----------------------------------->
@@ -671,200 +423,6 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
     <div class="clearfix"></div>
     </p>
 
-
-<!-- Kontrollfragen: Abschnitt 6 -->
-<div class="kontrollfragen panel-group" id="kontrollfragen_04" role="tablist" aria-multiselectable="false">
-
-    <!-- Verständnisaufgaben zu Abschnitt 6 -->
-    <div class="panel panel-warning" id="frage_4_1">
-        <div class="panel-heading" role="tab" id="frage_heading_4_1" data-toggle="collapse" data-parent="#kontrollfragen_04" href="#frage_content_4_1" aria-expanded="false" aria-controls="frage_content_4_1">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span> Verständnisaufgaben zu Abschnitt 4</h4>
-        </div>
-        <div id="frage_content_4_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_4_1">
-            <div class="panel-body">
-
-                <!-- form-kontrollfrage -->
-                <form class="form-horizontal form-kontrollfrage">
-
-
-
-                    <div class="form-group">
-                        <label for="input_1-frage_4_1" class="col-sm-6 control-label">
-                            Was zeigt die interaktive Grafik aus <em>Abschnitt 1</em> für \(T-e\)?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_1-frage_4_1" data-toggle="dropdown" href="#">Spezialform<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Wald</a></li>
-                                <li><a>Baum</a></li>
-                                <li><a>Weder noch</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_2-frage_4_1" class="col-sm-6 control-label">
-                            Was zeigt die Grafik für \(T[c]\)?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_2-frage_4_1" data-toggle="dropdown" href="#">Spezialform<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Wald</a></li>
-                                <li><a>Baum</a></li>
-                                <li><a>Weder noch</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_3-frage_4_1" class="col-sm-6 control-label">
-                            Was zeigt die Grafik für \(T[\{a,e,f\}]\)?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_3-frage_4_1" data-toggle="dropdown" href="#">Spezialform<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Wald</a></li>
-                                <li><a>Baum</a></li>
-                                <li><a>Weder noch</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="input_4-frage_4_1" class="col-sm-6 control-label">
-                            Wie viele Blätter hat der Baum \(B\) (<em>Abbildung</em>)?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_4-frage_4_1" placeholder="Anzahl">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="input_5-frage_4_1" class="col-sm-6 control-label">
-                            Wie viele Kanten besitzen alle Kreise eines bipartiten Graphen?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_5-frage_4_1" data-toggle="dropdown" href="#">Anzahl<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>ungerade</a></li>
-                                <li><a>gerade</a></li>
-                                <li><a>unterschiedlich</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="input_6-frage_4_1" class="col-sm-6 control-label">
-                            Existiert ein Eulerweg im Niklaus-Graphen \(N\) (<em>1. Abschnitt</em>), so dass dessen Kanten einen Spannbaum von \(N\) bilden?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_6-frage_4_1" data-toggle="dropdown" href="#">Antwort<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="input_7-frage_4_1" class="col-sm-6 control-label">
-                            Besitzt \(N\) einen Hamiltonweg, so dass dessen Kanten einen Spannbaum bilden?
-                        </label>
-
-                        <div class="col-sm-6 btn-group"> 
-                            <a class="btn btn-default dropdown-toggle btn-select" id="input_7-frage_4_1" data-toggle="dropdown" href="#">Antwort<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a>Ja</a></li>
-                                <li><a>Nein</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <label for="input_8-frage_4_1" class="col-sm-6 control-label">
-                            Was ist \(\kappa(B)\)?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_8-frage_4_1" placeholder="Zahl">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_9-frage_4_1" class="col-sm-6 control-label">
-                            Was ist \(\lambda(B)\)?
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_9-frage_4_1" placeholder="Zahl">
-                        </div>
-                    </div>
-
-
-                    <!-- Submit-Button -->
-                    <div class="form-group">
-                        <div class="col-sm-offset-6 col-sm-6"> 
-                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösungen überprüfen</button>
-                        </div>
-                    </div>
-                </form>
-
-
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Beweisaufgabe 4-2 -->
-    <div class="panel panel-warning" id="frage_4_2">
-        <div class="panel-heading" role="tab" id="frage_heading_4_2" data-toggle="collapse" data-parent="#kontrollfragen_04" href="#frage_content_4_2" aria-expanded="false" aria-controls="frage_content_4_2">
-            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Beweisaufgabe &mdash; Kannst du’s zeigen?</h4>
-        </div>
-        <div id="frage_content_4_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_4_2">
-            <div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
-                <!-- Beweisaufgabe -->
-                <div class="task">
-                    <p>Beweise die folgenden Sätze:</p>
-
-                    <ol style="list-style-type: lower-roman;">
-                        <li>Jeder Baum \(T = (V,E)\) mit \(|V| \geq 2\) enthält mindestens zwei Blätter.</li>
-                        <li>Jeder Baum \(P\) hat mindestens so viele Blätter wie \(\Delta(P)\).</li>
-                    </ol>
-
-                </div>
-
-                <!-- Hinweise --->
-                <div class="hint"> <h5>Hinweise</h5>
-                    Wähle für beide Sätze entweder eine Startkante oder einen Starknoten, traversiere den Graphen und nutze eine Baumeigenschaft.</div>
-
-                <!-- Musterlösung -->
-                <div class="solution"> <h5>Beispiellösung</h5>
-                    <ol style="list-style-type: lower-roman;">
-                        <li><p>Sei \(\{v,u\} \in E\) eine beliebige Kante. Nun traversieren wir so lange in Richtung von \(v\) und nach \(u\), bis wir bei einem Blatt ankommen. Dabei ist es egal, wo lang wir genau gehen, da \(T\) keine Kreise enthält und wir eine Kante bzw. einen Knoten deswegen nur höchstens einmal besuchen. \(T\) ist außerdem endlich, weshalb wir irgendwann in beiden Richtungen in einer <em>Sackgasse</em>, also einem Blatt, terminieren.</p></li>
-
-                        <li><p>In \(P\) existiert mindestens ein Knoten \(v\) mit \(d_G(v)=\Delta(P)\). Beginnend bei \(v\) traversieren wir den Graphen wie in 1. in alle \(\Delta(P)\) Richtungen.</p></li>
-                    </ol>
-                </div>
-
-            </div>
-        </div>
-    </div>    
-
-</div>
-
-
-
-
-
 <hr>
 <!------------------------------>
 <!-- Abschnitt 7: Marker Algorithmus -->
@@ -873,7 +431,7 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
 	<!-- Bild mit Unterschrift -->
 	<div class="thumbnail pull-right" style="width: 220px;">                
    	<img src="resources/marker.gif">
-   	<div class="caption">Funktionsweise des Marker Algorithmus für eine Runde</div>
+   	<div class="caption">Funktionsweise des Marker Algorithmus für eine Runde, mit \(k=5\)</div>
 	</div>
 
 	Nun wollen wir einmal einen konkreten randomisierten Algorithmus betrachten, den Marker Algorithmus. Dieser arbeitet in Runden. Jedem Cacheplatz sei ein Markierungsbit zugeordnet. Zu Beginn jeder Runde, werden alle Markierungsbits auf 0 gesetzt. <br>
@@ -1150,7 +708,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                       	  <div class="task">
 										Der gerade genannte Term wirkt vom Himmel gefallen:
                      	   	<ul>
-                     	   		<li>Überlege dir, wieso die Wahrscheilichkeit, dass bei der i-ten Anfrage nach einem stalen Item \(1 \leq i \leq k-l\), dieses nicht mehr \(\in S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
+                     	   		<li>Überlege dir, wieso die Wahrscheilichkeit, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\), dieses nicht mehr in \(S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
                      	   	</ul>      
    	                     </div>
 	
@@ -1162,9 +720,11 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
             	            <ul>
-										<li>\(k-l\) stale Items sind nach den ersten l Anfragen noch im Cache.</li>
+										<li>\(k-l\) stale Items sind nach den ersten \(l\) Anfragen noch im Cache.</li>
 										<li>Demnach ist \(\frac{k-l}{k}\) die Wahrscheinlichkeit, dass das erste angefragte stale Item noch im Cache ist.</li>
-										<li>Bei der i-ten Anfrage haben wir bereits i-1 stale Items betrachtet</li> <!-- TODO -->
+										<li>Bei der i-ten Anfrage haben wir zuvor bereits \(i-1\) stale Items angefragt. Diese sind nun im Cache und für die weitere Betrachtung uninteressant, da wir sicher wissen, dass sie im Cache sind. Daher muss \(\frac{k-l-(i-1)}{k-(i-1)}\) die Wahrscheinlichkeit sein, dass bei der i-ten Anfrage nach einem stalen Item, dieses \(\in S_{M}\) ist.</li> 
+										<li>Wir wollen jedoch gerade die Wahrscheinlichkeit des Gegenereignisses, also: \(1-\frac{k-l-(i-1)}{k-(i-1)}\) </li>
+										<li>Nun formen wir um: \(1-\frac{k-l-(i-1)}{k-(i-1)} = 1-(\frac{k-i+1}{k-i+1}-\frac{l}{k-i+1}) = 1-(1-\frac{l}{k-i+1}) = \frac{l}{k-i+1}\).
 									</ul>
 										
                   	  </div>
@@ -1175,22 +735,37 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
            
            Summieren wir die erwarteten Anzahl an Misses für alle i auf, so folgt:
            \(\sum^{k-l}_{i=1} \frac{l}{k-i+1} = l \sum^{k-l}_{i=1} \frac{1}{k-i+1} = l \sum^{k}_{i=l+1} \frac{1}{i} ; (l+1 \geq 1)\) <br>
-           \(l \sum^{k}_{i=l+1} \frac{1}{i} \leq l \sum^{k}_{i=1} \frac{1}{i}\ = lH_{k} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \square \)
-           
+           \(l \sum^{k}_{i=l+1} \frac{1}{i} \leq l \sum^{k}_{i=1} \frac{1}{i}\ = lH_{k} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \square \) <br>
+           Du kannst nun unsere bewiesenen Schranken aus 1. und 2. in die Formel für die Competitiveness von randomisierten Algorithmen einsetzen und siehst dann, dass \(C^{Obl}_{M} = 2H_{k}\), der Marker Algorithmus also \(2H_{k}\)-competitive ist.
 	
 	<br><br>
 	
-	Abschließend sei bemerkt, dass es Algorithmen gibt, die näher an die untere Schranke von \(H_{k}\) herankommen z.B.: ... .
+	Abschließend sei bemerkt, dass es einen Algorithmus gibt, der im Allgemeinen \(H_{k}\)-competitive ist. Nachzulesen <a href="http://repository.cmu.edu/cgi/viewcontent.cgi?article=2873&context=compsci" target="_blank">hier</a>.
 
-<!-- Clearfix beacuse of thumbnail -->
+<!-- Clearfix because of thumbnail -->
 <div class="clearfix"></div>
 </p>
 
 <hr>
+<!------------------------------>
+<!-- Abschnitt 8: Vergleich deterministisch/randomisiert -->
+<h4 id="anchor_navigation-5">8. Vergleich deterministisch vs. randomisiert</h4>
+<p>
+Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen logarithmisch in k sind und damit deutlich Competitiver. <br>
+<!-- Bild mit Unterschrift -->
+	<div class="thumbnail">           
+   	<img src="resources/harmonicSequence.png">
+   	<div class="caption">Vergleich des linearen Wachstums (schwarz) zum Wachstum der harmonischen Folge (grün). Rot ist \(ln(x)\) mit eingezeichnet.</div>
+	</div>
 
+
+<!-- Clearfix because of thumbnail -->
+<div class="clearfix"></div>
+</p>
+<hr>
 <!----------------------------------->
-<!-- Abschnitt X3.: Zusammenfassung -->
-<h4 id="anchor_navigation-3">8. Was haben wir gelernt?</h4>
+<!-- Abschnitt 9.: Zusammenfassung -->
+<h4 id="anchor_navigation-3">9. Was haben wir gelernt?</h4>
 <p>
 	<ol>
 		<li></li>
@@ -1207,26 +782,6 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in \(E[f_{M}(p_{1}, p_{2},
     <hr>
     Ende des Lehrinhalts, unten findest du weiterführendes Material
 </div>
-<!------------------------------------------------------->
-<!-- Abschnitt I: Quellen und Weiterführendes Material -->
-<h3 id="anchor_navigation-sources">I. Quellen und weiterführendes Material</h3>
-<p>
-    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="https://de.wikipedia.org/wiki/Online-Algorithmus" target="_blank">Online Algorithmen</a> existieren weitere Ressourcen, die wir zum tiefgehenderen Studium besonders empfehlen:
-<dl>
-    <dt><a href="http://www.inf.fu-berlin.de/users/rote/Lere/2001-SS/Graphentheorie/Diestel-GraphentheorieII.pdf" target="_blank">R. Diestel - Graphentheorie (Springer, 2000)</a></dt>
-    <dd>Standardwerk mit allen Termini, wichtigen Beweisen und Aufgaben.</dd>
-
-    <dt><a href="https://hpi.de/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/files/Graphentheorie-Zusammenfassung.pdf" target="_blank">Zusammenfassung Graphentheorie aus Diskrete-Strukturen II (Uni Jena, 2014)</a></dt>
-    <dd>Zusammenfassung aller wichtigen Termini von mir akkumuliert aus dem Diestel und Wikipedia von den hier behandelten Grundbegriffen bis zu Minoren, Cliquen, DAGs, Färbungen und planaren Graphen.</dd>
-
-    <dt><a href="http://www.mathematik.uni-wuerzburg.de/~schwartz/Lehre/Graphentheorie/SkriptGraphentheorieSchwartz.pdf" target="_blank">A. Schwartz - Einführung in die Graphentheorie (Uni Würzburg, 2013)</a></dt>
-    <dd>Ausführliches Einführungswerk geeignet für Neulinge wegen einleitender Erklärung der Aussagenlogik und wichtiger Beweiskonzepte. Erstreckt sich bishin zu wichtigen graphtheoretischen Algorithmen.</dd>
-
-    <dt><a href="http://www.or.uni-bonn.de/%7Ehougardy/paper/ga.pdf" target="_blank">Emden-Weinert, Hougardy, Kreuter, Prömel, Steger - Einführung in Graphen und Algorithmen (Uni Berlin, 1996)</a></dt>
-    <dd>Nach sehr knapper graphentheoretischer Einführung werden alle Felder der Algorithmik mit Graphen ausführlichst beleuchtet. Gut zum Nachschlagen.</dd>
-
-
-</dl>
 
 
 </div> <!-- END: Main-Container -->

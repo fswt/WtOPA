@@ -220,3 +220,25 @@ Existiert zu einem Graphen \(H = (V_H, E_H)\) ein Graph \(H' = (V_{H'}, E_{H'})\
     </div>    
 
 </div>
+
+<!------------------------------------------------------->
+<!-- Abschnitt I: Quellen und Weiterführendes Material -->
+<h3 id="anchor_navigation-sources">I. Quellen und weiterführendes Material</h3>
+<p>
+    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="https://de.wikipedia.org/wiki/Online-Algorithmus" target="_blank">Online Algorithmen</a> existieren weitere Ressourcen, die wir zum tiefgehenderen Studium besonders empfehlen:
+<dl>
+    <dt><a href="http://www.inf.fu-berlin.de/users/rote/Lere/2001-SS/Graphentheorie/Diestel-GraphentheorieII.pdf" target="_blank">R. Diestel - Graphentheorie (Springer, 2000)</a></dt>
+    <dd>Standardwerk mit allen Termini, wichtigen Beweisen und Aufgaben.</dd>
+
+    <dt><a href="https://hpi.de/fileadmin/user_upload/fachgebiete/friedrich/teaching/units/graphentheorie/files/Graphentheorie-Zusammenfassung.pdf" target="_blank">Zusammenfassung Graphentheorie aus Diskrete-Strukturen II (Uni Jena, 2014)</a></dt>
+    <dd>Zusammenfassung aller wichtigen Termini von mir akkumuliert aus dem Diestel und Wikipedia von den hier behandelten Grundbegriffen bis zu Minoren, Cliquen, DAGs, Färbungen und planaren Graphen.</dd>
+
+    <dt><a href="http://www.mathematik.uni-wuerzburg.de/~schwartz/Lehre/Graphentheorie/SkriptGraphentheorieSchwartz.pdf" target="_blank">A. Schwartz - Einführung in die Graphentheorie (Uni Würzburg, 2013)</a></dt>
+    <dd>Ausführliches Einführungswerk geeignet für Neulinge wegen einleitender Erklärung der Aussagenlogik und wichtiger Beweiskonzepte. Erstreckt sich bishin zu wichtigen graphtheoretischen Algorithmen.</dd>
+
+    <dt><a href="http://www.or.uni-bonn.de/%7Ehougardy/paper/ga.pdf" target="_blank">Emden-Weinert, Hougardy, Kreuter, Prömel, Steger - Einführung in Graphen und Algorithmen (Uni Berlin, 1996)</a></dt>
+    <dd>Nach sehr knapper graphentheoretischer Einführung werden alle Felder der Algorithmik mit Graphen ausführlichst beleuchtet. Gut zum Nachschlagen.</dd>
+
+
+</dl>
+
