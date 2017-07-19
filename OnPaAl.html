@@ -554,7 +554,7 @@
 	Die Eingabesequenz lautet A B C D E D F. Dann arbeitet der Algorithmus wie folgt:<br><br>
 	<img src="resources/lru.png"> <br><br>
 	Es fallen sechs Kosteneinheiten an, da wir genau sechs Misses haben. Allgemein gilt es, die Kosten möglichst gering zu halten. Ein guter Algorithmus verursacht wenig Kosten, ein schlechter viele Kosten. Nach der Kostenfunktion ist also f_LRU(ABCDEDF)=6. <br> <br>
-Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fiesen" Eingabesequenz dazu zwingen kann, 100% misses zu erzeugen. Deine Aufgabe ist es nun, das für den LRU-Algorithmus auszuprobieren:
+<mark>Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fiesen" Eingabesequenz dazu zwingen kann, 100% misses zu erzeugen.</mark> Deine Aufgabe ist es nun, das für den LRU-Algorithmus auszuprobieren:
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
 </p>
@@ -576,7 +576,7 @@ Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fie
                 <form class="form-horizontal form-kontrollfrage">
                     <div class="form-group">
                         <label for="input_1-frage_3_1" class="col-sm-6 control-label">
-                            Überlege Dir eine Eingabe-Sequenz der Länge vier, für die der LRU, der sich im letzten Zustand aus dem obigen Beispiel befindet, nur misses erzeugt. <br> <br> <img src="resources/exercise_lru.png">
+                            Überlege Dir eine Eingabe-Sequenz der Länge vier, für die der LRU, der sich im letzten Zustand aus dem obigen Beispiel befindet, nur misses erzeugt. Dabei darfst Du nur Elemente aus dem Bereich B-F wählen. <br> <br> <img src="resources/exercise_lru.png">
                         </label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="input_1-frage_3_1" placeholder="Mögliche Eingabesequenz">
@@ -612,14 +612,14 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
 
 	<h4 id="anchor_navigation-5">5. C-Competetiveness</h4>
 		<p>
-			Um die C-Competetiveness zu verstehen, müssen wir die bisherigen Sachverhalte formalisieren. Dazu definieren wir <br>
-			p = (p_1, p_2, ..., p_n)             als die Eingabesequenz mit n Elementen <br>
+			Um die C-Competetiveness zu verstehen, müssen wir den bisherigen Sachverhalt formalisieren. Dazu definieren wir <br>
+			(p = (p_1, p_2, ..., p_n)            als die Eingabesequenz mit n Elementen <br>
 			f_A(p_1, p_2, ..., p_n) bzw. f_A(p)  als die Kosten von Algorithmus A auf der Eingabesequenz p <br>
 			f_0(p_1, p_2, ..., p_n) bzw. f_0(p)  als die Kosten des offline Algorithmus auf der Sequenz p, also die optimalen Kosten auf p <br>
 
 			Nun können wir das Verhältnis zwischen einem online Algorithmus A und seinem offline Algorithmus definieren als: <br>
 		<mark>f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b für alle Eingabe-Sequenzen, b unabhängig von n</mark> <br> <br>
-			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Eingabesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competetiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competetiveness-Koeffizient für A. <br>
+			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Eingabesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competetiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competetiveness-Koeffizient für A. Nähere Dich der Formel am besten gleich mit einer Verständnis-Aufgabe: <br>
 		</p>
 <!-- Kontrollfragen: Abschnitt 3 -->
 <div class="kontrollfragen panel-group" id="kontrollfragen_04" role="tablist" aria-multiselectable="false">
@@ -655,7 +655,7 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
                         </div>
                     </div>
 					<p>
-Genau, wenn C = 1 und b = 0 ist, dann ...
+Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus exakt gleich gut. Denn wenn C = 1 und b = 0 ist, dann müssen zwangsläufig f_A(p) und f_0(p) genau gleich groß sein.
 						</p>
                 </form>
             </div>
