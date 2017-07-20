@@ -345,24 +345,36 @@ Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fie
                             Überlege Dir eine Eingabe-Sequenz der Länge vier, für die der LRU, der sich im letzten Zustand aus dem obigen Beispiel befindet, nur misses erzeugt. Dabei darfst Du nur Elemente aus dem Bereich B-F wählen. <br> <br> <img src="resources/exercise_lru.png">
                         </label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="input_1-frage_3_1" placeholder="Mögliche Eingabesequenz">
+                            <input type="text" class="form-control" id="questionOne" placeholder="Mögliche Eingabesequenz">
                         </div>
                     </div>
 
                     <!-- Submit-Button -->
                     <div class="form-group">
                         <div class="col-sm-offset-6 col-sm-6"> 
-                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösung überprüfen</button>
+                            <button type="button" class="btn btn-default btn-block" onclick="checkQuestionOne();">Lösung überprüfen</button>
                         </div>
                     </div>
-					<p>
-Der Satz, dass für einen deterministischen Online-Algorithmus immer eine Eingabesequenz erzeugt werden kann, die ausschließlich Misses erzeugt, gilt also für LRU. <mark>Allgemein kann man jeden deterministischen Online-Algorithmus zu maximalen Kosten zwingen, indem man das Element, das der Algorithmus gerade aus dem Cache verworfen hat, als nächste Eingabe reingibt.</mark> Das ist möglich, weil aufgrund des Determinismus immer von außen vorhersehbar ist, welches Element verworfen wird. Wir sehen also, dass eine Worst-Case-Analyse von deterministischen Online-Algorithmen nicht sinnvoll ist. Denn im Worst-Case sind alle gleich schlecht, nämlich maximal schlecht.
+					<p id="hiddenTextOne" style="display:none">
+Der Satz, dass für einen deterministischen Online-Algorithmus immer eine Eingabesequenz erzeugt werden kann, die ausschließlich Misses erzeugt, gilt also für LRU. Allgemein kann man jeden deterministischen Online-Algorithmus zu maximalen Kosten zwingen, indem man das Element, das der Algorithmus gerade aus dem Cache verworfen hat, als nächste Eingabe reingibt. Das ist möglich, weil aufgrund des Determinismus immer von außen vorhersehbar ist, welches Element verworfen wird. Wir sehen also, dass eine Worst-Case-Analyse von deterministischen Online-Algorithmen nicht sinnvoll ist. Denn im Worst-Case sind alle gleich schlecht, nämlich maximal schlecht.
 						</p>
                 </form>
             </div>
         </div>
     </div>
  </div>
+<script type="text/javascript">
+	function checkQuestionOne() {
+		var label = document.getElementById("questionOne");
+		var htext = document.getElementById("hiddenTextOne");
+		if(label.value.toLowerCase() == 'bced') {
+			htext.style.display = 'block';
+			label.style.backgroundColor = 'green';
+		} else {
+			label.style.backgroundColor = 'red';
+		}
+    }
+</script>
 <br>
 <p>Die logische Schlussfolgerung ist, dass wir ein anderes Kriterium brauchen, um die online Algorithmen zu vergleichen und aussagekräftig einzuschätzen. Wir werden die Online-Algorithmen nun nicht direkt miteinander, sondern jeden von ihnen mit ihrem Offline-Algorithmus vergleichen, also einer, der auf der gleichen Eingabesequenz arbeitet. Anschließend vergleichen wir, welcher Algorithmus wie gut gegenüber seinem Offline-Algorithmus performt hat. Dazu machen wir einen kurzen Exkurs in die offline paging Algorithmen.</p>
 <br>
@@ -407,28 +419,49 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
                         </label>
                         <div class="col-sm-6">
 							<div>b = </div>
-                            <input float="left" type="text" class="form-control" id="input_1-frage_4" placeholder="">
+                            <input float="left" type="text" class="form-control" id="questionTwoB" placeholder="">
                         </div>
 						<div class="col-sm-6">
 							<div>C = </div>
-                            <input type="text" class="form-control" id="input_1-frage_4_2" placeholder="">
+                            <input type="text" class="form-control" id="questionTwoC" placeholder="">
                         </div>
                     </div>
 
                     <!-- Submit-Button -->
                     <div class="form-group">
                         <div class="col-sm-offset-6 col-sm-6"> 
-                            <button type="button" class="btn btn-default btn-block" onclick="checkKontrollfrage(event);">Lösung überprüfen</button>
+                            <button type="button" class="btn btn-default btn-block" onclick="checkQuestionTwo();">Lösung überprüfen</button>
                         </div>
                     </div>
-					<p>
+					<p id="hiddenTextTwo" style="display:none">
 Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus exakt gleich gut. Denn wenn C = 1 und b = 0 ist, dann müssen zwangsläufig \(f_A(p)\) und \(f_0(p)\) genau gleich groß sein.
 						</p>
                 </form>
             </div>
         </div>
     </div>
- </div> <br>
+ </div> 
+<script type="text/javascript">
+	function checkQuestionTwo() {
+		var labelB = document.getElementById("questionTwoB");
+		var labelC = document.getElementById("questionTwoC");
+		var htext = document.getElementById("hiddenTextTwo");
+		if(labelB.value == 0) {
+			labelB.style.backgroundColor = 'green';
+		} else {
+			labelB.style.backgroundColor = 'red';
+		}
+		if(labelC.value == 1) {
+			labelC.style.backgroundColor = 'green';
+		} else {
+			labelC.style.backgroundColor = 'red';
+		}
+		if(labelB.value == 0 && labelC.value == 1) {
+			htext.style.display = 'block';
+		}
+    }
+</script>
+<br>
 	<p>
 		Jetzt wollen wir zeigen, dass unser deterministischer LRU-Algorithmus für die Worst-Case-Sequenz \(k\)-competetive ist. \(k\) ist hier weiterhin die Anzahl der Pages im Cache. Wir zeigen hier also nicht die generelle Competetiveness von LRU, veranschaulichen aber das Prinzip an einer einzelnen Sequenz. <br> Die Worst-Case-Sequenz für LRU ist diejenige, auf der LRU ausschließlich Misses erzeugt. Greifen wir das Beispiel von vorhin auf: <br> <img src="resources/exercise_lru.png">
 <br>Dann wäre die Worst-Case-Sequenz B, C, E, D, F, B, C, E, D, F, B, ... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
@@ -880,7 +913,7 @@ td:last-child,.bootstrap-styles .panel>.table-responsive:first-child>.table:firs
         height: 40px !important;
     }
 </style>
-
+	
 <!-- custom scripts to make things work in typo3 -->
 <script>
     function toggler(divId) {
