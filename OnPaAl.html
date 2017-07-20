@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-20T11:36:55+0200" >
+<meta name="date" content="2017-07-20T12:20:50+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <!--<link rel="canonical" href="https://hpi.de/friedrich/teaching/units/onlinepagingalgorithmen.html"> -->
@@ -99,7 +99,7 @@
 
                     <div class="modal-body">
       F&uuml;r das allgemeine Impressum, siehe <a href="http://hpi.de/impressum.html">HPI-Impressum</a>.
-                        Die vorliegende Lehrwebsite entstand im Rahmen des Seminars <i>Wahrscheinlichkeitstheorie (2017)</i> am Hasso-Plattner-Institut. Als Vorbild, was den Aufbau der Themen, einzelne Definitionen sowie Terminologie angeht, diente <em>Randomized Algorithms - Rajeev Motwani and Prabhakar Raghavan</em> (Hardcover 1995, Cambridge University Press). Sollten etwaige Fehler auftreten oder Fragen bestehen, wenden Sie sich bitte an moritz.hartmann[at]student.hpi.uni-potsdam.de oder fabian.stolp[at]student.hpi.uni-potsdam.de. Im Folgenden noch eine kurze Übersicht genutzter Frameworks und Bibliotheken:
+                        Die vorliegende Lehrwebsite entstand im Rahmen des Seminars <i>Wahrscheinlichkeitstheorie (2017)</i> am Hasso-Plattner-Institut. Als Vorbild was den Aufbau der Themen, einzelne Definitionen sowie Terminologie angeht, diente <em>Randomized Algorithms - Rajeev Motwani and Prabhakar Raghavan</em> (Hardcover 1995, Cambridge University Press). Sollten etwaige Fehler auftreten oder Fragen bestehen, wenden Sie sich bitte an fabian.stolp[at]student.hpi.uni-potsdam.de oder moritz.hartmann[at]student.hpi.uni-potsdam.de. Im Folgenden noch eine kurze Übersicht genutzter Frameworks und Bibliotheken:
 
                         <ul style="margin-top: 10px">
                             <li><a href="http://jquery.com" target="_blank">jQuery</a></li>
@@ -172,7 +172,7 @@
 
                     <h5>Aufgaben-Legende</h5><small>
                     
-                    <p>Alle Feedbacks, die für eine deiner Lösungen bekommen kannst. Zum Abschicken der Lösung musst du davor auf <em>Lösungen überprüfen</em> drücken.</p>
+                    <p>Alle Feedbacks, die du für eine deiner Lösungen bekommen kannst. Zum Abschicken der Lösung musst du davor auf <em>Lösungen überprüfen</em> drücken.</p>
                     
                     <table class="table table-hover table-condensed">
                         <thead><tr>
@@ -359,6 +359,7 @@ Der Satz, dass für einen deterministischen Online-Algorithmus immer eine Eingab
             </div>
         </div>
     </div>
+ </div>
 <br>
 <p>Die logische Schlussfolgerung ist, dass wir ein anderes Kriterium brauchen, um die online Algorithmen zu vergleichen und aussagekräftig einzuschätzen. Wir werden die Online-Algorithmen nun nicht direkt miteinander, sondern jeden von ihnen mit ihrem Offline-Algorithmus vergleichen, also einer, der auf der gleichen Eingabesequenz arbeitet. Anschließend vergleichen wir, welcher Algorithmus wie gut gegenüber seinem Offline-Algorithmus performt hat. Dazu machen wir einen kurzen Exkurs in die offline paging Algorithmen.</p>
 <br>
@@ -384,10 +385,10 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
 		<mark>\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\) für alle Eingabe-Sequenzen, b unabhängig von n</mark> <br> <br>
 			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Anfragesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competetiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competetiveness-Koeffizient für A. Nähere Dich der Formel am besten gleich mit einer Verständnis-Aufgabe: <br>
 		</p>
-<!-- Kontrollfragen: Abschnitt 3 -->
+<!-- Kontrollfragen: Abschnitt 5 -->
 <div class="kontrollfragen panel-group" id="kontrollfragen_04" role="tablist" aria-multiselectable="false">
 
-    <!-- Verständnisaufgaben zu Abschnitt 3 -->
+    <!-- Verständnisaufgaben zu Abschnitt 5 -->
     <div class="panel panel-warning" id="frage_3_1">
         <div class="panel-heading" role="tab" id="frage_heading_4" data-toggle="collapse" data-parent="#kontrollfragen_04" href="#frage_content_4" aria-expanded="false" aria-controls="frage_content_4">
             <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-ok-circle"></span>Verständnisaufgabe</h4>
@@ -423,7 +424,8 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
                 </form>
             </div>
         </div>
-    </div> <br>
+    </div>
+ </div> <br>
 	<p>
 		Jetzt wollen wir zeigen, dass unser deterministischer LRU-Algorithmus für die Worst-Case-Sequenz \(k\)-competetive ist. \(k\) ist hier weiterhin die Anzahl der Pages im Cache. Wir zeigen hier also nicht die generelle Competetiveness von LRU, veranschaulichen aber das Prinzip an einer einzelnen Sequenz. <br> Die Worst-Case-Sequenz für LRU ist diejenige, auf der LRU ausschließlich Misses erzeugt. Greifen wir das Beispiel von vorhin auf: <br> <img src="resources/exercise_lru.png">
 <br>Dann wäre die Worst-Case-Sequenz B, C, E, D, F, B, C, E, D, F, B, ... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
@@ -812,7 +814,19 @@ Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorith
     <hr>
     Ende des Lehrinhalts, unten findest du weiterführendes Material
 </div>
+<!------------------------------------------------------->
+<!-- Abschnitt I: Quellen und Weiterführendes Material -->
+<h3 id="anchor_navigation-sources">I. Quellen und weiterführendes Material</h3>
+<p>
+    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="https://de.wikipedia.org/wiki/Online-Algorithmus" target="_blank">Online Algorithmen</a> existieren weitere Ressourcen, die wir zum tiefergehenderen Studium besonders empfehlen:
+<dl>
+    <dt><a href="http://www.cambridge.org/catalogue/catalogue.asp?isbn=9780521474658" target="_blank">Rajeev Motwani, Prabhakar Raghavan - Randomized Algorithms (Cambridge University Press, 1995)</a></dt>
+    <dd>Standardwerk mit allen Termini, wichtigen Beweisen und mit weiteren Übungsaufgaben.</dd>
 
+    <dt><a href="http://www14.in.tum.de/personen/albers/papers/brics.pdf" target="_blank">Susanne Albers - Competitive Online Algorithms (MPI Saarbrücken, 1996)</a></dt>
+    <dd>Ähnliche Inhalte wie in "Randomized Algorithms" aufbereitet für einen "Mini-Course on Competitive Online Algorithms".</dd>
+
+</dl>
 
 </div> <!-- END: Main-Container -->
 
