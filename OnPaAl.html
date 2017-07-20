@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-20T12:27:15+0200" >
+<meta name="date" content="2017-07-20T14:25:04+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <!--<link rel="canonical" href="https://hpi.de/friedrich/teaching/units/onlinepagingalgorithmen.html"> -->
@@ -276,6 +276,7 @@
 	                <ul>
 	                	<li>Offline: 3, 1, 4, 2</li>
 	                	<li>Online: 4, x, y, ...</li>
+	                	\((x, y \in \mathbb{N})\)
    	             </ul>
    	          </div>
             </div>
@@ -292,9 +293,10 @@
         <!----------------------------------->
         <!-- Abschnitt 2: Das Paging Problem -->
         <h4 id="anchor_navigation-2">2. Das Paging Problem</h4>
-        <div class="thumbnail pull-right" style="width: 250px;">                
+        <div class="thumbnail pull-right" style="width: 230px;">    
+                <img src="resources/paging.png">     
            <div class="caption">
-	            Paging
+	            Beziehung zwischen Virtuellem Speicher, Cache und großem, langsamen Speicher.
    	     </div>
         </div>
         <p>
@@ -323,7 +325,8 @@ Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fie
 </p>
 
 
-
+<hr>
+<!----------------------------------->
 <!-- Kontrollfragen: Abschnitt 3 -->
 <div class="kontrollfragen panel-group" id="kontrollfragen_03" role="tablist" aria-multiselectable="false">
 
@@ -431,9 +434,22 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
 <br>Dann wäre die Worst-Case-Sequenz B, C, E, D, F, B, C, E, D, F, B, ... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
 Jetzt schauen wir, wie der Offline-Algorithmus auf dieser Anfrage-Sequenz performt: Für das B ensteht natürlich ein Miss. Da aber abzusehen ist, dass die Elemente C, E und D als nächstes gebraucht werden, wird F für B verworfen. Also haben wir \(miss, hit, hit, hit\). Nun muss das F wieder in den Cache geholt werden, wofür es einen \(miss\) gibt. B, C und E werden als nächstes gebraucht also wird das D verworfen. Wir erhalten wieder \(miss, hit, hit, hit\). Dieses Schema geht immer so weiter auf der ganzen Sequenz. Wir erhalten also so etwas wie "Runden", wobei eine Runde immer aus einem \(miss\) und drei \(hits\) besteht. Es fällt auf, dass eine Runde genau \(k\) lang ist. Wenn wir also wissen, dass wir pro Runde Kosten von Eins haben, dann haben wir insgesamt soviel Kosten wie wir Runden haben. Und da wir wissen, dass eine Runde \(k\) lang ist, haben wir insgesamt \(\frac{n}{k}\) Runden und somit \(f_0(p_1, ..., p_n)=\frac{n}{k}\) Kosten. Nun können wir in die Competetiveness-Formel einsetzen: <br>
 <p style="text-align:center">\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\), also <br> \(n−C×\frac{n}{k} ≤ b\)</p> <br> Und nun sehen wir, dass wenn wir für \(C\) unser \(k\) einsetzen, Folgendes passiert: <br> <p style="text-align:center">\(n−k×\frac{n}{k} ≤ b\) <br> \(n−n ≤ b\) <br> \(0 ≤ b\)</p> <br> Wir sehen, dass LRU für die Worst-Case-Sequenz \(k\)-competetive ist.<br>
-Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung: Das ist aus obigem Sachverhalt nicht direkt schließbar!) LRU ist aber nur ein Beispiel für deterministische Online-Algorithmen. Allgemein gilt für alle deterministischen Online-Algorithmen folgende untere Schranke:<br>Sei A ein deterministischer online Algorithmus für Paging. Dann gilt: \(C_A \geq k\). <br> <br> Deterministische Online-Algorithmen sind also immer mindestens \(k\)-mal schlechter als die optimale Lösung. Das ist nicht besonders toll und deswegen wollen wir untersuchen, ob das nicht noch besser geht. Dafür wenden wir uns jetzt den randomisierten Online-Algorithmen zu.
+Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung: Das ist aus obigem Sachverhalt nicht direkt schließbar!) LRU ist aber nur ein Beispiel für deterministische Online-Algorithmen. 
 	</p> <br>
-	<h4 id="anchor_navigation-5">6. Randomisierte Online-Algorithmen für Paging</h4>
+	    <hr>
+    <!----------------------------------->
+    <!-- Abschnitt 6: Untere Schranke Deterministische Online Paging Algorithmen -->
+<h4 id="anchor_navigation-5">6. Untere Schranke Deterministische Online-Algorithmen für Paging</h4>
+	<p>	
+Allgemein gilt für alle deterministischen Online-Algorithmen folgende untere Schranke:<br><br>
+<u>Satz:</u><br>
+Sei A ein deterministischer online Algorithmus für Paging. Dann gilt: \(C_A \geq k\). <br> <br> Deterministische Online-Algorithmen sind also immer mindestens \(k\)-mal schlechter als die optimale Lösung. Das ist nicht besonders toll und deswegen wollen wir untersuchen, ob das nicht noch besser geht. Dafür wenden wir uns jetzt den randomisierten Online-Algorithmen zu.	
+	</p>
+    <hr>
+    
+    <!----------------------------------->
+    <!-- Abschnitt 7: Untere Schranke Randomisierte Online Paging Algorithmen -->	
+	<h4 id="anchor_navigation-5">7. Randomisierte Online-Algorithmen für Paging</h4>
 	<p>
 	Wir haben die ganze Zeit über zwei Algorithmen betrachtet, die competetive gegenüber einander waren, also sozusagen gegeneinander gekämpft haben. Daher nennen wir ab jetzt den Offline-Algorithmus <mark>Adversary</mark> für den Online-Algorithmus. Der Adversary darf eine Anfrage-Sequenz generieren, auf der beide Algorithmen arbeiten. So wie Du vorhin eine Sequenz für den LRU gebaut hast, auf die er ausschließlich misses erzeugt, so generiert der Adversary gezielt die Anfrage-Sequenzen, um seinen Gegner in die Knie zu zwingen. Da wir gesehen haben, dass deterministische Algorithmen im Kampf gegen den Adversay aufgrund ihres vorhersehbaren, vom jenem ausnutzbaren Determinismus nicht sonderlich gut abschneiden, schicken wir nun einen randomisierten Algorithmus ins Rennen. Ein randomisierter Online-Algorithmus arbeitet anders als ein deterministischer: Während LRU, FIFO und Co ihre Elemente nach einem ganz bestimmten Muster aus dem Cache werfen, um Platz für neue zu schaffen, entscheidet der randomisierte Algorithmus völlig willkürlich, welche Elemente verworfen werden. Natürlich gibt es verschiedene randomisierte Algorithmen, aber wir betrachten zunächst einen simplen Algorithmus, der zufällig gleichverteilt ein Element auswählt und aus dem Cache wirft. Das kann dazu führen, dass er sich im Best-Case zufällig genauso verhält wie der offline Algorithmus, also genau die richtigen Elemente zum richtigen Zeitpunkt verwirft, um minimal viele misses zu verursachen. Es kann aber auch dazu führen, dass er sich zufällig genau so verhält, dass er immer das falsche Element, also immer das Element, das als nächstes eingegeben wird, aus dem Cache wirft und somit ausschließlich misses verursacht, also gleich schlecht wie LRU und Co im Worst-Case performt. Da der Adversay nun vorab keine Eingabe mehr produzieren kann, von der er weiß, dass der Online-Algorithmus darauf nur misses erzeugt, eben weil er dessen Vorgehen nicht kennt und damit nicht vorhersagen kann, nennen wir ihn einen <mark>oblivious Adversary</mark> (engl. "blind"). Aufgrund des randomisierten Verhaltens, das irgendwo zwischen absolutem Optimalfall und schlimmsten Worst-Case liegt, müssen wir nun auch die Formel der Competitiveness anpassen, da es keine eindeutige Kostenfunktion \(f_A(p)\) mehr gibt. Wir müssen nun betrachten, welche Kosten der randomisierte Algorithmus im Erwartungswert verursacht: <br> <p style="text-align:center">\(E[f_A(p_1, ..., p_n)]−C×f_0(p_1, ..., p_n) ≤ b\) </p> <br> Wie sich der Erwartungswert dieser Kostenfunktion zusammensetzt, wollen wir nun an einem Beispiel veranschaulichen. Im dreiseitigen Cache seien die Elemente A, B und C. Die Anfrage-Sequenz sei D, A, B. Zu ermitteln sind die erwarteten Kosten, die der gleichverteilt randomisierte Algorithmus auf dieser Sequenz verursacht.<br> <br>
 Der <a href="https://de.wikipedia.org/wiki/Erwartungswert" target="_blank">Erwartungswert</a> ist definiert als die Summe aller Ereignisse gewichtet mit ihrer Wahrscheinlichkeit:<br> <p style="text-align:center">\(E=\sum_{x\in I}x_iP(X=x_i)\)</p><br>
@@ -442,8 +458,8 @@ Das heißt, dass der gleichverteilte randomisierte Algorithmus auf dem Cache A, 
 	</p>
     <hr>
     <!----------------------------------->
-    <!-- Abschnitt 6: Untere Schranke Randomisierte Online Paging Algorithmen -->
-    <h4 id="anchor_navigation-6">7. Untere Schranke Randomisierte Online Paging Algorithmen</h4>
+    <!-- Abschnitt 8: Untere Schranke Randomisierte Online Paging Algorithmen -->
+    <h4 id="anchor_navigation-6">8. Untere Schranke Randomisierte Online Paging Algorithmen für Paging</h4>
     <p>
     Genauso wie wir für die deterministischen Online Paging Algorithmen eine untere Schranke für den Competitiveness-Coefficient gefunden haben, können wir auch für die randomisierten Online Paging Algorithmen einen solche untere Schranke bestimmen.<br><br>
 	 	<u>Satz:</u> <br> Sei R ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=0} \frac{1}{j}\), also die k-te harmonische Zahl. <br> <br>
@@ -455,8 +471,8 @@ Das heißt, dass der gleichverteilte randomisierte Algorithmus auf dem Cache A, 
 
 <hr>
 <!------------------------------>
-<!-- Abschnitt 7: Marker Algorithmus -->
-<h4 id="anchor_navigation-5">8. Marker Algorithmus</h4>
+<!-- Abschnitt 9: Marker Algorithmus -->
+<h4 id="anchor_navigation-5">9. Marker Algorithmus</h4>
 <p>
 	<!-- Bild mit Unterschrift -->
 	<div class="thumbnail pull-right" style="width: 220px;">                
@@ -780,10 +796,10 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
 
 <hr>
 <!------------------------------>
-<!-- Abschnitt 9: Vergleich deterministisch/randomisiert -->
-<h4 id="anchor_navigation-5">9. Vergleich deterministisch vs. randomisiert</h4>
+<!-- Abschnitt 10: Vergleich deterministisch/randomisiert -->
+<h4 id="anchor_navigation-5">10. Vergleich deterministisch vs. randomisiert</h4>
 <p>
-Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen logarithmisch in k sind und damit deutlich competitiver. <br>
+Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen logarithmisch in k sind und damit deutlich kompetitiver. <br>
 <!-- Bild mit Unterschrift -->
 	<div class="thumbnail">           
    	<img src="resources/harmonicSequence.png">
@@ -796,15 +812,15 @@ Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorith
 </p>
 <hr>
 <!----------------------------------->
-<!-- Abschnitt 10.: Zusammenfassung -->
-<h4 id="anchor_navigation-3">10. Was haben wir gelernt?</h4>
+<!-- Abschnitt 11: Zusammenfassung -->
+<h4 id="anchor_navigation-3">11. Was haben wir gelernt?</h4>
 <p>
 	<ol>
 		<li>Online Algorithmen treffen Entscheidungen ohne zukünftige Anfragen zu kennen.</li>
 		<li>Eine standardmäßige Worst Case Betrachtung bringt uns bei Online Algorithmen nicht weiter.</li>
-		<li>Mit der Competitiveness haben wir ein Werkzeug Online Algorithmen zu vergleichen.</li>
-		<li></li>
-		<li></li>
+		<li>Mit der Competitiveness haben wir ein Werkzeug um Online Algorithmen zu vergleichen.</li>
+		<li>Mit dem Marker Algorithmus haben wir einen konkreten randomisierten Online Paging Algorithmus kennengelernt.</li>
+		<li>Die untere Schranke des Competitiveness-Coefficient von deterministischen Algorithmen liegt deutlich über der unteren Schranke des Competitiveness-Coefficient von randomisierten Algorithmen (mit oblivious Adversary).</li>
 	</ol>
 <!-- Clearfix because of thumbnail -->
 <div class="clearfix"></div>
