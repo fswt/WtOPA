@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-21T19:43:12+0200" >
+<meta name="date" content="2017-07-21T22:00:54+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <!--<link rel="canonical" href="https://hpi.de/friedrich/teaching/units/onlinepagingalgorithmen.html"> -->
@@ -282,8 +282,8 @@
             </div>
 
 
-            In der "Pokemon Arena"-Aufgabe haben wir gesehen, dass wir uns für die erste Aufgabenstellung, in der die Liste aller Ereignisse vor jeder Entscheidung bekannt ist, sehr gut überlegen können, welches Pokemon wir tauschen sollten, während dies für die zweite Aufgabestellung deutlich uneindeutiger ist. Schreiben wir uns nun Algorithmen um diese Aufgaben zu lösen, so nennen wir den Algorithmus im ersten Fall "offline Algorithmus" im zweiten Fall "online Algorithmus". Ein <mark>offline Algorithmus</mark> kennt zu jedem Zeitpunkt die gesamte abzuarbeitende Ereigniskette und kann entsprechend planen, ein <mark>online Algorithmus</mark> muss Entscheidungen ohne die Kenntnis von zukünftigen Ereignissen treffen. Statt Ereignissen werden wir im Folgenden von <mark>Anfragen</mark> sprechen, auf die der Algorithmus reagieren muss. <br>
-            Da wir uns mit der Qualität bzw. den Kosten solcher Algorithmen beschäftigen wollen, definieren wir uns die <mark>inhärenten Kosten einer Anfragekette</mark>. Sie sollen die Kosten des besten Offline-Algorithmus, der die Anfragekette zu einem <abbr data-toggle="tooltip" title="Der gleiche Zweck, den auch der andere Algorithmus verfolgt, den wir mit den inhärenten Kosten ins Verhältnis setzen.">bestimmten Zweck</abbr> bearbeitet, sein. Außerdem legen wir als <mark>Maß der Qualität eines Online-Algorithmus</mark> das Worst Case Verhältnis (über alle Sequenzen) der Kosten des Online Algorithmus zu den inhärenten Kosten fest.<br><br>
+            In der "Pokemon Arena"-Aufgabe haben wir gesehen, dass wir uns für die erste Aufgabenstellung, in der die Liste aller Ereignisse vor jeder Entscheidung bekannt ist, sehr gut überlegen können, welches Pokemon wir tauschen sollten, während dies für die zweite Aufgabestellung deutlich uneindeutiger ist. Schreiben wir uns nun Algorithmen um diese Aufgaben zu lösen, so nennen wir den Algorithmus im ersten Fall "Offline-Algorithmus" im zweiten Fall "Online-Algorithmus". Ein <mark>Offline-Algorithmus</mark> kennt zu jedem Zeitpunkt die gesamte abzuarbeitende Ereigniskette und kann entsprechend planen, ein <mark>Online-Algorithmus</mark> muss Entscheidungen ohne die Kenntnis von zukünftigen Ereignissen treffen. Statt Ereignissen werden wir im Folgenden von <mark>Anfragen</mark> sprechen, auf die der Algorithmus reagieren muss. <br>
+            Da wir uns mit der Qualität bzw. den Kosten solcher Algorithmen beschäftigen wollen, definieren wir uns die <mark>inhärenten Kosten einer Anfragekette</mark>. Sie sollen die Kosten des besten Offline-Algorithmus, der die Anfragekette zu einem <abbr data-toggle="tooltip" title="Der gleiche Zweck, den auch der andere Algorithmus verfolgt, den wir mit den inhärenten Kosten ins Verhältnis setzen.">bestimmten Zweck</abbr> bearbeitet, sein. Außerdem legen wir als <mark>Maß der Qualität eines Online-Algorithmus</mark> das Worst Case Verhältnis (über alle Sequenzen) der Kosten des Online-Algorithmus zu den inhärenten Kosten fest.<br><br>
             
             <!-- Clearfix because of thumbnail -->
             <div class="clearfix"></div>
@@ -339,7 +339,7 @@ Wir behaupten jetzt, dass man jeden deterministischen Algorithmus mit einer "fie
                 <form class="form-horizontal form-kontrollfrage">
                     <div class="form-group">
                         <label for="input_1-frage_3_1" class="col-sm-6 control-label">
-                            Überlege Dir eine Eingabe-Sequenz der Länge vier, für die der LRU, der sich im letzten Zustand aus dem obigen Beispiel befindet, nur Misses erzeugt. Dabei darfst Du nur Elemente aus dem Bereich B-F wählen. <br> <br> <img src="resources/exercise_lru.png">
+                            Überlege dir eine Eingabe-Sequenz der Länge vier, für die der LRU, der sich im letzten Zustand aus dem obigen Beispiel befindet, nur Misses erzeugt. Dabei darfst du nur Elemente aus dem Bereich B-F wählen. <br> <br> <img src="resources/exercise_lru.png">
                         </label>
                         <div class="col-sm-6" data-explain="requestingChain">
                             <input type="text" class="form-control" id="input_1-frage_3_1" placeholder="Mögliche Eingabesequenz">
@@ -361,7 +361,7 @@ Der Satz, dass für einen deterministischen Online-Algorithmus immer eine Eingab
     </div>
  </div>
 
-Die logische Schlussfolgerung ist, dass wir ein anderes Kriterium brauchen, um die online Algorithmen zu vergleichen und aussagekräftig einzuschätzen. Wir werden die Online-Algorithmen nun nicht direkt miteinander, sondern jeden von ihnen mit "ihrem" Offline-Algorithmus vergleichen, also einem, der auf der gleichen Eingabesequenz arbeitet. Anschließend vergleichen wir, welcher Algorithmus wie gut gegenüber seinem Offline-Algorithmus performt hat. Dazu machen wir einen kurzen Exkurs in die offline paging Algorithmen.</p>
+Die logische Schlussfolgerung ist, dass wir ein anderes Kriterium brauchen, um die Online-Algorithmen zu vergleichen und aussagekräftig einzuschätzen. Wir werden die Online-Algorithmen nun nicht direkt miteinander, sondern jeden von ihnen mit "ihrem" Offline-Algorithmus vergleichen, also einem, der auf der gleichen Eingabesequenz arbeitet. Anschließend vergleichen wir, welcher Algorithmus wie gut gegenüber seinem Offline-Algorithmus performt hat. Dazu machen wir einen kurzen Exkurs in die Offline Paging Algorithmen.</p>
 <!-- Clearfix beacuse of thumbnail -->
 <div class="clearfix"></div>
 </p>
@@ -376,7 +376,7 @@ Die logische Schlussfolgerung ist, dass wir ein anderes Kriterium brauchen, um d
 		<br><br>
 		<img src="resources/offline.png">
 		<br><br>
-Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen müssen. Der Algorithmus sieht aber als offline Algorithmus, wann er welches Element braucht und verwirft daher niemals die, die er kurz darauf wieder brauchen wird. Genauer gesagt geht er so vor, dass er immer dasjenige von den Cache-Elementen verwirft, das er am Längsten nicht brauchen wird. Dieses Vorgehen bezeichnet man auch als <mark>Min-Funktion.</mark> Offline Algorithmen verursachen zwar nicht keine Kosten, aber verursachen nicht mehr Kosten als optimal. Die Optimalität zu beweisen ist nichttrivial, ist aber nach obiger Vorgehensweise intuitiv nachvollziehbar. Folglich kann nun ein online Algorithmus eingeschätzt werden, indem der Faktor ermittelt wird, wieviel schlechter als sein optimaler Gegenspieler er performt. Und dazu führen wir nun die <mark>C-Competitiveness</mark> ein.
+Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen müssen. Der Algorithmus sieht aber als Offline-Algorithmus, wann er welches Element braucht und verwirft daher niemals die, die er kurz darauf wieder benötigen wird. Genauer gesagt geht er so vor, dass er immer dasjenige von den Cache-Elementen verwirft, das er am Längsten nicht brauchen wird. Dieses Vorgehen bezeichnet man auch als <mark>Min-Funktion.</mark> Offline-Algorithmen verursachen zwar nicht keine Kosten, allerdings genau die optimalen Kosten. Die Optimalität zu beweisen ist nicht trivial, sie ist aber nach obiger Vorgehensweise intuitiv nachvollziehbar. Folglich kann nun ein Online-Algorithmus eingeschätzt werden, indem der Faktor ermittelt wird, um den er schlechter als sein optimaler Gegenspieler performt. Und dazu führen wir nun die <mark>\(C\)-Competitiveness</mark> ein.
 	</p>
 	 
 <hr>
@@ -384,16 +384,17 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
 
 	<!----------------------------------->
 	<!-- Abschnitt 5: C-Competitiveness-->
-	<h4 id="anchor_navigation-5">5. C-Competitiveness</h4>
+	<h4 id="anchor_navigation-5">5. \(C\)-Competitiveness</h4>
 		<p>
-			Um die C-Competitiveness zu verstehen, müssen wir den bisherigen Sachverhalt formalisieren. Dazu definieren wir <br>
-			\(p = (p_1, p_2, ..., p_n)\)         als die Anfragesequenz mit n Elementen <br>
-			\(f_A(p_1, p_2, ..., p_n)\)  bzw.  \(f_A(p)\)  als die Kosten von Algorithmus A auf der Anfragesequenz p <br>
-			\(f_0(p_1, p_2, ..., p_n)\)  bzw.  \(f_0(p)\)  als die Kosten des offline Algorithmus auf der Sequenz p, also die optimalen Kosten auf p <br>
-
-			Nun können wir das Verhältnis zwischen einem online Algorithmus A und seinem offline Algorithmus definieren als: <br>
-		\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\) für alle Eingabe-Sequenzen, b unabhängig von n <br> <br>
-			In Worten bedeutet das, dass es ein b und ein C gibt, sodass es keine Anfragesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor C, subtrahiert von den Kosten des Online-Algorithmus auf der gleichen Sequenz, das b übersteigen. Wenn das der Fall ist, dann heißt A C-competetiv und ist somit nie schlechter als C-mal schlechter als sein Offline-Algorithmus. Wenn A zum Beispiel 5-competetiv ist, dann ist er natürlich auch 6-competetiv, 7-competetiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competitiveness-Faktoren für einen competetiven Online Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also das kleinstmögliche aller C-Faktoren. Dieser kleinste heißt dann Competitiveness-Koeffizient für A. Nähere Dich der Formel am besten gleich mit einer Verständnis-Aufgabe: <br>
+			Um die \(C\)-Competitiveness zu verstehen, müssen wir den bisherigen Sachverhalt formalisieren. Dazu definieren wir
+			<ul>
+			<li>\(p = (p_1, p_2, ..., p_n)\)         als die Anfragesequenz mit \(n\) Elementen,</li>
+			<li>\(f_A(p_1, p_2, ..., p_n)\)  bzw.  \(f_A(p)\)  als die Kosten des Algorithmus \(A\) auf der Anfragesequenz \(p\),</li>
+			<li>\(f_0(p_1, p_2, ..., p_n)\)  bzw.  \(f_0(p)\)  als die Kosten des Offline-Algorithmus auf der Sequenz \(p\), also die optimalen Kosten auf \(p\). </li>
+			</ul>
+			Nun können wir das Verhältnis zwischen einem Online-Algorithmus \(A\) und seinem Offline-Algorithmus definieren als: <br>
+		\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\) für alle Eingabe-Sequenzen, \(b\) unabhängig von \(n\). <br> <br>
+			In Worten bedeutet das, dass es ein \(b\) und ein \(C\) gibt, sodass es keine Anfragesequenz gibt, für die die Kosten des Offline-Algorithmus, skaliert mit dem Faktor \(C\), subtrahiert von den Kosten des Online-Algorithmus (auf der gleichen Sequenz), das \(b\) übersteigen. Wenn das der Fall ist, dann heißt \(A\) \(C\)-competitiv und ist somit nie schlechter als \(C\)-mal schlechter als sein Offline-Algorithmus. Wenn \(A\) zum Beispiel \(5\)-competitiv ist, dann ist er natürlich auch \(6\)-competitiv, \(7\)-competitiv und so weiter. Das heißt, es gibt theoretisch unendlich viele Competitiveness-Faktoren für einen competitiven Online-Algorithmus. Um eine möglichst genaue Einschätzung zu garantieren, betrachten wir immer nur das Infimum, also den kleinstmöglichen aller \(C\)-Faktoren. Dieser kleinste heißt dann Competitiveness-Coefficient für \(A\). Nähere dich der Formel am besten gleich mit einer Verständnisaufgabe: <br>
 		</p>
 <!-- Kontrollfragen: Abschnitt 5 -->
 <div class="kontrollfragen panel-group" id="kontrollfragen_05" role="tablist" aria-multiselectable="false">
@@ -410,7 +411,7 @@ Hier wird D rausgeworfen, obwohl nach z.B. LRU D als letztes hätte rausfliegen 
                 <form class="form-horizontal form-kontrollfrage">
                     <div class="form-group">
                         <label for="input_1-frage_5_1" class="col-sm-6 control-label">
-                            Finde die Belegung für b und C, sodass der Online-Algorithmus A exakt genauso gut performt wie der Offline-Algorithmus.
+                            Finde die Belegung für \(b\) und \(C\), sodass der Online-Algorithmus \(A\) exakt genauso gut performt wie der Offline-Algorithmus.
                         </label>
                         <div class="col-sm-6">
 									<div>b = </div>
@@ -442,11 +443,11 @@ Genau, wenn C = 1 und b = 0 ist, dann sind der Online- und Offline-Algorithmus e
  </div> 
 
 	<p>
-		Jetzt wollen wir zeigen, dass unser deterministischer LRU-Algorithmus für die Worst-Case-Sequenz \(k\)-competetive ist. \(k\) ist hier weiterhin die Anzahl der Pages im Cache. Wir zeigen hier also nicht die generelle Competitiveness von LRU, veranschaulichen aber das Prinzip an einer einzelnen Sequenz. <br> Die Worst-Case-Sequenz für LRU ist diejenige, auf der LRU ausschließlich Misses erzeugt. Greifen wir das Beispiel von vorhin auf: <br> <img src="resources/exercise_lru.png">
-<br>Dann wäre die Worst-Case-Sequenz B, C, E, D, F, B, C, E, D, F, B, ... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
-Jetzt schauen wir, wie der Offline-Algorithmus auf dieser Anfrage-Sequenz performt: Für das B ensteht natürlich ein Miss. Da aber abzusehen ist, dass die Elemente C, E und D als nächstes gebraucht werden, wird F für B verworfen. Also haben wir \(Miss, Hit, Hit, Hit\). Nun muss das F wieder in den Cache geholt werden, wofür es einen \(Miss\) gibt. B, C und E werden als nächstes gebraucht also wird das D verworfen. Wir erhalten wieder \(Miss, Hit, Hit, Hit\). Dieses Schema geht immer so weiter auf der ganzen Sequenz. Wir erhalten also so etwas wie "Runden", wobei eine Runde immer aus einem \(Miss\) und drei \(Hits\) besteht. Es fällt auf, dass eine Runde genau \(k\) lang ist. Wenn wir also wissen, dass wir pro Runde Kosten von Eins haben, dann haben wir insgesamt soviel Kosten wie wir Runden haben. Und da wir wissen, dass eine Runde \(k\) lang ist, haben wir insgesamt \(\frac{n}{k}\) Runden und somit \(f_0(p_1, ..., p_n)=\frac{n}{k}\) Kosten. Nun können wir in die Competitiveness-Formel einsetzen: <br>
-<p style="text-align:center">\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\), also <br> \(n−C×\frac{n}{k} ≤ b\)</p> <br> Und nun sehen wir, dass wenn wir für \(C\) unser \(k\) einsetzen, Folgendes passiert: <br> <p style="text-align:center">\(n−k×\frac{n}{k} ≤ b\) <br> \(n−n ≤ b\) <br> \(0 ≤ b\)</p> <br> Wir sehen, dass LRU für die Worst-Case-Sequenz \(k\)-competetive ist.<br>
-Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung: Das ist aus obigem Sachverhalt nicht direkt schließbar!) LRU ist aber nur ein Beispiel für deterministische Online-Algorithmen. 
+		Jetzt wollen wir zeigen, dass unser deterministischer LRU-Algorithmus für die Worst-Case-Sequenz \(k\)-competitive ist. \(k\) ist hier weiterhin die Anzahl der Cacheplätze. Wir zeigen hier also nicht die generelle Competitiveness von LRU, veranschaulichen aber das Prinzip an einer einzelnen Sequenz. <br> Die Worst-Case-Sequenz für LRU ist diejenige, auf der LRU ausschließlich Misses erzeugt. Greifen wir das Beispiel von vorhin auf: <br> <img src="resources/exercise_lru.png">
+<br>Dann wäre die Worst-Case-Sequenz: B, C, E, D, F, B, C, E, D, F, B, .... Das heißt,  \( f_A(p_1, ..., p_n) = n\). <br>
+Jetzt schauen wir, wie der Offline-Algorithmus auf dieser Anfragesequenz performt: Für das B ensteht natürlich ein Miss. Da aber abzusehen ist, dass die Elemente C, E und D als nächstes gebraucht werden, wird F für B verworfen. Also haben wir \(Miss, Hit, Hit, Hit\). Nun muss das F wieder in den Cache geholt werden, wofür es einen \(Miss\) gibt. B, C und E werden als nächstes gebraucht also wird das D verworfen. Wir erhalten wieder \(Miss, Hit, Hit, Hit\). Dieses Schema geht immer so weiter auf der ganzen Sequenz. Wir erhalten also so etwas wie "Runden", wobei eine Runde immer aus einem \(Miss\) und drei \(Hits\) besteht. Es fällt auf, dass eine Runde genau \(k\) lang ist. Wenn wir also wissen, dass wir pro Runde Kosten von Eins haben, dann haben wir insgesamt soviel Kosten wie wir Runden haben. Und da wir wissen, dass eine Runde \(k\) lang ist, haben wir insgesamt \(\frac{n}{k}\) Runden und somit \(f_0(p_1, ..., p_n)=\frac{n}{k}\) Kosten. Nun können wir in die Competitiveness-Formel einsetzen: <br>
+<p style="text-align:center">\(f_A(p_1, p_2, ..., p_n)−C×f_0(p_1, p_2, ..., p_n) ≤ b\), also <br> \(n−C×\frac{n}{k} ≤ b\)</p> <br> Und nun sehen wir, dass, wenn wir für \(C\) unser \(k\) einsetzen, Folgendes passiert: <br> <p style="text-align:center">\(n−k×\frac{n}{k} ≤ b\) <br> \(n−n ≤ b\) <br> \(0 ≤ b\)</p> <br> Wir sehen, dass LRU für die Worst-Case-Sequenz \(k\)-competitive ist.<br>
+Interessanterweise gilt, dass LRU auch allgemein \(k\)-competitive ist. (Achtung: Das ist aus obigem Sachverhalt nicht direkt schließbar!) LRU ist aber nur ein Beispiel für deterministische Online-Algorithmen. 
 	</p> 
 	
 <hr>
@@ -457,7 +458,7 @@ Interessanterweise gilt, dass LRU auch allgemein \(k\)-competetive ist. (Achtung
 	<p>	
 Allgemein gilt für alle deterministischen Online-Algorithmen folgende untere Schranke:<br><br>
 <u>Satz:</u><br>
-Sei A ein deterministischer online Algorithmus für Paging. Dann gilt: \(C_A \geq k\). <br> <br> Deterministische Online-Algorithmen sind also immer mindestens \(k\)-mal schlechter als die optimale Lösung. Das ist nicht besonders toll und deswegen wollen wir untersuchen, ob das nicht noch besser geht. Dafür wenden wir uns jetzt den randomisierten Online-Algorithmen zu.	
+Sei \(A\) ein deterministischer Online-Algorithmus für Paging. Dann gilt: \(C_A \geq k\). <br> <br> Deterministische Online-Algorithmen sind also immer mindestens \(k\)-mal schlechter als die optimale Lösung. Das ist nicht besonders toll und deswegen wollen wir untersuchen, ob es nicht noch besser geht. Dafür wenden wir uns jetzt den randomisierten Online-Algorithmen zu.	
 	</p>
 	
 <hr>
@@ -466,20 +467,25 @@ Sei A ein deterministischer online Algorithmus für Paging. Dann gilt: \(C_A \ge
     <!-- Abschnitt 7: Untere Schranke Randomisierte Online Paging Algorithmen -->	
 	<h4 id="anchor_navigation-5">7. Randomisierte Online-Algorithmen für Paging</h4>
 	<p>
-	Wir haben die ganze Zeit über zwei Algorithmen betrachtet, die competetive gegenüber einander waren, also sozusagen gegeneinander gekämpft haben. Daher nennen wir ab jetzt den Offline-Algorithmus <mark>Adversary</mark> für den Online-Algorithmus. Der Adversary darf eine Anfrage-Sequenz generieren, auf der beide Algorithmen arbeiten. So wie Du vorhin eine Sequenz für den LRU gebaut hast, auf die er ausschließlich Misses erzeugt, so generiert der Adversary gezielt die Anfrage-Sequenzen, um seinen Gegner in die Knie zu zwingen. Da wir gesehen haben, dass deterministische Algorithmen im Kampf gegen den Adversay aufgrund ihres vorhersehbaren, von jenem ausnutzbaren Determinismus nicht sonderlich gut abschneiden, schicken wir nun einen randomisierten Algorithmus ins Rennen. Ein randomisierter Online-Algorithmus arbeitet anders als ein deterministischer: Während LRU, FIFO und Co ihre Elemente nach einem ganz bestimmten Muster aus dem Cache werfen, um Platz für neue zu schaffen, entscheidet der randomisierte Algorithmus völlig willkürlich, welche Elemente verworfen werden. Natürlich gibt es verschiedene randomisierte Algorithmen, aber wir betrachten zunächst einen simplen Algorithmus, der zufällig gleichverteilt ein Element auswählt und aus dem Cache wirft. Das kann dazu führen, dass er sich im Best-Case zufällig genauso verhält wie der offline Algorithmus, also genau die richtigen Elemente zum richtigen Zeitpunkt verwirft, um minimal viele Misses zu verursachen. Es kann aber auch dazu führen, dass er sich zufällig genau so verhält, dass er immer das falsche Element, also immer das Element, das als nächstes eingegeben wird, aus dem Cache wirft und somit ausschließlich Misses verursacht, also gleich schlecht wie LRU und Co im Worst-Case performt. Da der Adversay nun vorab keine Eingabe mehr produzieren kann, von der er weiß, dass der Online-Algorithmus darauf nur Misses erzeugt, eben weil er dessen Vorgehen nicht kennt und damit nicht vorhersagen kann, nennen wir ihn einen <mark>oblivious Adversary</mark> (engl. "blind"). Aufgrund des randomisierten Verhaltens, das irgendwo zwischen absolutem Optimalfall und schlimmsten Worst-Case liegt, müssen wir nun auch die Formel der Competitiveness anpassen, da es keine eindeutige Kostenfunktion \(f_A(p)\) mehr gibt. Wir müssen nun betrachten, welche Kosten der randomisierte Algorithmus im Erwartungswert verursacht: <br> <p style="text-align:center">\(E[f_A(p_1, ..., p_n)]−C×f_0(p_1, ..., p_n) ≤ b\) </p> <br> Wie sich der Erwartungswert dieser Kostenfunktion zusammensetzt, wollen wir nun an einem Beispiel veranschaulichen. Im dreiseitigen Cache seien die Elemente A, B und C. Die Anfrage-Sequenz sei D, A, B. Zu ermitteln sind die erwarteten Kosten, die der gleichverteilt randomisierte Algorithmus auf dieser Sequenz verursacht.<br> <br>
-Der <a href="https://de.wikipedia.org/wiki/Erwartungswert" target="_blank">Erwartungswert</a> ist definiert als die Summe aller Ereignisse gewichtet mit ihrer Wahrscheinlichkeit:<br> <p style="text-align:center">\(E=\sum_{x\in I}x_iP(X=x_i)\)</p><br>
-Schauen wir uns dazu an, welche Ereignisse auftreten können. Fangen wir mit dem Best-Case an: Offensichtlich wäre es günstig, das C für das D zu verwerfen, da nach diesem Miss keine weiteren Kosten mehr verursacht würden, da A und B beide im Cache wären. Das heißt, wir hätten Kosten von 1 mit einer Wahrscheinlichkeit von \(\frac{1}{3}\). Schauen wir uns nun den Worst-Case an: Besonders ungünstig wäre es, wenn wir für das D das A verwerfen würden und anschließend das B verwerfen würden, um das A wieder in den Cache zu laden. Denn dann hätten wir auf allen Elementen der Eingabesequenz einen Miss. Die Wahrscheinlichkeit dafür setzt sich nun so zusammen: \(\frac{1}{3}\) Wahrscheinlichkeit dafür, dass wir zuerst das A erwischen und nochmal \(\frac{1}{3}\) Wahrscheinlichkeit dafür, dass wir danach das B verwerfen. Insgesamt also \(\frac{1}{9}\) Wahrscheinlichkeit dafür, dass Kosten von 3 verursacht werden. Jetzt haben wir also die obere und untere Kostenschranke berechnet. Offensichtlicherweise bleibt nur noch die Möglichkeit, dass es zu Kosten von zwei kommt. Da die Summe der Ereigniswahrscheinlichkeiten in einem Ereignisraum immer Eins ist, ergibt sich für die Wahrscheinlichkeit der Kosten von zwei: \(1-\frac{1}{3}-\frac{1}{9}=\frac{5}{9}\). Nun haben wir alle möglichen Ereignisse samt ihrer Wahrscheinlichkeit ermittelt und können den Erwartungswert ausrechnen: <br> <p style="text-align:center">\(E=1\cdot \frac{1}{3} + 2\cdot \frac{5}{9} + 3\cdot \frac{1}{9} = \frac{16}{9} = 1,\overline 7\)</p> <br>
-Das heißt, dass der gleichverteilte randomisierte Algorithmus auf dem Cache A, B, C arbeitend im Erwartungswert \(1,\overline 7\) Kosten auf der Anfragesequenz D, A, B verursacht. (Zu genau diesem Wert wird es natürlich nie kommen.) Hoffentlich hast Du jetzt ein Gefühl dafür, was hinter dem Erwartungswert der Kostenfunktion steckt und welche Rolle er in der Competitiveness-Formel spielt. <br><br> Wie auch bei den deterministischen Algorithmen können wir für die randomisierten Algorithmen eine untere Schranke für die Competitiveness definieren.
+	Wir haben die ganze Zeit über zwei Algorithmen betrachtet, die competitive gegenüber einander waren, also sozusagen gegeneinander gekämpft haben. Daher nennen wir ab jetzt den Offline-Algorithmus <mark>Adversary</mark> für den Online-Algorithmus. Der Adversary darf eine Anfragesequenz generieren, auf der beide Algorithmen arbeiten. So wie du vorhin eine Sequenz für den LRU gebaut hast, auf der er ausschließlich Misses erzeugt, so generiert der Adversary gezielt die Anfragesequenzen, um seinen Gegner in die Knie zu zwingen. <br>
+	Da wir gesehen haben, dass deterministische Algorithmen im Kampf gegen den Adversary aufgrund ihres vorhersehbaren, von jenem ausnutzbaren Determinismus nicht sonderlich gut abschneiden, schicken wir nun einen randomisierten Algorithmus ins Rennen.<br> 
+	Ein randomisierter Online-Algorithmus arbeitet anders als ein deterministischer: Während LRU, FIFO und Co ihre Elemente nach einem ganz bestimmten Muster aus dem Cache werfen, um Platz für neue zu schaffen, entscheidet der randomisierte Algorithmus völlig willkürlich, welche Elemente verworfen werden. Natürlich gibt es verschiedene randomisierte Algorithmen, aber wir betrachten zunächst einen simplen Algorithmus, der zufällig gleichverteilt ein Element auswählt und aus dem Cache wirft. Das kann dazu führen, dass er sich im Best-Case zufällig genauso verhält wie der Offline-Algorithmus, also genau die richtigen Elemente zum richtigen Zeitpunkt verwirft, um minimal viele Misses zu verursachen. Es kann aber auch dazu führen, dass er sich zufällig genau so verhält, dass er immer das falsche Element, also immer das Element, das als nächstes angefragt wird, aus dem Cache wirft und somit ausschließlich Misses verursacht, also gleich schlecht wie LRU und Co im Worst Case performt.<br> 
+	Da der Adversary nun vorab keine Eingabe mehr produzieren kann, von der er weiß, dass der Online-Algorithmus darauf nur Misses erzeugt, eben weil er dessen Vorgehen nicht kennt und damit nicht vorhersagen kann, nennen wir ihn einen <mark><abbr data-toggle = "tooltip" title="(engl. 'ahnungslos')">oblivious</abbr> Adversary</mark> . Aufgrund des randomisierten Verhaltens, das irgendwo zwischen absolutem Optimalfall und schlimmstem Worst Case liegt, müssen wir nun auch die Formel der Competitiveness anpassen, da es keine eindeutige Kostenfunktion \(f_A(p)\) mehr gibt. Wir müssen nun betrachten, welche Kosten der randomisierte Algorithmus im Erwartungswert verursacht: <br> <p style="text-align:center">\(E[f_A(p_1, ..., p_n)]−C×f_0(p_1, ..., p_n) ≤ b\) </p> <br> 
+	Wie sich der <a href="https://de.wikipedia.org/wiki/Erwartungswert" target="_blank">Erwartungswert</a> dieser Kostenfunktion zusammensetzt, wollen wir nun an einem Beispiel veranschaulichen. Im dreiseitigen Cache seien die Elemente A, B und C. Die Anfragesequenz sei D, A, B. Zu ermitteln sind die erwarteten Kosten, die der gleichverteilt randomisierte Algorithmus auf dieser Sequenz verursacht.<br>
+	Schauen wir uns dazu an, welche Ereignisse auftreten können. Fangen wir mit dem Best Case an: Offensichtlich wäre es günstig, das C für das D zu verwerfen, da nach diesem Miss keine weiteren Kosten mehr verursacht werden würden, da A und B beide im Cache wären. Das heißt, wir hätten Kosten von Eins mit einer Wahrscheinlichkeit von \(\frac{1}{3}\).<br> 
+	Schauen wir uns nun den Worst Case an: Besonders ungünstig wäre es, wenn wir für das D das A verwerfen würden und anschließend das B verwerfen würden, um das A wieder in den Cache zu laden. Denn dann hätten wir auf allen Elementen der Eingabesequenz einen Miss. Die Wahrscheinlichkeit dafür setzt sich nun so zusammen: \(\frac{1}{3}\) Wahrscheinlichkeit dafür, dass wir zuerst das A erwischen und nochmal \(\frac{1}{3}\) Wahrscheinlichkeit dafür, dass wir danach das B verwerfen. Insgesamt also \(\frac{1}{9}\) Wahrscheinlichkeit dafür, dass Kosten von Drei verursacht werden.<br> 
+	Jetzt haben wir also die obere und untere Kostenschranke berechnet. Offensichtlicherweise bleibt nur noch die Möglichkeit, dass es zu Kosten von Zwei kommt. Da die Summe aller Ereigniswahrscheinlichkeiten in einem Ereignisraum immer Eins ist, ergibt sich für die Wahrscheinlichkeit der Kosten von Zwei: \(1-\frac{1}{3}-\frac{1}{9}=\frac{5}{9}\). Nun haben wir alle möglichen Ereignisse samt ihrer Wahrscheinlichkeiten	 ermittelt und können den Erwartungswert ausrechnen: <br> <p style="text-align:center">\(E=1\cdot \frac{1}{3} + 2\cdot \frac{5}{9} + 3\cdot \frac{1}{9} = \frac{16}{9} = 1,\overline 7\)</p> <br>
+	Das heißt, dass der gleichverteilte randomisierte Algorithmus auf dem Cache A, B, C arbeitend im Erwartungswert \(1,\overline 7\) Kosten auf der Anfragesequenz D, A, B verursacht. (Zu genau diesem Wert wird es natürlich nie kommen.) Hoffentlich hast du jetzt ein Gefühl dafür, was hinter dem Erwartungswert der Kostenfunktion steckt und welche Rolle er in der Competitiveness-Formel spielt.
 	</p>
 	
 <hr>
 
     <!----------------------------------->
     <!-- Abschnitt 8: Untere Schranke Randomisierte Online Paging Algorithmen -->
-    <h4 id="anchor_navigation-6">8. Untere Schranke Randomisierte Online Paging Algorithmen für Paging</h4>
+    <h4 id="anchor_navigation-6">8. Untere Schranke Randomisierte Online-Algorithmen für Paging</h4>
     <p>
-    Genauso wie wir für die deterministischen Online Paging Algorithmen eine untere Schranke für den Competitiveness-Coefficient gefunden haben, können wir auch für die randomisierten Online Paging Algorithmen einen solche untere Schranke bestimmen.<br><br>
-	 	<u>Satz:</u> <br> Sei R ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=0} \frac{1}{j}\), also die k-te harmonische Zahl. <br> <br>
+    Genauso wie wir für die deterministischen Online Paging Algorithmen eine untere Schranke für den Competitiveness-Coefficient gefunden haben, können wir auch für die randomisierten Online Paging Algorithmen eine solche untere Schranke bestimmen.<br><br>
+	 	<u>Satz:</u> <br> Sei \(A\) ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=1} \frac{1}{j}\), also die k-te harmonische Zahl. <br> <br>
 	 	Wir verzichten an dieser Stelle auf den Beweis, bemerken jedoch, dass wir einen wesentliche besseren Competitiveness-Coefficient erreichen als bei den deterministischen Algorithmen. Wir sehen, dass wir hier logarithmisch in k sind. <br> 
 	 	Die harmonische Zahl treffen wir auch in anderen Themengebieten der Wahrscheinlichkeitstheorie an wie z.B. beim <a href="https://de.wikipedia.org/wiki/Sammelbilderproblem" target="_blank">Coupon Collector</a>.
         <!-- Clearfix beacuse of thumbnail -->
@@ -555,7 +561,7 @@ Array insert(Array cache, Array marker, Object inquiredElement){
 	<ul>	
 		<li>\(k\) die Anzahl der Cacheplätze,</li>
 		<li>\(p_{1}, p_{2}, ...\) die Anfragesequenz,</li>
-		<li>\(O\) der optimale offline Algorithmus,</li>
+		<li>\(O\) der optimale Offline-Algorithmus,</li>
 		<li>\(M\) der Marker Algorithmus.</li>
 	</ul>
 Es gelte:
@@ -837,9 +843,9 @@ Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorith
 <h4 id="anchor_navigation-3">11. Was haben wir gelernt?</h4>
 <p>
 	<ol>
-		<li>Online Algorithmen treffen Entscheidungen ohne zukünftige Anfragen zu kennen.</li>
-		<li>Eine standardmäßige Worst Case Betrachtung bringt uns bei Online Algorithmen nicht weiter.</li>
-		<li>Mit der Competitiveness haben wir ein Werkzeug um Online Algorithmen zu vergleichen.</li>
+		<li>Online-Algorithmen treffen Entscheidungen ohne zukünftige Anfragen zu kennen.</li>
+		<li>Eine standardmäßige Worst Case Betrachtung bringt uns bei Online-Algorithmen nicht weiter.</li>
+		<li>Mit der Competitiveness haben wir ein Werkzeug um Online-Algorithmen zu vergleichen.</li>
 		<li>Mit dem Marker Algorithmus haben wir einen konkreten randomisierten Online Paging Algorithmus kennengelernt.</li>
 		<li>Die untere Schranke des Competitiveness-Coefficient von deterministischen Algorithmen liegt deutlich über der unteren Schranke des Competitiveness-Coefficient von randomisierten Algorithmen (mit oblivious Adversary).</li>
 	</ol>
@@ -855,13 +861,13 @@ Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorith
 <!-- Abschnitt I: Quellen und Weiterführendes Material -->
 <h3 id="anchor_navigation-sources">I. Quellen und weiterführendes Material</h3>
 <p>
-    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="https://de.wikipedia.org/wiki/Online-Algorithmus" target="_blank">Online Algorithmen</a> existieren weitere Ressourcen, die wir zum tiefergehenderen Studium besonders empfehlen:
+    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="https://de.wikipedia.org/wiki/Online-Algorithmus" target="_blank">Online-Algorithmen</a> existieren weitere Ressourcen, die wir zum tiefergehenderen Studium besonders empfehlen:
 <dl>
     <dt><a href="http://www.cambridge.org/catalogue/catalogue.asp?isbn=9780521474658" target="_blank">Rajeev Motwani, Prabhakar Raghavan - Randomized Algorithms (Cambridge University Press, 1995)</a></dt>
     <dd>Standardwerk mit allen Termini, wichtigen Beweisen und mit weiteren Übungsaufgaben.</dd>
 
-    <dt><a href="http://www14.in.tum.de/personen/albers/papers/brics.pdf" target="_blank">Susanne Albers - Competitive Online Algorithms (MPI Saarbrücken, 1996)</a></dt>
-    <dd>Ähnliche Inhalte wie in "Randomized Algorithms", aufbereitet für einen "Mini-Course on Competitive Online Algorithms".</dd>
+    <dt><a href="http://www14.in.tum.de/personen/albers/papers/brics.pdf" target="_blank">Susanne Albers - Competitive Online-Algorithms (MPI Saarbrücken, 1996)</a></dt>
+    <dd>Ähnliche Inhalte wie in "Randomized Algorithms", aufbereitet für einen "Mini-Course on Competitive Online-Algorithms".</dd>
 
 </dl>
 
