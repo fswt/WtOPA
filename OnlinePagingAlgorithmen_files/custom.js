@@ -425,7 +425,7 @@ function initializeProofQuestionPopover($proofQuestion, hintTime, finishTime) {
     var explainProofQuestion = $('<div class="explain-proof-question"><small>'+finishTimeString+' Minuten</small> <span class="glyphicon glyphicon-question-sign small" aria-hidden="true"></span></div>');
 
     // Add Popover-Capabilities to it
-    var popoverTitle = '<small>Da Beweise schlecht maschinell verifiziert werden können, findet diese Aufgabe timer-basiert statt.</small>';
+    var popoverTitle = '<small>Diese Aufgabe findet timer-basiert statt.</small>';
     var popoverContent = 'Drücke auf Start um die Aufgabe zu beginnen:<ul><li>Nach <strong>'+ hintTimeString +' min</strong> kannst du dir einen Hinweis anzeigen lassen.</li><li>Nach <strong>'+ finishTimeString +' min</strong> steht dir eine Beispiellösung zur Verfügung.</li></ul>';
     explainProofQuestion.data("trigger", "hover");
     explainProofQuestion.data("placement", "left");

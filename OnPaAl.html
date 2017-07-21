@@ -68,7 +68,7 @@
     });    
 </script>
 <meta name="DCTERMS.title" content="Online Paging Algorithmen">
-<meta name="date" content="2017-07-21T22:00:54+0200" >
+<meta name="date" content="2017-07-21T23:46:01+0200" >
 <meta name="DCTERMS.date" content="2017-05-31T16:06:27+02:00">
 <meta name="robots" content="index,follow">
 <!--<link rel="canonical" href="https://hpi.de/friedrich/teaching/units/onlinepagingalgorithmen.html"> -->
@@ -485,9 +485,9 @@ Sei \(A\) ein deterministischer Online-Algorithmus für Paging. Dann gilt: \(C_A
     <h4 id="anchor_navigation-6">8. Untere Schranke Randomisierte Online-Algorithmen für Paging</h4>
     <p>
     Genauso wie wir für die deterministischen Online Paging Algorithmen eine untere Schranke für den Competitiveness-Coefficient gefunden haben, können wir auch für die randomisierten Online Paging Algorithmen eine solche untere Schranke bestimmen.<br><br>
-	 	<u>Satz:</u> <br> Sei \(A\) ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=1} \frac{1}{j}\), also die k-te harmonische Zahl. <br> <br>
-	 	Wir verzichten an dieser Stelle auf den Beweis, bemerken jedoch, dass wir einen wesentliche besseren Competitiveness-Coefficient erreichen als bei den deterministischen Algorithmen. Wir sehen, dass wir hier logarithmisch in k sind. <br> 
-	 	Die harmonische Zahl treffen wir auch in anderen Themengebieten der Wahrscheinlichkeitstheorie an wie z.B. beim <a href="https://de.wikipedia.org/wiki/Sammelbilderproblem" target="_blank">Coupon Collector</a>.
+	 	<u>Satz:</u> <br> Sei \(A\) ein randomisierter Algorithmus für Paging. Dann gilt: \(C^{Obl}_{A} \geq H_{k}\), wobei \(H_{k} = \sum^{k}_{j=1} \frac{1}{j}\), also die \(k\)-te harmonische Zahl. <br> <br>
+	 	Wir verzichten an dieser Stelle auf den Beweis, bemerken jedoch, dass wir einen wesentliche besseren Competitiveness-Coefficient erreichen, als bei den deterministischen Algorithmen. Wir sehen, dass wir hier logarithmisch in \(k\) sind (siehe auch Abschnitt 10. Vergleich Deterministisch vs. Randomisiert). <br> 
+	 	Die harmonische Reihe treffen wir auch in anderen Themengebieten der Wahrscheinlichkeitstheorie an z.B. beim <a href="https://de.wikipedia.org/wiki/Sammelbilderproblem" target="_blank">Coupon Collector</a>.
         <!-- Clearfix beacuse of thumbnail -->
     <div class="clearfix"></div>
     </p>
@@ -501,10 +501,10 @@ Sei \(A\) ein deterministischer Online-Algorithmus für Paging. Dann gilt: \(C_A
 	<!-- Bild mit Unterschrift -->
 	<div class="thumbnail pull-right" style="width: 220px;">                
    	<img src="resources/marker.gif">
-   	<div class="caption">Funktionsweise des Marker Algorithmus für eine Runde, mit \(k=5\)</div>
+   	<div class="caption">Funktionsweise des Marker Algorithmus für eine Runde, mit \(k=5\).</div>
 	</div>
 
-	Nun wollen wir einen konkreten randomisierten Algorithmus betrachten, den <mark>Marker Algorithmus</mark>. Dieser arbeitet in <mark>Runden</mark>. Jedem Cacheplatz ist ein <mark>Markierungsbit</mark> zugeordnet. Zu Beginn jeder Runde, werden alle Markierungsbits auf 0 gesetzt. <br>
+	Nun wollen wir einen konkreten randomisierten Algorithmus betrachten, den <mark>Marker Algorithmus</mark>. Dieser arbeitet in <mark>Runden</mark>. Jedem Cacheplatz ist ein <mark>Markierungsbit</mark> zugeordnet. Zu Beginn jeder Runde werden alle Markierungsbits auf 0 gesetzt. <br>
 	Anfragen werden nun wie folgt bearbeitet: Wenn das angefragte Item im Cache ist, wird das Markierungsbit des Cacheplatz des Items auf 1 gesetzt. Wenn es zu einem Miss kommt, wird das angefrage Item in den Cache geladen. Verdrängt wird hierbei wie folgt: Wähle zufällig gleichverteilt eines der Items auf den nicht markierten Cacheplätzen und ersetze dieses durch das angefrage Item. Außerdem wird das Markierungsbit des Cacheplatzes, in den das neue Item geladen wird, auf 1 gesetzt. <br>
 	Nachdem alle Cacheplätze markiert sind, ist die Runde vorbei, sobald ein Item angefragt wird, welches sich nicht im Cache befindet. Die Grafik rechts visualisiert das Verfahren. Im Folgenden ist der Ablauf als Pseudocode dargestellt:<br><br>
 	<pre class="linenums">
@@ -517,9 +517,9 @@ void markerAlgorithmus(int k){
 	marker.setAllElementsTo(0);
 	
 	while(existsNextInquiredElement()){
+		inquiredElement = getNextInquiredElement();
 		// Ablauf innerhalb einer Runde
 		if (marker.existsElementEquals(0) || cache.hasItem(inquiredElement)){
-			inquiredElement = getNextInquiredElement();
 			cache, marker = processInquiry(cache, marker, inquiredElement);
 		}
 		// initialisiere nächste Runde
@@ -578,12 +578,12 @@ Es gelte:
 Es sei:
 		<li>ein <mark>stale Item</mark> ein Item, für das gilt: Item ist nicht markiert \(\land\) Item war markiert in vorheriger Runde,</li>
 		<li>ein <mark>clean Item</mark> ein Item, für das gilt: Item ist nicht markiert \(\land\) Item ist nicht stale,</li>
-		<li>\(l\) die Anzahl von Anfragen nach cleanen Items in einer Runde,</li>
+		<li>\(l\) die Anzahl an Anfragen nach cleanen Items in einer Runde,</li>
 		<li>\(S_{O}\) die Menge von Items, die im Cache des \(O\) sind,</li>
 		<li>\(S_{M}\) die Menge von Items, die im Cache des \(M\) sind,</li>
 		<li>\(d_{I} = |S_{O} \setminus S_{M}|\) am Beginn einer Runde,</li>
 		<li>\(d_{F} = |S_{O} \setminus S_{M}|\) am Ende einer Runde,</li>
-		<li>\(M_{O}\) die Anzahl von Misses, die \(O\) während einer Runde produziert.</li>
+		<li>\(M_{O}\) die Anzahl an Misses, die \(O\) während einer Runde produziert.</li>
 	</ul>
 
 <!-- Verständnisaufgabe 9.1: Anfrage stale/clean Item -> Anzahl Misses -->
@@ -593,7 +593,7 @@ Es sei:
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; stale/clean</h4>
                 	 </div>
                 	 <div id="frage_content_7_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_1">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="120" data-finish-time="180">
                      	<!-- Aufgabe: Anfrage stale/clean Item -> Anzahl Misses -->
                       	  <div class="task">
                      	   	Um das Konzept von stalen/cleanen Items zu verinnerlichen, ist es hilfreich, wenn du folgende Fragen beantwortest:
@@ -612,7 +612,7 @@ Es sei:
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
             	            <ol>
-         	               	<li>Wir wissen: ein cleanes Item ist weder stale, noch markiert. Wenn es aber nicht stale ist, so wissen wir, dass es in der vorherigen Runde am Ende dieser Runde <abbr data-toggle="tooltip" title="Alle Items die am Ende einer Runde im Cache sind, müssen nach Definition des Marker Algorithmus markiert und damit in der darauf folgenden Runde stale sein.">garantiert nicht im Cache war</abbr>. Ist das Item außerdem nicht markiert ist, so wissen wir, dass das Item in der aktuellen Runde bisher weder im Cache gefunden noch in diesen geladen wurde. Da das angefragte Item also weder aus der letzten Runde noch im Cache ist, noch bisher in den Cache geladen wurde, bedeutet die Anfrage des Items auf jeden Fall einen Miss. </li>
+         	               	<li>Wir wissen: ein cleanes Item ist weder stale, noch markiert. Wenn es aber nicht stale ist, so wissen wir, dass es in der vorherigen Runde am Ende dieser Runde <abbr data-toggle="tooltip" title="Alle Items die am Ende einer Runde im Cache sind, müssen nach Definition des Marker Algorithmus markiert und damit in der darauf folgenden Runde stale sein.">garantiert nicht im Cache war</abbr>. Ist das Item außerdem nicht markiert ist, so wissen wir, dass das Item in der aktuellen Runde bisher weder im Cache gefunden, noch in diesen geladen wurde. Da das angefragte Item also weder aus der letzten Runde noch im Cache ist, noch bisher in den Cache geladen wurde, bedeutet die Anfrage des Items auf jeden Fall einen Miss. </li>
       	                  	<li>Ein stales Item kann mit einer gewissen Wahrscheinlichkeit noch im Cache liegen, da es in der <abbr data-toggle="tooltip" title="Das folgt daraus, dass das Item in dieser Runde markiert war.">vorherigen Runde am Ende dieser Runde im Cache war</abbr> und möglicherweise durch Anfragen der aktuellen Runde noch nicht verdrängt wurde. Damit ist die Wahrscheinlichkeit bei der Anfrage eines stalen Items einen Miss zu verursachen die Wahrscheinlichkeit, dass das angefragte Item bereits verdrängt wurde. Wie wir diese Wahrscheinlichkeit genau berechnen, schauen wir uns später an.</li>
 									</ol>	                     
    	                     </div>
@@ -626,7 +626,7 @@ Es gelte:
 	<ul>	
 		<li>initial (vor der ersten Runde): \(S_{O} = S_{M} \land p_{1} \notin S_{O} \cup S_{M} \)</li>
 	</ul>
-Um nun den eigentlichen Sachverhalt zu zeigen, reicht es folgende zwei Sachverhalte zu zeigen:
+Um nun den eigentlichen Sachverhalt zu zeigen, reicht es, folgende zwei Sachverhalte zu zeigen:
 	<ol>	
 		<li>Z.z.: Die <a href="https://hpi.de/friedrich/teaching/units/amortisierte-analyse.html" target="_blank">amortisierte</a> Anzahl von Misses des \(O\) während einer Runde ist \(\geq \frac{l}{2}\).</li>
 		<li>Z.z.: Die erwartete Anzahl von Misses des \(M\) während einer Runde ist \(\leq lH_{k}\).</li>
@@ -644,7 +644,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; Aussage von \(l-d_{I}\)</h4>
                 	 </div>
                 	 <div id="frage_content_7_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_2">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="120" data-finish-time="180">
                      	<!-- Aufgabe: Aussage von \(l-d_{I}\) -->
                       	  <div class="task">
                      	   	Der obige Beweisschritt wird klarer, wenn du dir verdeutlichst, was der Term \(l-d_{I}\) aussagt:
@@ -660,15 +660,16 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
 	
                	         <!-- Musterlösung -->
             	            <div class="solution"> <h5>Beispiellösung</h5>
-            	            	Wir berechnen hier die minimale Anzahl an Misses die \(O\) für Anfragen nach cleanen Items verursacht. <br>
-            	            	 \(d_{I}\) ist die Anzahl an cleanen Items in \(S_{O}\), da diese Items am Anfang der aktuellen Runde nicht im Cache des \(M\) sind. Damit können sie nicht stale sein und markiert ist am Anfang einer Runde nach Definition das Algorithmus kein Item. Wir ziehen die Anzahl an cleanen Items, die bereits im Cache des \(O\) vorhanden sind, von den Anfragen nach cleanen Items ab, da Anfragen nach cleanen Items \(\in S_{O}\) keine Misses verursachen. Wichtig ist hier zu bemerken, dass die Items nach Definition clean aus der Sicht des \(M\) sind, wir aber derzeit die Anzahl von Misses, die der \(O\) verursacht, betrachten. Anfragen nach cleanen Items an \(M\) lösen natürlich weiterhin genau \(l\) Misses aus (siehe Aufgabe "stale/clean").
+            	            	Wir berechnen hier die minimale Anzahl an Misses die \(O\) für alle Anfragen einer Runde nach cleanen Items verursacht. <br>
+            	            	 \(d_{I}\) ist die Anzahl an cleanen Items in \(S_{O}\), da diese Items am Anfang der aktuellen Runde nicht im Cache des \(M\) sind. Damit können sie nicht stale sein und markiert ist am Anfang einer Runde nach Definition des \(M\) kein Item. Wir ziehen die Anzahl an cleanen Items, die bereits im Cache des \(O\) vorhanden sind, von den Anfragen nach cleanen Items ab, da Anfragen nach cleanen Items \(\in S_{O}\) keine Misses verursachen.<br> 
+            	            	 Wichtig ist hier zu bemerken, dass die Items nach Definition clean aus der Sicht des \(M\) sind, wir aber derzeit die Anzahl von Misses, die der \(O\) verursacht, betrachten. Anfragen nach cleanen Items an \(M\) lösen natürlich weiterhin je genau einen Miss aus (siehe Aufgabe "stale/clean").
    	                     </div>
 	
                   	  </div>
                	 </div>
             	</div>
             </div>
-    Betrachten wir das Ende einer Runde, können wir feststellen: \(M_{O} \geq d_{F}\). Denn alle Elemente, die am Ende einer Runde in \(S_{M}\) sind, wurden nach Definition \(M\)s in dieser Runde angefragt. All diese Elemente müssen also auch einmal während der Runde in \(S_{O}\) gewesen sein. Da \(d_{F}\) von ihnen das offensichtlich nicht mehr sind, muss \(O\) mindestens \(d_{F}\) Misses produziert haben. <br>
+    Betrachten wir das Ende einer Runde, können wir feststellen, dass: \(M_{O} \geq d_{F}\). Denn alle Elemente, die am Ende einer Runde in \(S_{M}\) sind, wurden nach Definition \(M\)s in dieser Runde angefragt. All diese Elemente müssen also auch einmal während der Runde in \(S_{O}\) gewesen sein. Da \(d_{F}\) von ihnen das offensichtlich nicht mehr sind, muss \(O\) mindestens \(d_{F}\) Misses produziert haben. <br>
     Aus den obigen beiden Beobachtungen können wir ableiten, dass \(M_{O} \geq max\{l-d_{I},d_{F}\} \geq \frac{(l-d_{I})+d_{F}}{2}\).
 	
 <!-- Verständnisaufgabe 9.3: Teleskopieren -->
@@ -678,7 +679,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; Summe über alle Runden</h4>
                 	 </div>
                 	 <div id="frage_content_7_3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_3">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="120" data-finish-time="180">
                      	<!-- Aufgabe: Teleskopieren -->
                       	  <div class="task">
                      	   	Wenn wir \(\frac{(l-d_{I})+d_{F}}{2}\) über alle Runden aufsummieren, kommen wir zu einer interessanten Beobachtung:
@@ -689,7 +690,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
 	
                	         <!-- Hinweise --->
             	            <div class="hint"> <h5>Hinweise</h5>
-										Gesucht ist ein Schlagwort, dass bei dem Bilden von Summen ab und zu Verwendung findet.
+										Gesucht ist ein Schlagwort, das bei dem Bilden von Summen ab und zu Verwendung findet.
    	                     </div>
 	
                	         <!-- Musterlösung -->
@@ -710,7 +711,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; Fehlerbetrachtung amortisierte Analyse</h4>
                 	 </div>
                 	 <div id="frage_content_7_4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_4">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="120" data-finish-time="180">
                      	<!-- Aufgabe: Fehlerbetrachtung amortisierte Analyse -->
                       	  <div class="task">
                      	   	Wir vernachlässigen bei der obigen Betrachtung der amortisierten Anzahl an Misses pro Runde das beim Summieren verbleibende \(d_{I}\) und das beim Summieren verbleibende \(d_{F}\):
@@ -734,7 +735,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
             </div>
           </div>
 	<u>Zu 2.:</u> <br>
-	Wir haben uns bereits in der ersten Aufgabe dieses Abschnitts überlegt, dass jede der \(l\) Anfragen nach einem cleanen Item ein Miss für M bedeuten muss. Es verbleiben \(k-l\) Anfragen nach stalen Items in einer Runde. Für die Anfragen nach stalen Items hatten wir uns überlegt, dass die erwarteten Kosten für jede Anfrage die Wahrscheinlichkeit sind, dass das angefragte Item \(\notin S_{M}\).
+	Wir haben uns bereits in der ersten Aufgabe dieses Abschnitts überlegt, dass jede der \(l\) Anfragen nach einem cleanen Item einen Miss für \(M\) bedeuten muss. Es verbleiben \(k-l\) Anfragen nach stalen Items in einer Runde. Für die Anfragen nach stalen Items hatten wir uns überlegt, dass die erwarteten Kosten für jede Anfrage die Wahrscheinlichkeit sind, dass das angefragte Item \(\notin S_{M}\).
 	
 	<!-- Verständnisaufgabe 9.5: Kostenmaximierung stale Items -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
@@ -743,7 +744,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
                   	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; Kostenmaximierung stale Items</h4>
                 	 </div>
                 	 <div id="frage_content_7_5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_5">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="60" data-finish-time="120">
                      	<!-- Aufgabe: Kostenmaximierung stale Items -->
                       	  <div class="task">
 										Da wir für die Anzahl von Misses die \(M\) während einer Runde produziert eine obere Schranke zeigen wollen, stellt sich die Frage:
@@ -766,21 +767,21 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
             </div>
           </div>
            
-           Nun stellt sich die Frage, wie die groß die Wahrscheilichkeit ist, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\), dieses nicht mehr in \(S_{M}\) ist. Nach ein paar Überlegungen stellen wir fest, dass diese Wahrscheilichkeit \(\frac{l}{k-i+1}\) beträgt.
+           Nun stellt sich die Frage, wie groß die Wahrscheinlichkeit ist, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\) dieses nicht mehr in \(S_{M}\) ist. Nach ein paar Überlegungen stellen wir fest, dass diese Wahrscheinlichkeit \(\frac{l}{k-i+1}\) beträgt.
 	
 <!-- Verständnisaufgabe 9.5: Wahrscheinlichkeit stale Item ist noch in \(S_{M}\) -->
 				<div class="kontrollfragen panel-group" id="kontrollfragen_07" role="tablist" aria-multiselectable="false">
             	<div class="panel panel-warning" id="frage_7_6">
                	 <div class="panel-heading" role="tab" id="frage_heading_7_6" data-toggle="collapse" data-parent="#kontrollfragen_07" href="#frage_content_7_6" aria-expanded="false" aria-controls="frage_content_7_6">
-                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; Wahrscheinlichkeit, dass ein stales Item <br> nicht in \( S_{M}\) ist, herleiten</h4>
+                  	  <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Verständnisaufgabe zu Abschnitt 9 &mdash; Wahrscheinlichkeit, dass ein stales Item <br> nicht in \( S_{M}\) ist</h4>
                 	 </div>
                 	 <div id="frage_content_7_6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_7_6">
-                    		<div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                    		<div class="panel-body proof-question" data-hint-time="150" data-finish-time="300">
                      	<!-- Aufgabe: Wahrscheinlichkeit stale Item ist noch in \(S_{M}\) -->
                       	  <div class="task">
 										Der gerade genannte Term wirkt vom Himmel gefallen:
                      	   	<ul>
-                     	   		<li>Überlege dir, wieso die Wahrscheilichkeit, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\), dieses nicht in \(S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
+                     	   		<li>Überlege dir, wieso die Wahrscheinlichkeit, dass bei der i-ten Anfrage nach einem stalen Item \((1 \leq i \leq k-l)\) dieses nicht in \(S_{M}\) ist, \(\frac{l}{k-i+1}\) beträgt.</li>  
                      	   	</ul>      
    	                     </div>
 	
@@ -795,7 +796,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
 										<li>\(k-l\) stale Items sind nach den \(l\) Anfragen nach cleanen Items noch im Cache.</li>
 										<li>Demnach ist \(\frac{k-l}{k}\) die Wahrscheinlichkeit, dass das erste angefragte stale Item noch im Cache ist.</li>
 										<li>Bei der i-ten Anfrage haben wir zuvor bereits \(i-1\) stale Items angefragt. Diese sind nun im Cache und für die weitere Betrachtung uninteressant, da wir sicher wissen, dass sie im Cache sind. Daher muss \(\frac{k-l-(i-1)}{k-(i-1)}\) die Wahrscheinlichkeit sein, dass bei der i-ten Anfrage nach einem stalen Item, dieses in \(S_{M}\) ist.</li> 
-										<li>Wir wollen jedoch gerade die Wahrscheinlichkeit des Gegenereignisses, also: \(1-\frac{k-l-(i-1)}{k-(i-1)}\) </li>
+										<li>Wir wollen jedoch gerade die Wahrscheinlichkeit des Gegenereignisses, also: \(1-\frac{k-l-(i-1)}{k-(i-1)}\). </li>
 										<li>Nun formen wir um: \(1-\frac{k-l-(i-1)}{k-(i-1)} = 1-(\frac{k-i+1}{k-i+1}-\frac{l}{k-i+1}) = 1-(1-\frac{l}{k-i+1}) = \frac{l}{k-i+1}\).
 									</ul>
 										
@@ -812,7 +813,7 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
 	
 	<br><br>
 	
-	Abschließend sei bemerkt, dass es einen Algorithmus gibt, der im Allgemeinen \(H_{k}\)-competitive ist. Nachzulesen <a href="http://repository.cmu.edu/cgi/viewcontent.cgi?article=2873&context=compsci" target="_blank">hier</a>.
+	Abschließend sei angemerkt, dass es einen Algorithmus gibt, der im Allgemeinen \(H_{k}\)-competitive ist. Nachzulesen <a href="http://repository.cmu.edu/cgi/viewcontent.cgi?article=2873&context=compsci" target="_blank">hier</a>.
 
 <!-- Clearfix because of thumbnail -->
 <div class="clearfix"></div>
@@ -822,13 +823,13 @@ Haben wir beides gezeigt, so sehen wir, dass wenn wir in <br>
 
 <!------------------------------>
 <!-- Abschnitt 10: Vergleich deterministisch/randomisiert -->
-<h4 id="anchor_navigation-5">10. Vergleich deterministisch vs. randomisiert</h4>
+<h4 id="anchor_navigation-5">10. Vergleich Deterministisch vs. Randomisiert</h4>
 <p>
-Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen logarithmisch in k sind und damit deutlich kompetitiver. <br>
+Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorithmen mit einem mindestens linearen Competitiveness-Coefficient zu tun, während wir bei randomisierten Algorithmen mindestens logarithmisch in \(k\) und damit deutlich kompetitiver sind. <br>
 <!-- Bild mit Unterschrift -->
 	<div class="thumbnail">           
    	<img src="resources/harmonicSequence.png">
-   	<div class="caption">Vergleich des linearen Wachstums (schwarz) zum Wachstum der harmonischen Folge (grün). \(ln(x)\) (rot) ist mit eingezeichnet.</div>
+   	<div class="caption">Vergleich des linearen Wachstums (schwarz) mit dem Wachstum der harmonischen Folge (grün). \(ln(x)\) (rot) ist mit eingezeichnet.</div>
 	</div>
 
 
@@ -847,7 +848,7 @@ Wie wir gesehen haben, haben wir es bei deterministischen Online Paging Algorith
 		<li>Eine standardmäßige Worst Case Betrachtung bringt uns bei Online-Algorithmen nicht weiter.</li>
 		<li>Mit der Competitiveness haben wir ein Werkzeug um Online-Algorithmen zu vergleichen.</li>
 		<li>Mit dem Marker Algorithmus haben wir einen konkreten randomisierten Online Paging Algorithmus kennengelernt.</li>
-		<li>Die untere Schranke des Competitiveness-Coefficient von deterministischen Algorithmen liegt deutlich über der unteren Schranke des Competitiveness-Coefficient von randomisierten Algorithmen (mit oblivious Adversary).</li>
+		<li>Die untere Schranke des Competitiveness-Coefficient von deterministischen Online Paging Algorithmen liegt deutlich über der unteren Schranke des Competitiveness-Coefficient von randomisierten Online Paging Algorithmen (mit oblivious Adversary).</li>
 	</ol>
 <!-- Clearfix because of thumbnail -->
 <div class="clearfix"></div>
